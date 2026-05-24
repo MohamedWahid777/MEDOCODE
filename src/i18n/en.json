@@ -9,11 +9,15 @@
     "langSwitch": "عربي"
   },
   "hero": {
+    "badge": "AVAILABLE FOR NEW PROJECTS",
+    "preTitle": "Crafting premium web products",
     "firstName": "Mohamed",
     "lastName": "Wahid",
-    "subtitle": "Front-End Developer",
-    "cta": "View My Work",
-    "scroll": "Scroll"
+    "tagline": "Front-End Developer & UI Engineer specializing in ultra-performance, immersive interfaces.",
+    "introduction": "A developer dedicated to bringing digital concepts to life with pixel-perfect precision, butter-smooth custom interactions, and clean code architectures.",
+    "ctaPrimary": "Explore Selected Work",
+    "ctaSecondary": "Start a Conversation",
+    "scroll": "Scroll to discover"
   },
   "intro": {
     "highlight": "I build digital experiences",

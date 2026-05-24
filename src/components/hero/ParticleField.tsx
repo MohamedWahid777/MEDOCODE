@@ -5,7 +5,7 @@ import * as THREE from 'three'
 export function ParticleField() {
   const pointsRef = useRef<THREE.Points>(null)
   const { mouse, viewport } = useThree()
-  const count = 1500
+  const count = 3000
 
   // Generate particles
   const [positions, colors, sizes, initialPositions] = useMemo(() => {
@@ -14,15 +14,13 @@ export function ParticleField() {
     const siz = new Float32Array(count)
     const initPos = new Float32Array(count * 3)
 
-    const colorScheme = new THREE.Color('#ffffff')
-
     for (let i = 0; i < count; i++) {
       const i3 = i * 3
       
-      // Spread particles across the viewport with some depth
-      const x = (Math.random() - 0.5) * viewport.width * 1.5
-      const y = (Math.random() - 0.5) * viewport.height * 1.5
-      const z = (Math.random() - 0.5) * 10 - 2 // Mostly behind the text
+      // Spread particles across the viewport with some depth (expanded space to avoid empty borders)
+      const x = (Math.random() - 0.5) * viewport.width * 2.2
+      const y = (Math.random() - 0.5) * viewport.height * 2.2
+      const z = (Math.random() - 0.5) * 14 - 4 // Layered z-depth from background to foreground
 
       pos[i3] = x
       pos[i3 + 1] = y
@@ -32,16 +30,29 @@ export function ParticleField() {
       initPos[i3 + 1] = y
       initPos[i3 + 2] = z
 
-      // Subtle color variations (mostly white/silver)
-      const mixRatio = Math.random() * 0.3
-      const c = colorScheme.clone().lerp(new THREE.Color('#a1a1aa'), mixRatio)
+      // Monochromatic luxury base with 12% probability of very subtle icy blue accent
+      let baseColor = new THREE.Color('#ffffff')
+      const rand = Math.random()
+      
+      if (rand < 0.12) {
+        baseColor = new THREE.Color('#b9d7ea') // ultra soft low-saturation tech blue
+      } else if (rand < 0.5) {
+        baseColor = new THREE.Color('#a1a1aa') // silver (zinc-400)
+      } else if (rand < 0.8) {
+        baseColor = new THREE.Color('#71717a') // charcoal (zinc-500)
+      }
+
+      // Mix with dark zinc-700 to fade elements smoothly into deep background depth
+      const mixRatio = Math.random() * 0.4
+      const c = baseColor.clone().lerp(new THREE.Color('#3f3f46'), mixRatio)
       
       col[i3] = c.r
       col[i3 + 1] = c.g
       col[i3 + 2] = c.b
 
-      // Varied sizes
-      siz[i] = Math.random() * 1.5 + 0.5
+      // Size distribution: power-law gives many small distant dots & a few large foreground ones
+      const randomPower = Math.pow(Math.random(), 2.0)
+      siz[i] = (randomPower * 4.0 + 1.0) * 1.5 // 3x larger size: 1.5 to 7.5
     }
 
     return [pos, col, siz, initPos]
@@ -87,47 +98,65 @@ export function ParticleField() {
     attribute vec3 initialPosition;
     
     varying vec3 vColor;
+    varying float vDepthOpacity;
     
     void main() {
       vColor = color;
       
       vec3 pos = initialPosition;
       
-      // Floating movement
-      pos.y += sin(uTime * 0.5 + initialPosition.x * 2.0) * 0.3;
-      pos.x += cos(uTime * 0.3 + initialPosition.y * 2.0) * 0.3;
+      // Multi-frequency organic floating movement
+      pos.y += sin(uTime * 0.35 + initialPosition.x * 0.4) * 0.4;
+      pos.x += cos(uTime * 0.25 + initialPosition.y * 0.4) * 0.4;
+      pos.z += sin(uTime * 0.15 + initialPosition.z * 0.4) * 0.3;
       
-      // Mouse repulsion
-      float distToMouse = distance(pos.xy, uMouse);
-      float repulsionRadius = 3.0;
+      // Continuous, elastic mouse repulsion (prevents jitter and sudden snaps)
+      vec2 dir = pos.xy - uMouse;
+      float distToMouse = length(dir);
+      float repulsionRadius = 4.5;
       
-      if(distToMouse < repulsionRadius) {
-        float force = (repulsionRadius - distToMouse) / repulsionRadius;
-        vec2 dir = normalize(pos.xy - uMouse);
-        pos.xy += dir * force * 0.5;
+      if (distToMouse < repulsionRadius) {
+        float force = smoothstep(repulsionRadius, 0.0, distToMouse);
+        force = pow(force, 1.5); // Add soft exponential falloff
+        vec2 dirNormalized = (distToMouse > 0.001) ? normalize(dir) : vec2(1.0, 0.0);
+        pos.xy += dirNormalized * force * 1.5;
       }
       
       vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
       gl_Position = projectionMatrix * mvPosition;
       
-      // Size attenuation based on depth
-      gl_PointSize = size * uPixelRatio * (10.0 / -mvPosition.z);
+      // Camera-space depth calculation
+      float distToCamera = -mvPosition.z;
+      
+      // Fade out particles that are too close (near lens) or too far (fog depth)
+      float nearFade = smoothstep(1.5, 3.5, distToCamera);
+      float farFade = smoothstep(16.0, 10.0, distToCamera);
+      vDepthOpacity = nearFade * farFade;
+      
+      // Size attenuation based on depth, clamped to avoid extreme sizes
+      gl_PointSize = clamp(size * uPixelRatio * (20.0 / distToCamera), 1.0, 120.0);
     }
   `
 
   const fragmentShader = `
     varying vec3 vColor;
+    varying float vDepthOpacity;
     
     void main() {
       // Soft circular particles
       float dist = distance(gl_PointCoord, vec2(0.5));
-      if(dist > 0.5) discard;
+      if (dist > 0.5) discard;
       
-      // Glow effect
-      float alpha = (0.5 - dist) * 2.0;
-      alpha = pow(alpha, 1.5) * 0.6; // Max opacity 0.6
+      // Multi-component bokeh glow effect (sharp center core + wide soft halo glow)
+      float intensity = smoothstep(0.5, 0.0, dist);
+      float core = pow(intensity, 4.0) * 0.9;
+      float halo = pow(intensity, 1.5) * 0.35;
+      float glow = core + halo;
       
-      gl_FragColor = vec4(vColor, alpha);
+      // Combine with depth-fade opacity
+      float finalAlpha = glow * vDepthOpacity;
+      
+      gl_FragColor = vec4(vColor, finalAlpha);
     }
   `
 

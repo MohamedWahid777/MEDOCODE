@@ -19,51 +19,8 @@ export function AboutSection({ onOpenDrawer }: AboutSectionProps) {
   // Parallax for the image
   const imageY = useTransform(scrollYProgress, [0, 1], ['-10%', '10%'])
 
-  // Intro text word animation logic
-  const introHighlightWords = t('intro.highlight').split(' ')
-  const introBodyWords = t('intro.body').split(' ')
-
-  const wordAnimation = {
-    hidden: { opacity: 0, y: 20 },
-    visible: (i: number) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.04,
-        duration: 0.8
-      }
-    })
-  }
-
   return (
     <>
-      {/* Introduction Statement */}
-      <section className="w-full py-40 relative">
-        <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-          <div className="max-w-5xl mx-auto">
-          <motion.p 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            className="font-display text-[40px] md:text-[64px] text-on-surface-variant leading-[1.1] tracking-tight flex flex-wrap gap-x-3 gap-y-2"
-          >
-            <span className="text-primary block w-full mb-4 flex flex-wrap gap-x-3 gap-y-2">
-              {introHighlightWords.map((word, i) => (
-                <motion.span custom={i} variants={wordAnimation} key={`h-${i}`}>
-                  {word}
-                </motion.span>
-              ))}
-            </span>
-            {introBodyWords.map((word, i) => (
-              <motion.span custom={i + introHighlightWords.length} variants={wordAnimation} key={`b-${i}`}>
-                {word}
-              </motion.span>
-            ))}
-          </motion.p>
-          </div>
-        </div>
-      </section>
-
       {/* About Overview */}
       <section 
         id="about" 
@@ -79,6 +36,15 @@ export function AboutSection({ onOpenDrawer }: AboutSectionProps) {
             transition={{ duration: 1 }}
           >
             <h2 className="font-display text-headline-lg text-primary mb-8">{t('about.title')}</h2>
+            
+            {/* Elegant, editorial-style introduction statement */}
+            <div className="border-l-2 border-primary/20 pl-6 mb-8 rtl:border-l-0 rtl:border-r-2 rtl:pl-0 rtl:pr-6">
+              <p className="font-display text-xl sm:text-2xl text-primary leading-snug tracking-tight">
+                <span className="text-on-surface-variant font-light">{t('intro.highlight')} </span>
+                {t('intro.body')}
+              </p>
+            </div>
+
             <p className="font-sans text-body-lg text-on-surface-variant mb-8 leading-relaxed">
               {t('about.summary')}
             </p>
