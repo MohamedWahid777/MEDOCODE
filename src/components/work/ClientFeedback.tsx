@@ -7,8 +7,9 @@ export function ClientFeedback() {
   const { t } = useTranslation()
 
   return (
-    <section className="py-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto border-t border-white/5">
-      <div className="text-center mb-24">
+    <section className="w-full py-32 border-t border-white/5">
+      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+        <div className="text-center mb-24">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -58,6 +59,7 @@ export function ClientFeedback() {
             </div>
           </motion.div>
         ))}
+        </div>
       </div>
     </section>
   )

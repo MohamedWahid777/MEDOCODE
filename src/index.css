@@ -1,6 +1,6 @@
-@import 'tailwindcss';
-@config '../tailwind.config.ts';
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /* ══════════════════════════════════════════════════════════════
    MEDOCODE Design System — CSS Custom Properties
    Based on DESIGN.md: Obsidian Mono theme

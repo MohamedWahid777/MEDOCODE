@@ -12,9 +12,10 @@ export function SelectedWorkSection() {
     <section 
       id="work" 
       ref={sectionRef}
-      className="py-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative min-h-[200vh]"
+      className="w-full py-32 relative"
     >
-      <div className="sticky top-24 mb-16 z-0">
+      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+        <div className="sticky top-24 mb-16 z-0">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -35,7 +36,7 @@ export function SelectedWorkSection() {
         </motion.p>
       </div>
 
-      <div className="space-y-[10vh] md:space-y-[100vh] relative pt-10 pb-32">
+      <div className="space-y-20 md:space-y-40 relative pt-10 pb-32">
         {projects.map((project, index) => {
           // Z-index increases for each card to stack on top
           const zIndex = (index + 1) * 10
@@ -91,7 +92,7 @@ export function SelectedWorkSection() {
 
                 {/* Visual Side */}
                 <div className="h-[300px] md:h-auto relative overflow-hidden bg-surface-container-highest order-1 md:order-2 group">
-                  <div className={`absolute inset-0 bg-gradient-to-${isEven ? 'br' : 'bl'} from-surface-container-highest to-surface-container flex items-center justify-center`}>
+                  <div className={`absolute inset-0 ${isEven ? 'bg-gradient-to-br' : 'bg-gradient-to-bl'} from-surface-container-highest to-surface-container flex items-center justify-center`}>
                     <motion.div 
                       whileHover={{ scale: 1.05 }}
                       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -110,6 +111,7 @@ export function SelectedWorkSection() {
             </div>
           )
         })}
+        </div>
       </div>
     </section>
   )

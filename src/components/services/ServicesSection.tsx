@@ -33,8 +33,9 @@ export function ServicesSection() {
   }
 
   return (
-    <section id="services" className="py-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto border-t border-white/5">
-      <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+    <section id="services" className="w-full py-32 border-t border-white/5">
+      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -90,7 +91,8 @@ export function ServicesSection() {
             </motion.div>
           )
         })}
-      </motion.div>
+        </motion.div>
+      </div>
     </section>
   )
 }

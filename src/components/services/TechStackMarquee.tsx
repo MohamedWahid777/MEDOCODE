@@ -43,7 +43,7 @@ export function TechStackMarquee() {
 
         <div className="relative flex flex-col gap-8">
           {/* Row 1: Left */}
-          <div className="flex overflow-hidden relative w-full group">
+          <div className="flex relative w-full group">
             <div className="flex gap-8 pr-8 animate-marquee group-hover:[animation-play-state:paused] w-max">
               {[...row1, ...row1, ...row1].map((tech, i) => {
                 const Icon = TechIconMap[tech.name] || Code2
@@ -67,7 +67,7 @@ export function TechStackMarquee() {
           </div>
 
           {/* Row 2: Right */}
-          <div className="flex overflow-hidden relative w-full group">
+          <div className="flex relative w-full group">
             <div className="flex gap-8 pr-8 animate-marquee-reverse group-hover:[animation-play-state:paused] w-max">
               {[...row2, ...row2, ...row2].map((tech, i) => {
                 const Icon = TechIconMap[tech.name] || Code2

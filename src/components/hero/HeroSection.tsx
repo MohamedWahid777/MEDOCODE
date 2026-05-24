@@ -21,7 +21,7 @@ export function HeroSection() {
   return (
     <section 
       ref={containerRef}
-      className="relative h-screen flex items-center justify-center overflow-hidden bg-background"
+      className="relative min-h-screen h-[100dvh] flex items-center justify-center overflow-hidden bg-background"
     >
       {/* 3D Particle Background */}
       <motion.div 

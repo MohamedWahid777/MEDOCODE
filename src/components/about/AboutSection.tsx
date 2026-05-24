@@ -38,8 +38,9 @@ export function AboutSection({ onOpenDrawer }: AboutSectionProps) {
   return (
     <>
       {/* Introduction Statement */}
-      <section className="py-40 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative">
-        <div className="max-w-5xl mx-auto">
+      <section className="w-full py-40 relative">
+        <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+          <div className="max-w-5xl mx-auto">
           <motion.p 
             initial="hidden"
             whileInView="visible"
@@ -59,6 +60,7 @@ export function AboutSection({ onOpenDrawer }: AboutSectionProps) {
               </motion.span>
             ))}
           </motion.p>
+          </div>
         </div>
       </section>
 
@@ -66,9 +68,10 @@ export function AboutSection({ onOpenDrawer }: AboutSectionProps) {
       <section 
         id="about" 
         ref={containerRef}
-        className="py-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto border-t border-white/5"
+        className="w-full py-32 border-t border-white/5"
       >
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -97,6 +100,7 @@ export function AboutSection({ onOpenDrawer }: AboutSectionProps) {
             />
             {/* Inner shadow overlay for depth */}
             <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl pointer-events-none" />
+          </div>
           </div>
         </div>
       </section>
