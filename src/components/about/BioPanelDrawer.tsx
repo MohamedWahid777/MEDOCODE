@@ -105,10 +105,6 @@ export function BioPanelDrawer({ isOpen, onClose }: BioPanelDrawerProps) {
                     <span className="text-on-surface group-hover:text-primary transition-colors">{t('about.education.msc')}</span> 
                     <span className="font-mono-label text-on-surface-variant">{t('about.education.mscPeriod')}</span>
                   </li>
-                  <li className="flex justify-between items-center border-b border-white/5 pb-4 group hover:border-white/20 transition-colors">
-                    <span className="text-on-surface group-hover:text-primary transition-colors">{t('about.education.bsc')}</span> 
-                    <span className="font-mono-label text-on-surface-variant">{t('about.education.bscPeriod')}</span>
-                  </li>
                 </ul>
               </motion.div>
             </div>

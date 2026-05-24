@@ -63,9 +63,10 @@ export function Footer() {
               {t('footer.socials')}
             </h4>
             <ul className="space-y-4">
-              <li><a href="#" className="text-primary hover:opacity-70 transition-opacity hover-effect font-sans">GitHub</a></li>
-              <li><a href="#" className="text-primary hover:opacity-70 transition-opacity hover-effect font-sans">LinkedIn</a></li>
-              <li><a href="#" className="text-primary hover:opacity-70 transition-opacity hover-effect font-sans">Facebook</a></li>
+              <li><a href="https://github.com/MohamedWahid777" target="_blank" rel="noopener noreferrer" className="text-primary hover:opacity-70 transition-opacity hover-effect font-sans">GitHub</a></li>
+              <li><a href="https://www.linkedin.com/in/mohamed-wahid-11469a3b8" target="_blank" rel="noopener noreferrer" className="text-primary hover:opacity-70 transition-opacity hover-effect font-sans">LinkedIn</a></li>
+              <li><a href="https://www.facebook.com/profile.php?id=61589148441332" target="_blank" rel="noopener noreferrer" className="text-primary hover:opacity-70 transition-opacity hover-effect font-sans">Facebook</a></li>
+              <li><a href="https://wa.me/201063841779" target="_blank" rel="noopener noreferrer" className="text-primary hover:opacity-70 transition-opacity hover-effect font-sans">WhatsApp</a></li>
             </ul>
           </div>
           

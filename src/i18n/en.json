@@ -5,55 +5,55 @@
     "process": "Process",
     "about": "About",
     "contact": "Contact",
-    "letsBuild": "Let's Build",
+    "letsBuild": "Let's Talk",
     "langSwitch": "عربي"
   },
   "hero": {
     "firstName": "Mohamed",
     "lastName": "Wahid",
-    "subtitle": "Creative Developer & Architect",
-    "cta": "Explore Work",
+    "subtitle": "Front-End Developer",
+    "cta": "View My Work",
     "scroll": "Scroll"
   },
   "intro": {
-    "highlight": "I engineer digital experiences",
-    "body": "that bridge the gap between technical complexity and intuitive design. Focused on performance, precision, and high-end aesthetic execution."
+    "highlight": "I build digital experiences",
+    "body": "that combine clean design, exceptional user experience, and scalable development practices — turning ideas into polished web products that create real value."
   },
   "about": {
     "title": "About",
-    "summary": "With over a decade of experience in software architecture and creative development, I've dedicated my career to building systems that are not only structurally sound but visually compelling. My approach combines rigorous engineering principles with a deep appreciation for design aesthetics, resulting in digital products that perform flawlessly and leave a lasting impression. I specialize in bridging the gap between design and engineering teams, ensuring conceptual vision translates perfectly into production code.",
+    "summary": "Front-End Developer with 3+ years of experience crafting modern, high-performance web experiences. I approach every project with a product mindset — understanding business goals, identifying user needs, and delivering digital solutions that create measurable impact.",
     "readBio": "Read Full Bio",
     "bioTitle": "Full Biography",
-    "bio1": "I started my journey as a self-taught developer fascinated by the intersection of logic and creativity. Early on, I realized that writing code wasn't just about making things work; it was about making them feel right.",
-    "bio2": "Over the years, I've led technical teams at top-tier agencies and product companies, architecting solutions that scale to millions of users while maintaining a premium user experience.",
-    "bio3": "My core philosophy centers around \"Design Engineering\" — the idea that design and development are not sequential phases but parallel disciplines that must inform each other constantly.",
-    "educationTitle": "Education & Background",
+    "bio1": "I'm Mohamed Wahid — a Front-End Developer specializing in building modern, high-performance web experiences that combine clean design, exceptional UX, and scalable development practices.",
+    "bio2": "Currently pursuing a degree in Computer Science, I've spent the last 3+ years developing websites and web applications — continuously refining my skills in modern front-end technologies, UI/UX principles, performance optimization, and digital product development.",
+    "bio3": "By combining modern development with AI-powered workflows, I accelerate delivery, improve quality, and maintain clean, maintainable, scalable codebases. Whether it's a business website, startup landing page, or custom web application — my goal is always the same: create fast, responsive, user-focused experiences that help businesses stand out.",
+    "educationTitle": "Education",
     "education": {
-      "msc": "MSc Computer Science",
-      "mscPeriod": "2016–2018",
-      "bsc": "BSc Software Engineering",
-      "bscPeriod": "2012–2016"
+      "msc": "Computer Science",
+      "mscPeriod": "Currently Pursuing",
+      "bsc": "",
+      "bscPeriod": ""
     }
   },
   "services": {
     "title": "Services",
-    "subtitle": "Comprehensive technical solutions tailored for ambitious brands and complex products.",
+    "subtitle": "End-to-end front-end solutions for businesses, startups, and ambitious brands.",
     "items": {
       "frontend": {
-        "title": "Frontend Architecture",
-        "description": "Scalable component systems, state management, and performance optimization for complex web applications."
+        "title": "Web Development",
+        "description": "Business websites, startup landing pages, corporate sites, portfolios, and service-based web solutions built for performance and results."
       },
       "creative": {
-        "title": "Creative Development",
-        "description": "High-fidelity interactions, WebGL experiences, and scroll-driven animations that elevate brand perception."
+        "title": "UI/UX & Interactions",
+        "description": "Modern UI animations, micro-interactions, responsive layouts, and conversion-oriented design that elevates user experience."
       },
       "integration": {
-        "title": "System Integration",
-        "description": "Seamless connection of third-party services, headless CMS setups, and API development."
+        "title": "Frontend Engineering",
+        "description": "Figma to responsive website development, custom front-end solutions, REST API integration, and component-based architecture."
       },
       "ai": {
-        "title": "AI Workflows",
-        "description": "Implementing LLMs and automated AI processes into existing products to enhance user capabilities."
+        "title": "AI-Assisted Development",
+        "description": "Leveraging advanced AI workflows to accelerate development, optimize code quality, and deliver polished results efficiently."
       }
     }
   },
@@ -62,67 +62,67 @@
   },
   "work": {
     "title": "Selected Work",
-    "subtitle": "A showcase of technical complexity met with refined design execution.",
-    "viewCase": "View Case Study",
+    "subtitle": "Real projects — from business platforms to medical digital experiences.",
+    "viewCase": "View Project",
     "liveDemo": "Live Demo",
     "github": "GitHub"
   },
   "process": {
     "title": "Development Process",
-    "subtitle": "A systematic approach to engineering excellence.",
+    "subtitle": "A systematic, product-oriented approach from first conversation to final delivery.",
     "steps": {
       "discovery": {
         "title": "Discovery",
-        "description": "Deep dive into technical requirements, business goals, and architecture constraints."
+        "description": "Understanding the project's goals, target audience, business requirements, and user expectations."
       },
       "planning": {
         "title": "Planning",
-        "description": "System design, tech stack selection, and mapping out the data flow."
+        "description": "Creating a clear content structure, user flow, and scalable development approach before implementation."
       },
       "design": {
         "title": "Design",
-        "description": "Prototyping component structures and defining the design token system."
+        "description": "Building clean and intuitive interfaces focused on usability, accessibility, and conversion."
       },
       "development": {
         "title": "Development",
-        "description": "Writing clean, modular code with focus on performance and accessibility."
+        "description": "Developing responsive, modern, and high-performance front-end solutions using industry best practices."
       },
       "optimization": {
         "title": "Optimization",
-        "description": "Performance tuning, bundle size reduction, and asset optimization."
+        "description": "Improving loading speed, responsiveness, SEO performance, and overall user experience."
       },
       "testing": {
-        "title": "Testing",
-        "description": "Rigorous testing across devices and browsers before seamless deployment."
+        "title": "Testing & Delivery",
+        "description": "Ensuring quality, consistency, responsiveness, and smooth performance across all devices and browsers."
       }
     }
   },
   "feedback": {
     "title": "Client Feedback",
-    "subtitle": "Words from those I've had the privilege to work with."
+    "subtitle": "What clients say about working with MEDOCODE."
   },
   "contact": {
     "title": "Let's build",
     "titleLine2": "something.",
-    "subtitle": "Available for new opportunities starting next quarter. Drop a message to start the conversation.",
+    "subtitle": "Available for new projects. Whether you have a clear brief or just an idea — let's start the conversation.",
     "form": {
       "fullName": "Full Name",
-      "phone": "Phone",
+      "phone": "Phone Number",
       "email": "Email Address",
       "service": "Service",
       "budget": "Budget Range",
       "details": "Project Details",
       "send": "Send Message"
     },
-    "availability": "Available all week",
+    "availability": "Available for new projects",
     "whatsapp": "WhatsApp",
     "github": "GitHub",
     "linkedin": "LinkedIn",
     "facebook": "Facebook"
   },
   "footer": {
-    "tagline": "Engineered for precision. Building the next generation of web experiences.",
-    "copyright": "© 2024 MEDOCODE. ENGINEERED FOR PRECISION.",
+    "tagline": "Engineered for precision. Building high-performance web experiences.",
+    "copyright": "© 2025 MEDOCODE. All rights reserved.",
     "navigation": "Navigation",
     "socials": "Socials"
   }
