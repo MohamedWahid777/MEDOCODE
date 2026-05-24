@@ -25,11 +25,14 @@
   },
   "about": {
     "title": "About",
-    "summary": "Front-End Developer with 3+ years of experience crafting modern, high-performance web experiences. I approach every project with a product mindset — understanding business goals, identifying user needs, and delivering digital solutions that create measurable impact.",
+    "summary": "I'm Mohamed Wahid, a Front-End Developer specializing in building modern, high-performance web experiences that combine clean design, exceptional user experience, and scalable development practices. Combining pixel-perfect development with a product-oriented mindset, I translate business goals and user needs into responsive, high-speed, and conversion-focused digital products. By integrating advanced front-end engineering with AI-powered workflows, I accelerate delivery and build clean, scalable codebases that help brands and businesses stand out online.",
     "readBio": "Read Full Bio",
     "bioTitle": "Full Biography",
-    "bio1": "I'm Mohamed Wahid — a Front-End Developer with 3+ years of experience building websites and web applications. I focus on clean design, exceptional UX, and scalable development practices that serve real business goals.",
-    "bio2": "By combining modern development with AI-powered workflows, I accelerate delivery, improve code quality, and maintain clean, maintainable, scalable codebases across every project I build.",
+    "bio1": "I'm Mohamed Wahid, a Front-End Developer specializing in building modern, high-performance web experiences that combine clean design, exceptional user experience, and scalable development practices.",
+    "bio2": "Currently pursuing a degree in Computer Science, I have spent the last 3+ years developing websites and interactive web applications, continuously improving my skills in modern front-end technologies, UI/UX principles, performance optimization, and digital product development.",
+    "bio3": "My focus goes beyond writing code. I believe every successful website starts with understanding the business goals behind it. That's why I approach every project with a product mindset—analyzing requirements, identifying user needs, and transforming ideas into engaging digital experiences that create real value.",
+    "bio4": "By combining modern development practices with AI-powered workflows, I am able to accelerate development, improve quality, streamline processes, and deliver polished results efficiently while maintaining clean, maintainable, and scalable code.",
+    "bio5": "Whether it's a business website, startup landing page, portfolio, dashboard, or custom web application, my goal is always the same: create fast, responsive, user-focused experiences that help businesses and individuals stand out online.",
     "educationTitle": "Education",
     "education": {
       "msc": "Computer Science",
@@ -42,22 +45,22 @@
     "title": "Services",
     "subtitle": "End-to-end front-end solutions for businesses, startups, and ambitious brands.",
     "items": {
-      "frontend": {
-        "title": "Web Development",
-        "description": "Business websites, startup landing pages, corporate sites, portfolios, and service-based web solutions built for performance and results."
-      },
-      "creative": {
-        "title": "UI/UX & Interactions",
-        "description": "Modern UI animations, micro-interactions, responsive layouts, and conversion-oriented design that elevates user experience."
-      },
-      "integration": {
-        "title": "Frontend Engineering",
-        "description": "Figma to responsive website development, custom front-end solutions, REST API integration, and component-based architecture."
-      },
-      "ai": {
-        "title": "AI-Assisted Development",
-        "description": "Leveraging advanced AI workflows to accelerate development, optimize code quality, and deliver polished results efficiently."
-      }
+      "business": "Business Websites",
+      "corporate": "Company & Corporate Websites",
+      "startups": "Startup Landing Pages",
+      "portfolio": "Personal Portfolio Websites",
+      "service": "Service-Based Business Websites",
+      "medical": "Medical & Healthcare Websites",
+      "product": "Product Showcase Websites",
+      "dashboards": "Interactive Dashboards",
+      "webapps": "Modern Web Applications",
+      "figma": "Figma to Responsive Website Development",
+      "custom": "Custom Front-End Solutions",
+      "seo": "SEO-Friendly Website Development",
+      "performance": "Performance Optimization",
+      "responsive": "Responsive Design for All Devices",
+      "animations": "Modern UI Animations & Interactions",
+      "ai": "AI-Assisted Development Workflows"
     }
   },
   "techStack": {
@@ -75,29 +78,25 @@
     "title": "Development Process",
     "subtitle": "A systematic, product-oriented approach from first conversation to final delivery.",
     "steps": {
-      "discovery": {
-        "title": "Discovery",
-        "description": "Understanding the project's goals, target audience, business requirements, and user expectations."
+      "discover": {
+        "title": "Discover",
+        "description": "Understanding your project's goals, target audience, business requirements, and user expectations through close collaboration."
       },
-      "planning": {
-        "title": "Planning",
-        "description": "Creating a clear content structure, user flow, and scalable development approach before implementation."
+      "plan": {
+        "title": "Plan",
+        "description": "Defining a clear content structure, intuitive user flow, and a scalable design & development blueprint."
       },
       "design": {
         "title": "Design",
-        "description": "Building clean and intuitive interfaces focused on usability, accessibility, and conversion."
+        "description": "Crafting clean, modern, and accessible user interfaces focused on brand identity and high usability."
       },
-      "development": {
-        "title": "Development",
-        "description": "Developing responsive, modern, and high-performance front-end solutions using industry best practices."
+      "develop": {
+        "title": "Develop",
+        "description": "Building a high-performance, responsive web platform using clean code architectures and modern front-end tech."
       },
-      "optimization": {
-        "title": "Optimization",
-        "description": "Improving loading speed, responsiveness, SEO performance, and overall user experience."
-      },
-      "testing": {
-        "title": "Testing & Delivery",
-        "description": "Ensuring quality, consistency, responsiveness, and smooth performance across all devices and browsers."
+      "launch": {
+        "title": "Launch",
+        "description": "Thoroughly testing, optimizing for SEO and Core Web Vitals, and deploying to a production-ready environment."
       }
     }
   },

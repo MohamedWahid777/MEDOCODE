@@ -15,13 +15,20 @@ export function BioPanelDrawer({ isOpen, onClose }: BioPanelDrawerProps) {
 
   // Lock scroll when drawer is open
   useEffect(() => {
+    const lenis = (window as any).lenis
     if (isOpen) {
       document.body.style.overflow = 'hidden'
+      document.documentElement.style.overflow = 'hidden'
+      if (lenis) lenis.stop()
     } else {
       document.body.style.overflow = ''
+      document.documentElement.style.overflow = ''
+      if (lenis) lenis.start()
     }
     return () => {
       document.body.style.overflow = ''
+      document.documentElement.style.overflow = ''
+      if (lenis) lenis.start()
     }
   }, [isOpen])
 
@@ -81,20 +88,41 @@ export function BioPanelDrawer({ isOpen, onClose }: BioPanelDrawerProps) {
             </div>
 
             {/* Scrollable Content */}
-            <div className="flex-1 overflow-y-auto custom-scrollbar px-10 py-8 space-y-0">
+            <div 
+              data-lenis-prevent 
+              className="flex-1 overflow-y-auto custom-scrollbar px-10 py-8 space-y-0"
+            >
               {/* Bio paragraphs */}
-              <div className="space-y-6 mb-10">
+              <div className="space-y-8 mb-10">
                 <motion.p
                   custom={0} variants={fadeUp} initial="closed" animate="open" exit="closed"
-                  className="font-sans text-body-lg text-on-surface-variant leading-relaxed"
+                  className="font-sans text-base sm:text-[17px] text-on-surface-variant leading-relaxed tracking-wide"
                 >
                   {t('about.bio1')}
                 </motion.p>
                 <motion.p
                   custom={1} variants={fadeUp} initial="closed" animate="open" exit="closed"
-                  className="font-sans text-body-lg text-on-surface-variant leading-relaxed"
+                  className="font-sans text-base sm:text-[17px] text-on-surface-variant leading-relaxed tracking-wide"
                 >
                   {t('about.bio2')}
+                </motion.p>
+                <motion.p
+                  custom={2} variants={fadeUp} initial="closed" animate="open" exit="closed"
+                  className="font-sans text-base sm:text-[17px] text-on-surface-variant leading-relaxed tracking-wide"
+                >
+                  {t('about.bio3')}
+                </motion.p>
+                <motion.p
+                  custom={3} variants={fadeUp} initial="closed" animate="open" exit="closed"
+                  className="font-sans text-base sm:text-[17px] text-on-surface-variant leading-relaxed tracking-wide"
+                >
+                  {t('about.bio4')}
+                </motion.p>
+                <motion.p
+                  custom={4} variants={fadeUp} initial="closed" animate="open" exit="closed"
+                  className="font-sans text-base sm:text-[17px] text-on-surface-variant leading-relaxed tracking-wide"
+                >
+                  {t('about.bio5')}
                 </motion.p>
               </div>
 

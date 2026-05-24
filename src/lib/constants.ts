@@ -254,42 +254,27 @@ export const testimonials: Testimonial[] = [
 export const processSteps = [
   {
     number: '01',
-    title: 'Discovery',
-    description:
-      'Understanding the project\'s goals, target audience, business requirements, and user expectations.',
+    title: 'Discover',
     icon: 'Search',
   },
   {
     number: '02',
-    title: 'Planning',
-    description: 'Creating a clear content structure, user flow, and scalable development approach before implementation.',
+    title: 'Plan',
     icon: 'ListChecks',
   },
   {
     number: '03',
     title: 'Design',
-    description:
-      'Building clean and intuitive interfaces focused on usability, accessibility, and conversion.',
     icon: 'Palette',
   },
   {
     number: '04',
-    title: 'Development',
-    description:
-      'Developing responsive, modern, and high-performance front-end solutions using industry best practices.',
+    title: 'Develop',
     icon: 'Code2',
   },
   {
     number: '05',
-    title: 'Optimization',
-    description: 'Improving loading speed, responsiveness, SEO performance, and overall user experience.',
-    icon: 'Gauge',
-  },
-  {
-    number: '06',
-    title: 'Testing & Delivery',
-    description:
-      'Ensuring quality, consistency, responsiveness, and smooth performance across devices and browsers.',
+    title: 'Launch',
     icon: 'Rocket',
   },
 ]

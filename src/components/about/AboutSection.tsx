@@ -28,12 +28,13 @@ export function AboutSection({ onOpenDrawer }: AboutSectionProps) {
         className="w-full py-32 border-t border-white/5"
       >
         <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid md:grid-cols-12 gap-12 md:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1 }}
+            className="col-span-12 md:col-span-7"
           >
             <h2 className="font-display text-headline-lg text-primary mb-8">{t('about.title')}</h2>
             
@@ -49,7 +50,7 @@ export function AboutSection({ onOpenDrawer }: AboutSectionProps) {
             </button>
           </motion.div>
 
-          <div className="w-full h-[600px] md:h-[800px] overflow-hidden rounded-2xl relative bg-surface-container">
+          <div className="col-span-12 md:col-span-5 w-full h-[450px] md:h-[580px] overflow-hidden relative bg-surface-container border border-white/10">
             <motion.img 
               style={{ y: imageY }}
               src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=1200&h=1600" 
@@ -57,7 +58,7 @@ export function AboutSection({ onOpenDrawer }: AboutSectionProps) {
               className="absolute inset-0 w-full h-[120%] -top-[10%] object-cover grayscale hover:grayscale-0 transition-all duration-700"
             />
             {/* Inner shadow overlay for depth */}
-            <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-2xl pointer-events-none" />
+            <div className="absolute inset-0 ring-1 ring-inset ring-white/10 pointer-events-none" />
           </div>
           </div>
         </div>

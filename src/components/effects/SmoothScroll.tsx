@@ -19,6 +19,8 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
 
     lenis.on('scroll', ScrollTrigger.update)
 
+    ;(window as any).lenis = lenis
+
     gsap.ticker.add((time) => {
       lenis.raf(time * 1000)
     })
