@@ -1,0 +1,129 @@
+{
+  "nav": {
+    "work": "Work",
+    "services": "Services",
+    "process": "Process",
+    "about": "About",
+    "contact": "Contact",
+    "letsBuild": "Let's Build",
+    "langSwitch": "عربي"
+  },
+  "hero": {
+    "firstName": "Mohamed",
+    "lastName": "Wahid",
+    "subtitle": "Creative Developer & Architect",
+    "cta": "Explore Work",
+    "scroll": "Scroll"
+  },
+  "intro": {
+    "highlight": "I engineer digital experiences",
+    "body": "that bridge the gap between technical complexity and intuitive design. Focused on performance, precision, and high-end aesthetic execution."
+  },
+  "about": {
+    "title": "About",
+    "summary": "With over a decade of experience in software architecture and creative development, I've dedicated my career to building systems that are not only structurally sound but visually compelling. My approach combines rigorous engineering principles with a deep appreciation for design aesthetics, resulting in digital products that perform flawlessly and leave a lasting impression. I specialize in bridging the gap between design and engineering teams, ensuring conceptual vision translates perfectly into production code.",
+    "readBio": "Read Full Bio",
+    "bioTitle": "Full Biography",
+    "bio1": "I started my journey as a self-taught developer fascinated by the intersection of logic and creativity. Early on, I realized that writing code wasn't just about making things work; it was about making them feel right.",
+    "bio2": "Over the years, I've led technical teams at top-tier agencies and product companies, architecting solutions that scale to millions of users while maintaining a premium user experience.",
+    "bio3": "My core philosophy centers around \"Design Engineering\" — the idea that design and development are not sequential phases but parallel disciplines that must inform each other constantly.",
+    "educationTitle": "Education & Background",
+    "education": {
+      "msc": "MSc Computer Science",
+      "mscPeriod": "2016–2018",
+      "bsc": "BSc Software Engineering",
+      "bscPeriod": "2012–2016"
+    }
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "Comprehensive technical solutions tailored for ambitious brands and complex products.",
+    "items": {
+      "frontend": {
+        "title": "Frontend Architecture",
+        "description": "Scalable component systems, state management, and performance optimization for complex web applications."
+      },
+      "creative": {
+        "title": "Creative Development",
+        "description": "High-fidelity interactions, WebGL experiences, and scroll-driven animations that elevate brand perception."
+      },
+      "integration": {
+        "title": "System Integration",
+        "description": "Seamless connection of third-party services, headless CMS setups, and API development."
+      },
+      "ai": {
+        "title": "AI Workflows",
+        "description": "Implementing LLMs and automated AI processes into existing products to enhance user capabilities."
+      }
+    }
+  },
+  "techStack": {
+    "title": "Tech Stack"
+  },
+  "work": {
+    "title": "Selected Work",
+    "subtitle": "A showcase of technical complexity met with refined design execution.",
+    "viewCase": "View Case Study",
+    "liveDemo": "Live Demo",
+    "github": "GitHub"
+  },
+  "process": {
+    "title": "Development Process",
+    "subtitle": "A systematic approach to engineering excellence.",
+    "steps": {
+      "discovery": {
+        "title": "Discovery",
+        "description": "Deep dive into technical requirements, business goals, and architecture constraints."
+      },
+      "planning": {
+        "title": "Planning",
+        "description": "System design, tech stack selection, and mapping out the data flow."
+      },
+      "design": {
+        "title": "Design",
+        "description": "Prototyping component structures and defining the design token system."
+      },
+      "development": {
+        "title": "Development",
+        "description": "Writing clean, modular code with focus on performance and accessibility."
+      },
+      "optimization": {
+        "title": "Optimization",
+        "description": "Performance tuning, bundle size reduction, and asset optimization."
+      },
+      "testing": {
+        "title": "Testing",
+        "description": "Rigorous testing across devices and browsers before seamless deployment."
+      }
+    }
+  },
+  "feedback": {
+    "title": "Client Feedback",
+    "subtitle": "Words from those I've had the privilege to work with."
+  },
+  "contact": {
+    "title": "Let's build",
+    "titleLine2": "something.",
+    "subtitle": "Available for new opportunities starting next quarter. Drop a message to start the conversation.",
+    "form": {
+      "fullName": "Full Name",
+      "phone": "Phone",
+      "email": "Email Address",
+      "service": "Service",
+      "budget": "Budget Range",
+      "details": "Project Details",
+      "send": "Send Message"
+    },
+    "availability": "Available all week",
+    "whatsapp": "WhatsApp",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "facebook": "Facebook"
+  },
+  "footer": {
+    "tagline": "Engineered for precision. Building the next generation of web experiences.",
+    "copyright": "© 2024 MEDOCODE. ENGINEERED FOR PRECISION.",
+    "navigation": "Navigation",
+    "socials": "Socials"
+  }
+}

@@ -1,0 +1,269 @@
+@import 'tailwindcss';
+@config '../tailwind.config.ts';
+
+/* ══════════════════════════════════════════════════════════════
+   MEDOCODE Design System — CSS Custom Properties
+   Based on DESIGN.md: Obsidian Mono theme
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── Dark Theme (Default) ──────────────────────────────────── */
+:root,
+.dark {
+  --color-background: #0A0A0A;
+  --color-surface: #141313;
+  --color-surface-dim: #141313;
+  --color-surface-bright: #3a3939;
+  --color-surface-variant: #353434;
+  --color-surface-tint: #c6c6c7;
+  --color-surface-container-lowest: #0e0e0e;
+  --color-surface-container-low: #1c1b1b;
+  --color-surface-container: #201f1f;
+  --color-surface-container-high: #2a2a2a;
+  --color-surface-container-highest: #353434;
+
+  --color-on-surface: #e5e2e1;
+  --color-on-surface-variant: #a1a1aa;
+  --color-on-background: #e5e2e1;
+
+  --color-primary: #ffffff;
+  --color-on-primary: #2f3131;
+  --color-primary-container: #e2e2e2;
+  --color-on-primary-container: #636565;
+  --color-primary-fixed: #e2e2e2;
+  --color-primary-fixed-dim: #c6c6c7;
+  --color-on-primary-fixed: #1a1c1c;
+  --color-on-primary-fixed-variant: #454747;
+  --color-inverse-primary: #5d5f5f;
+
+  --color-secondary: #c6c6cf;
+  --color-on-secondary: #2f3037;
+  --color-secondary-container: #45464e;
+  --color-on-secondary-container: #b4b4bd;
+  --color-secondary-fixed: #e2e1eb;
+  --color-secondary-fixed-dim: #c6c6cf;
+  --color-on-secondary-fixed: #1a1b22;
+  --color-on-secondary-fixed-variant: #45464e;
+
+  --color-tertiary: #ffffff;
+  --color-on-tertiary: #2f3131;
+  --color-tertiary-container: #e2e2e2;
+  --color-on-tertiary-container: #636565;
+  --color-tertiary-fixed: #e2e2e2;
+  --color-tertiary-fixed-dim: #c6c6c7;
+  --color-on-tertiary-fixed: #1a1c1c;
+  --color-on-tertiary-fixed-variant: #454747;
+
+  --color-outline: #8e9192;
+  --color-outline-variant: #444748;
+
+  --color-inverse-surface: #e5e2e1;
+  --color-inverse-on-surface: #313030;
+
+  --color-error: #ffb4ab;
+  --color-on-error: #690005;
+  --color-error-container: #93000a;
+  --color-on-error-container: #ffdad6;
+
+  color-scheme: dark;
+}
+
+/* ── Light Theme ───────────────────────────────────────────── */
+.light {
+  --color-background: #f8f8f8;
+  --color-surface: #ffffff;
+  --color-surface-dim: #f0efef;
+  --color-surface-bright: #ffffff;
+  --color-surface-variant: #e8e7e7;
+  --color-surface-tint: #5d5f5f;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f5f4f4;
+  --color-surface-container: #eeedec;
+  --color-surface-container-high: #e8e7e6;
+  --color-surface-container-highest: #e2e1e0;
+
+  --color-on-surface: #1c1b1b;
+  --color-on-surface-variant: #5a5a5f;
+  --color-on-background: #1c1b1b;
+
+  --color-primary: #0A0A0A;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #2a2a2a;
+  --color-on-primary-container: #e2e2e2;
+  --color-primary-fixed: #2a2a2a;
+  --color-primary-fixed-dim: #454545;
+  --color-on-primary-fixed: #f0f0f0;
+  --color-on-primary-fixed-variant: #c4c4c4;
+  --color-inverse-primary: #c6c6c7;
+
+  --color-secondary: #45464e;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #c6c6cf;
+  --color-on-secondary-container: #2f3037;
+  --color-secondary-fixed: #45464e;
+  --color-secondary-fixed-dim: #5a5b63;
+  --color-on-secondary-fixed: #f0f0f5;
+  --color-on-secondary-fixed-variant: #b4b4bd;
+
+  --color-tertiary: #0A0A0A;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #2a2a2a;
+  --color-on-tertiary-container: #e2e2e2;
+  --color-tertiary-fixed: #2a2a2a;
+  --color-tertiary-fixed-dim: #454545;
+  --color-on-tertiary-fixed: #f0f0f0;
+  --color-on-tertiary-fixed-variant: #c4c4c4;
+
+  --color-outline: #76787a;
+  --color-outline-variant: #c4c7c8;
+
+  --color-inverse-surface: #313030;
+  --color-inverse-on-surface: #f5f2f1;
+
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #410002;
+
+  color-scheme: light;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Base Styles
+   ══════════════════════════════════════════════════════════════ */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto; /* Lenis handles smooth scrolling */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: 'Geist Sans', system-ui, -apple-system, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+  overflow-x: hidden;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-surface-variant);
+  color: var(--color-primary);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-outline-variant);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-outline);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   RTL Support
+   ══════════════════════════════════════════════════════════════ */
+
+[dir='rtl'] {
+  font-feature-settings: 'calt' 1;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Glass Panel Utility
+   ══════════════════════════════════════════════════════════════ */
+
+.glass-panel {
+  background: rgba(32, 31, 31, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.light .glass-panel {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   GPU Acceleration Utilities
+   ══════════════════════════════════════════════════════════════ */
+
+.gpu-accelerated {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Lenis Overrides
+   ══════════════════════════════════════════════════════════════ */
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Typography — Mono Labels
+   ══════════════════════════════════════════════════════════════ */
+
+.font-mono-label {
+  font-family: 'JetBrains Mono', 'Consolas', monospace;
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Preloader
+   ══════════════════════════════════════════════════════════════ */
+
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-background);
+}
+
+.preloader-hidden {
+  pointer-events: none;
+}
