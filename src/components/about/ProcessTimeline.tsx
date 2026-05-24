@@ -42,7 +42,7 @@ export function ProcessTimeline() {
 
         <div className="max-w-4xl mx-auto relative">
           {/* Central Timeline Line */}
-          <div className="absolute left-7 md:left-1/2 top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-white/10 to-transparent md:-translate-x-1/2" />
+          <div className="absolute left-7 md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-white/30 to-transparent md:-translate-x-1/2" />
 
           <div className="space-y-32">
             {processSteps.map((step, index) => {

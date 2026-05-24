@@ -37,14 +37,6 @@ export function AboutSection({ onOpenDrawer }: AboutSectionProps) {
           >
             <h2 className="font-display text-headline-lg text-primary mb-8">{t('about.title')}</h2>
             
-            {/* Elegant, editorial-style introduction statement */}
-            <div className="border-l-2 border-primary/20 pl-6 mb-8 rtl:border-l-0 rtl:border-r-2 rtl:pl-0 rtl:pr-6">
-              <p className="font-display text-xl sm:text-2xl text-primary leading-snug tracking-tight">
-                <span className="text-on-surface-variant font-light">{t('intro.highlight')} </span>
-                {t('intro.body')}
-              </p>
-            </div>
-
             <p className="font-sans text-body-lg text-on-surface-variant mb-8 leading-relaxed">
               {t('about.summary')}
             </p>

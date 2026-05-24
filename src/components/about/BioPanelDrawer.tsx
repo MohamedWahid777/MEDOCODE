@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
-import { X } from 'lucide-react'
+import { X, GraduationCap } from 'lucide-react'
 import { useEffect } from 'react'
 import { useLanguage } from '../../context/LanguageContext'
 
@@ -25,24 +25,23 @@ export function BioPanelDrawer({ isOpen, onClose }: BioPanelDrawerProps) {
     }
   }, [isOpen])
 
-  // Framer motion variants for RTL support
   const drawerVariants = {
     closed: {
       x: isRtl ? '-100%' : '100%',
-      transition: { duration: 0.5 }
+      transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as const }
     },
     open: {
       x: '0%',
-      transition: { duration: 0.7 }
+      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const }
     }
   }
 
-  const contentStagger = {
+  const fadeUp = {
     closed: { opacity: 0, y: 20 },
     open: (i: number) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: 0.2 + (i * 0.1), duration: 0.6 }
+      transition: { delay: 0.15 + i * 0.08, duration: 0.5 }
     })
   }
 
@@ -50,14 +49,14 @@ export function BioPanelDrawer({ isOpen, onClose }: BioPanelDrawerProps) {
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Backdrop Overlay */}
+          {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
+            transition={{ duration: 0.35 }}
             onClick={onClose}
-            className="fixed inset-0 bg-background/80 backdrop-blur-sm z-[100] cursor-pointer"
+            className="fixed inset-0 bg-background/75 backdrop-blur-sm z-[100] cursor-pointer"
           />
 
           {/* Drawer Panel */}
@@ -66,46 +65,58 @@ export function BioPanelDrawer({ isOpen, onClose }: BioPanelDrawerProps) {
             initial="closed"
             animate="open"
             exit="closed"
-            className={`fixed top-0 ${isRtl ? 'left-0 border-r' : 'right-0 border-l'} h-full w-full md:w-[600px] bg-surface border-white/10 z-[101] p-10 overflow-y-auto custom-scrollbar shadow-2xl`}
+            className={`fixed top-0 ${isRtl ? 'left-0 border-r' : 'right-0 border-l'} h-full w-full md:w-[560px] bg-surface border-white/10 z-[101] shadow-2xl flex flex-col`}
           >
-            <button 
-              onClick={onClose}
-              className={`absolute top-10 ${isRtl ? 'left-10' : 'right-10'} text-on-surface-variant hover:text-primary transition-colors hover-effect`}
-            >
-              <X size={32} />
-            </button>
-
-            <motion.h2 
-              custom={0} variants={contentStagger} initial="closed" animate="open" exit="closed"
-              className="font-display text-headline-lg text-primary mb-12 mt-12"
-            >
-              {t('about.bioTitle')}
-            </motion.h2>
-
-            <div className="space-y-8 font-sans text-body-lg text-on-surface-variant leading-relaxed">
-              <motion.p custom={1} variants={contentStagger} initial="closed" animate="open" exit="closed">
-                {t('about.bio1')}
-              </motion.p>
-              <motion.p custom={2} variants={contentStagger} initial="closed" animate="open" exit="closed">
-                {t('about.bio2')}
-              </motion.p>
-              <motion.p custom={3} variants={contentStagger} initial="closed" animate="open" exit="closed">
-                {t('about.bio3')}
-              </motion.p>
-
-              <motion.div 
-                custom={4} variants={contentStagger} initial="closed" animate="open" exit="closed"
-                className="mt-16 pt-12 border-t border-white/10"
+            {/* Fixed Header */}
+            <div className="flex items-center justify-between px-10 py-8 border-b border-white/5 flex-shrink-0">
+              <h2 className="font-display text-[28px] text-primary tracking-tight">
+                {t('about.bioTitle')}
+              </h2>
+              <button
+                onClick={onClose}
+                className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/40 transition-all hover-effect"
               >
-                <h3 className="font-display text-headline-md text-primary mb-8">
-                  {t('about.educationTitle')}
-                </h3>
-                <ul className="space-y-6 font-sans">
-                  <li className="flex justify-between items-center border-b border-white/5 pb-4 group hover:border-white/20 transition-colors">
-                    <span className="text-on-surface group-hover:text-primary transition-colors">{t('about.education.msc')}</span> 
-                    <span className="font-mono-label text-on-surface-variant">{t('about.education.mscPeriod')}</span>
-                  </li>
-                </ul>
+                <X size={18} />
+              </button>
+            </div>
+
+            {/* Scrollable Content */}
+            <div className="flex-1 overflow-y-auto custom-scrollbar px-10 py-8 space-y-0">
+              {/* Bio paragraphs */}
+              <div className="space-y-6 mb-10">
+                <motion.p
+                  custom={0} variants={fadeUp} initial="closed" animate="open" exit="closed"
+                  className="font-sans text-body-lg text-on-surface-variant leading-relaxed"
+                >
+                  {t('about.bio1')}
+                </motion.p>
+                <motion.p
+                  custom={1} variants={fadeUp} initial="closed" animate="open" exit="closed"
+                  className="font-sans text-body-lg text-on-surface-variant leading-relaxed"
+                >
+                  {t('about.bio2')}
+                </motion.p>
+              </div>
+
+              {/* Divider */}
+              <motion.div
+                custom={2} variants={fadeUp} initial="closed" animate="open" exit="closed"
+                className="border-t border-white/8 pt-8"
+              >
+                <div className="flex items-center gap-3 mb-6">
+                  <GraduationCap className="w-5 h-5 text-on-surface-variant" />
+                  <h3 className="font-mono-label text-sm text-on-surface-variant uppercase tracking-widest">
+                    {t('about.educationTitle')}
+                  </h3>
+                </div>
+                <div className="flex justify-between items-center border-b border-white/5 pb-4 group hover:border-white/15 transition-colors">
+                  <span className="font-display text-[17px] text-primary group-hover:text-white transition-colors">
+                    {t('about.education.msc')}
+                  </span>
+                  <span className="font-mono-label text-xs text-on-surface-variant">
+                    {t('about.education.mscPeriod')}
+                  </span>
+                </div>
               </motion.div>
             </div>
           </motion.div>

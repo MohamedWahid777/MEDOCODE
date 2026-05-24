@@ -17,24 +17,39 @@ export const siteConfig = {
   },
 }
 
-export const introText = {
-  highlight: 'I build digital experiences',
-  body: 'that combine clean design, exceptional user experience, and scalable development practices — turning ideas into polished web products that create real value.',
-}
-
 export const aboutText = {
   summary:
-    'Front-End Developer specializing in modern, high-performance web experiences. With 3+ years of hands-on development and a Computer Science background, I approach every project with a product mindset — analyzing business goals, understanding user needs, and delivering results that make an impact.',
+    'Front-End Developer with 3+ years of experience crafting modern, high-performance web experiences. I approach every project with a product mindset — understanding business goals, identifying user needs, and delivering digital solutions that create measurable impact.',
   bio: [
-    'I\'m Mohamed Wahid — a Front-End Developer with 3+ years of experience building websites and interactive web applications. I focus on clean design, exceptional UX, and scalable development practices that serve real business goals.',
-    'I approach every project as a product challenge: understanding the business requirements behind it, identifying user needs, and crafting digital experiences that create tangible value — not just pixel-perfect interfaces.',
-    'By combining modern front-end development with AI-powered workflows, I accelerate delivery, improve code quality, and maintain clean, maintainable, and scalable codebases across every project I build.',
+    'I\'m Mohamed Wahid — a Front-End Developer specializing in building modern, high-performance web experiences that combine clean design, exceptional UX, and scalable development practices.',
+    'By combining modern development with AI-powered workflows, I accelerate delivery, improve code quality, and maintain clean, maintainable, scalable codebases across every project I build.',
   ],
   education: [
     { degree: 'Computer Science — In Progress', period: 'Currently Pursuing' },
   ],
 }
 
+/* ── 16 Services ─────────────────────────────────────────────── */
+export const servicesList = [
+  'Business Websites',
+  'Company & Corporate Websites',
+  'Startup Landing Pages',
+  'Personal Portfolio Websites',
+  'Service-Based Business Websites',
+  'Medical & Healthcare Websites',
+  'Product Showcase Websites',
+  'Interactive Dashboards',
+  'Modern Web Applications',
+  'Figma to Responsive Website Development',
+  'Custom Front-End Solutions',
+  'SEO-Friendly Website Development',
+  'Performance Optimization',
+  'Responsive Design for All Devices',
+  'Modern UI Animations & Interactions',
+  'AI-Assisted Development Workflows',
+]
+
+/* Keep old services for any legacy references */
 export interface Service {
   icon: string
   title: string
@@ -68,6 +83,47 @@ export const services: Service[] = [
   },
 ]
 
+/* ── Tech Skills ─────────────────────────────────────────────── */
+export interface SkillItem {
+  name: string
+  color?: string
+  textColor?: string
+  abbr?: string
+  category: 'frontend' | 'uiux'
+}
+
+export const frontendSkills: SkillItem[] = [
+  { name: 'HTML5',                       color: '#E44D26', textColor: '#fff', abbr: '5',  category: 'frontend' },
+  { name: 'CSS3',                        color: '#1572B6', textColor: '#fff', abbr: '3',  category: 'frontend' },
+  { name: 'JavaScript (ES6+)',           color: '#F7DF1E', textColor: '#000', abbr: 'JS', category: 'frontend' },
+  { name: 'TypeScript',                  color: '#3178C6', textColor: '#fff', abbr: 'TS', category: 'frontend' },
+  { name: 'React.js',                    color: '#20232A', textColor: '#61DAFB', abbr: '⚛', category: 'frontend' },
+  { name: 'Next.js',                     color: '#000',    textColor: '#fff', abbr: 'N',  category: 'frontend' },
+  { name: 'Tailwind CSS',                color: '#06B6D4', textColor: '#fff', abbr: 'TW', category: 'frontend' },
+  { name: 'Bootstrap',                   color: '#7952B3', textColor: '#fff', abbr: 'B',  category: 'frontend' },
+  { name: 'Responsive Web Design',       category: 'frontend' },
+  { name: 'Component-Based Architecture',category: 'frontend' },
+  { name: 'State Management',            category: 'frontend' },
+  { name: 'REST API Integration',        category: 'frontend' },
+  { name: 'Authentication Systems',      category: 'frontend' },
+  { name: 'Form Handling',               category: 'frontend' },
+  { name: 'Performance Optimization',    category: 'frontend' },
+  { name: 'Cross-Browser Compatibility', category: 'frontend' },
+]
+
+export const uiuxSkills: SkillItem[] = [
+  { name: 'User Interface Design',       category: 'uiux' },
+  { name: 'User Experience Optimization',category: 'uiux' },
+  { name: 'Design Systems',              category: 'uiux' },
+  { name: 'Wireframing',                 category: 'uiux' },
+  { name: 'Prototyping',                 category: 'uiux' },
+  { name: 'Responsive Layout Design',    category: 'uiux' },
+  { name: 'Accessibility Best Practices',category: 'uiux' },
+  { name: 'Conversion-Oriented Design',  category: 'uiux' },
+  { name: 'Mobile-First Development',    category: 'uiux' },
+]
+
+/* Legacy tech stack kept for backwards compat */
 export interface TechItem {
   name: string
   category: string
@@ -76,66 +132,16 @@ export interface TechItem {
 }
 
 export const techStack: TechItem[] = [
-  {
-    name: 'JavaScript / TypeScript',
-    category: 'Languages',
-    experience: 'Core Language',
-    description: 'ES6+ JavaScript and TypeScript for scalable, maintainable frontend development.',
-  },
-  {
-    name: 'React.js',
-    category: 'Frameworks',
-    experience: 'Primary Framework',
-    description: 'Component-based UI architecture with React ecosystem and state management.',
-  },
-  {
-    name: 'Next.js',
-    category: 'Frameworks',
-    experience: 'SSR & Full-stack',
-    description: 'Server-side rendering, static generation, and full-stack React applications.',
-  },
-  {
-    name: 'Tailwind CSS',
-    category: 'Styling',
-    experience: 'Utility-First CSS',
-    description: 'Utility-first styling for rapid, consistent, and responsive UI development.',
-  },
-  {
-    name: 'HTML5 & CSS3',
-    category: 'Core Web',
-    experience: 'Foundation',
-    description: 'Semantic HTML, modern CSS, responsive design and cross-browser compatibility.',
-  },
-  {
-    name: 'Framer Motion',
-    category: 'Animation',
-    experience: 'React Animations',
-    description: 'Declarative animations, page transitions, and scroll-driven effects.',
-  },
-  {
-    name: 'Figma',
-    category: 'Design',
-    experience: 'Design-to-Code',
-    description: 'Translating Figma designs into pixel-perfect, responsive web interfaces.',
-  },
-  {
-    name: 'Git & GitHub',
-    category: 'Tools',
-    experience: 'Version Control',
-    description: 'Version control, collaborative workflows, and clean commit practices.',
-  },
-  {
-    name: 'REST API',
-    category: 'Integration',
-    experience: 'API Integration',
-    description: 'Integrating third-party APIs, authentication systems, and backend services.',
-  },
-  {
-    name: 'SEO & Performance',
-    category: 'Optimization',
-    experience: 'Core Web Vitals',
-    description: 'Technical SEO, Core Web Vitals optimization, and performance auditing.',
-  },
+  { name: 'JavaScript / TypeScript', category: 'Languages',    experience: 'Core Language',    description: 'ES6+ JavaScript and TypeScript for scalable, maintainable frontend development.' },
+  { name: 'React.js',               category: 'Frameworks',   experience: 'Primary Framework', description: 'Component-based UI architecture with React ecosystem and state management.' },
+  { name: 'Next.js',                category: 'Frameworks',   experience: 'SSR & Full-stack',  description: 'Server-side rendering, static generation, and full-stack React applications.' },
+  { name: 'Tailwind CSS',           category: 'Styling',      experience: 'Utility-First CSS', description: 'Utility-first styling for rapid, consistent, and responsive UI development.' },
+  { name: 'HTML5 & CSS3',           category: 'Core Web',     experience: 'Foundation',        description: 'Semantic HTML, modern CSS, responsive design and cross-browser compatibility.' },
+  { name: 'Framer Motion',          category: 'Animation',    experience: 'React Animations',  description: 'Declarative animations, page transitions, and scroll-driven effects.' },
+  { name: 'Figma',                  category: 'Design',       experience: 'Design-to-Code',    description: 'Translating Figma designs into pixel-perfect, responsive web interfaces.' },
+  { name: 'Git & GitHub',           category: 'Tools',        experience: 'Version Control',   description: 'Version control, collaborative workflows, and clean commit practices.' },
+  { name: 'REST API',               category: 'Integration',  experience: 'API Integration',   description: 'Integrating third-party APIs, authentication systems, and backend services.' },
+  { name: 'SEO & Performance',      category: 'Optimization', experience: 'Core Web Vitals',   description: 'Technical SEO, Core Web Vitals optimization, and performance auditing.' },
 ]
 
 export const expertiseMarquee = [
@@ -212,11 +218,13 @@ export const projects: Project[] = [
   },
 ]
 
+/* ── Bilingual Testimonials ──────────────────────────────────── */
 export interface Testimonial {
   id: string
   name: string
   role: string
   content: string
+  contentAr: string
 }
 
 export const testimonials: Testimonial[] = [
@@ -224,22 +232,22 @@ export const testimonials: Testimonial[] = [
     id: 'nassif-center',
     name: 'Nassif Pediatric PT & Rehab Center',
     role: 'Client — Medical Platform',
-    content:
-      'ما شاء الله، بالتوفيق يا بشمهندس. حاجة جميلة جداً.',
+    content: "Masha'Allah, well done Engineer. It's something truly beautiful.",
+    contentAr: 'ما شاء الله، بالتوفيق يا بشمهندس. حاجة جميلة جداً.',
   },
   {
     id: 'sayed-elmondey',
     name: 'Sayed El Mondey',
     role: 'Client',
-    content:
-      'متخصص ومحترف، وأسلوب وشخصية محترمة في التعامل.',
+    content: 'Specialized and professional, with a respectful and commendable personality.',
+    contentAr: 'متخصص ومحترف، وأسلوب وشخصية محترمة في التعامل.',
   },
   {
     id: 'mohamed-ashraf',
     name: 'Mohamed Ashraf',
     role: 'Client',
-    content:
-      'ما شاء الله، شغل احترافي — وأنصح بالتعامل معه.',
+    content: "Masha'Allah, professional work — I highly recommend working with him.",
+    contentAr: 'ما شاء الله، شغل احترافي — وأنصح بالتعامل معه.',
   },
 ]
 

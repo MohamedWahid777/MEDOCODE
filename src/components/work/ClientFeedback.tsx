@@ -1,64 +1,96 @@
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
-import { testimonials } from '../../lib/constants'
 import { Quote } from 'lucide-react'
+import { testimonials } from '../../lib/constants'
+import { useLanguage } from '../../context/LanguageContext'
 
 export function ClientFeedback() {
   const { t } = useTranslation()
+  const { language } = useLanguage()
+  const isArabic = language === 'ar'
 
   return (
     <section className="w-full py-32 border-t border-white/5">
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-        <div className="text-center mb-24">
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-          className="font-display text-headline-lg text-primary"
-        >
-          {t('feedback.title')}
-        </motion.h2>
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="font-sans text-body-md text-on-surface-variant mt-4"
-        >
-          {t('feedback.subtitle')}
-        </motion.p>
-      </div>
 
-      <div className="grid md:grid-cols-2 gap-8">
-        {testimonials.map((testimonial, index) => (
-          <motion.div
-            key={testimonial.id}
-            initial={{ opacity: 0, y: 40 }}
+        {/* Sticky header — mirrors SelectedWorkSection */}
+        <div className="sticky top-24 mb-12 z-0">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: index * 0.1 }}
-            className="glass-panel p-10 rounded-2xl relative group hover:bg-surface-variant/30 transition-colors duration-500"
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="font-display text-headline-lg text-primary"
           >
-            <Quote className="absolute top-10 right-10 w-12 h-12 text-white/5 group-hover:text-primary/10 transition-colors duration-500" />
-            
-            <p className="font-sans text-body-lg text-on-surface-variant leading-relaxed mb-10 relative z-10">
-              "{testimonial.content}"
-            </p>
-            
-            <div className="flex items-center gap-4 border-t border-white/5 pt-6 mt-auto">
-              <div className="w-12 h-12 rounded-full bg-surface-bright flex items-center justify-center text-primary font-display text-xl">
-                {testimonial.name.charAt(0)}
+            {t('feedback.title')}
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+            className="font-sans text-body-md text-on-surface-variant max-w-md mt-3"
+          >
+            {t('feedback.subtitle')}
+          </motion.p>
+        </div>
+
+        {/* Stacked testimonial cards — same pattern as SelectedWorkSection */}
+        <div className="space-y-12 md:space-y-20 relative pt-6 pb-24">
+          {testimonials.map((testimonial, index) => {
+            const zIndex = (index + 1) * 10
+            const displayContent = isArabic ? testimonial.contentAr : testimonial.content
+
+            return (
+              <div
+                key={testimonial.id}
+                className="md:sticky md:top-[110px] glass-panel rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-surface hover-effect"
+                style={{ zIndex }}
+              >
+                <div className="p-8 md:p-12 relative">
+                  {/* Large decorative quote icon */}
+                  <Quote className="absolute top-8 right-8 md:top-10 md:right-12 w-10 h-10 md:w-14 md:h-14 text-white/[0.04] pointer-events-none" />
+
+                  {/* Index number */}
+                  <span className="font-mono-label text-[11px] text-on-surface-variant/40 tracking-widest block mb-6">
+                    {String(index + 1).padStart(2, '0')} / {String(testimonials.length).padStart(2, '0')}
+                  </span>
+
+                  {/* Quote text */}
+                  <blockquote
+                    className="font-display text-[20px] md:text-[26px] text-primary leading-[1.45] mb-10 max-w-3xl"
+                    dir={isArabic ? 'rtl' : 'ltr'}
+                  >
+                    "{displayContent}"
+                  </blockquote>
+
+                  {/* Divider */}
+                  <div className="border-t border-white/8 pt-6 flex items-center gap-4">
+                    {/* Avatar initial */}
+                    <div className="w-11 h-11 rounded-full bg-surface-bright border border-white/10 flex items-center justify-center text-primary font-display text-lg flex-shrink-0">
+                      {testimonial.name.charAt(0)}
+                    </div>
+
+                    <div className="flex flex-col gap-0.5">
+                      <h4 className="font-display text-[15px] text-primary leading-tight">
+                        {testimonial.name}
+                      </h4>
+                      <p className="font-mono-label text-[11px] text-on-surface-variant tracking-widest uppercase">
+                        {testimonial.role}
+                      </p>
+                    </div>
+
+                    {/* Language indicator */}
+                    <div className="ml-auto">
+                      <span className="font-mono-label text-[10px] text-on-surface-variant/50 tracking-widest uppercase border border-white/10 px-2.5 py-1 rounded-full">
+                        {isArabic ? 'AR' : 'EN'}
+                      </span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div>
-                <h4 className="font-display text-primary">{testimonial.name}</h4>
-                <p className="font-mono-label text-xs text-on-surface-variant mt-1">
-                  {testimonial.role}
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        ))}
+            )
+          })}
         </div>
       </div>
     </section>

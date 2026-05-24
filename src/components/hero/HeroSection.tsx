@@ -137,7 +137,6 @@ export function HeroSection() {
         animate={{ opacity: 0.3 }}
         transition={hasAnimated ? { duration: 0 } : { duration: 1, delay: 1.5 }}
       >
-        <span className="font-mono-label mb-4 text-[10px] tracking-[0.25em] text-on-surface-variant">{t('hero.scroll')}</span>
         <div className="w-[1.5px] h-12 bg-white/10 rounded-full relative overflow-hidden">
           <motion.div 
             className="absolute top-0 left-0 right-0 h-4 bg-gradient-to-b from-white to-zinc-600 rounded-full"

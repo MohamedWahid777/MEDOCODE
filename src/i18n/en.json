@@ -28,9 +28,8 @@
     "summary": "Front-End Developer with 3+ years of experience crafting modern, high-performance web experiences. I approach every project with a product mindset — understanding business goals, identifying user needs, and delivering digital solutions that create measurable impact.",
     "readBio": "Read Full Bio",
     "bioTitle": "Full Biography",
-    "bio1": "I'm Mohamed Wahid — a Front-End Developer specializing in building modern, high-performance web experiences that combine clean design, exceptional UX, and scalable development practices.",
-    "bio2": "Currently pursuing a degree in Computer Science, I've spent the last 3+ years developing websites and web applications — continuously refining my skills in modern front-end technologies, UI/UX principles, performance optimization, and digital product development.",
-    "bio3": "By combining modern development with AI-powered workflows, I accelerate delivery, improve quality, and maintain clean, maintainable, scalable codebases. Whether it's a business website, startup landing page, or custom web application — my goal is always the same: create fast, responsive, user-focused experiences that help businesses stand out.",
+    "bio1": "I'm Mohamed Wahid — a Front-End Developer with 3+ years of experience building websites and web applications. I focus on clean design, exceptional UX, and scalable development practices that serve real business goals.",
+    "bio2": "By combining modern development with AI-powered workflows, I accelerate delivery, improve code quality, and maintain clean, maintainable, scalable codebases across every project I build.",
     "educationTitle": "Education",
     "education": {
       "msc": "Computer Science",
@@ -62,7 +61,8 @@
     }
   },
   "techStack": {
-    "title": "Tech Stack"
+    "title": "Skills & Technologies",
+    "subtitle": "Frontend Development · UI/UX & Design"
   },
   "work": {
     "title": "Selected Work",
