@@ -92,21 +92,36 @@ export function SelectedWorkSection() {
 
                   {/* Visual Side */}
                   <div className="h-[200px] md:h-auto relative overflow-hidden bg-surface-container-highest order-1 md:order-2 group">
-                    <div className={`absolute inset-0 ${isEven ? 'bg-gradient-to-br' : 'bg-gradient-to-bl'} from-surface-container-highest to-surface-container flex items-center justify-center`}>
+                    {project.imageUrl ? (
                       <motion.div
                         whileHover={{ scale: 1.04 }}
                         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                        className="w-3/4 h-3/4 bg-surface rounded-xl border border-white/5 shadow-2xl flex items-center justify-center overflow-hidden relative"
+                        className="w-full h-full absolute inset-0 overflow-hidden cursor-pointer"
                       >
-                        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,transparent_0%,var(--color-primary)_100%)]" />
-                        <div className="w-full h-full opacity-20 border-[0.5px] border-primary/20 grid grid-cols-4 grid-rows-4">
-                          {Array.from({ length: 16 }).map((_, i) => (
-                            <div key={i} className="border-[0.5px] border-primary/20" />
-                          ))}
-                        </div>
-                        <span className="font-display text-3xl text-primary/30 absolute">{project.title.charAt(0)}</span>
+                        <img
+                          src={project.imageUrl}
+                          alt={project.title}
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                        />
                       </motion.div>
-                    </div>
+                    ) : (
+                      <div className={`absolute inset-0 ${isEven ? 'bg-gradient-to-br' : 'bg-gradient-to-bl'} from-surface-container-highest to-surface-container flex items-center justify-center`}>
+                        <motion.div
+                          whileHover={{ scale: 1.04 }}
+                          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                          className="w-3/4 h-3/4 bg-surface rounded-xl border border-white/5 shadow-2xl flex items-center justify-center overflow-hidden relative"
+                        >
+                          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,transparent_0%,var(--color-primary)_100%)]" />
+                          <div className="w-full h-full opacity-20 border-[0.5px] border-primary/20 grid grid-cols-4 grid-rows-4">
+                            {Array.from({ length: 16 }).map((_, i) => (
+                              <div key={i} className="border-[0.5px] border-primary/20" />
+                            ))}
+                          </div>
+                          <span className="font-display text-3xl text-primary/30 absolute">{project.title.charAt(0)}</span>
+                        </motion.div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

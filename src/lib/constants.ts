@@ -84,43 +84,152 @@ export const services: Service[] = [
 ]
 
 /* ── Tech Skills ─────────────────────────────────────────────── */
+
 export interface SkillItem {
   name: string
   color?: string
   textColor?: string
   abbr?: string
   category: 'frontend' | 'uiux'
+  logoUrl?: string       // Devicons أو Simple Icons CDN
+  iconFallback?: string  // Lucide icon name لو مفيش logo
 }
 
-export const frontendSkills: SkillItem[] = [
-  { name: 'HTML5',                       color: '#E44D26', textColor: '#fff', abbr: '5',  category: 'frontend' },
-  { name: 'CSS3',                        color: '#1572B6', textColor: '#fff', abbr: '3',  category: 'frontend' },
-  { name: 'JavaScript (ES6+)',           color: '#F7DF1E', textColor: '#000', abbr: 'JS', category: 'frontend' },
-  { name: 'TypeScript',                  color: '#3178C6', textColor: '#fff', abbr: 'TS', category: 'frontend' },
-  { name: 'React.js',                    color: '#20232A', textColor: '#61DAFB', abbr: '⚛', category: 'frontend' },
-  { name: 'Next.js',                     color: '#000',    textColor: '#fff', abbr: 'N',  category: 'frontend' },
-  { name: 'Tailwind CSS',                color: '#06B6D4', textColor: '#fff', abbr: 'TW', category: 'frontend' },
-  { name: 'Bootstrap',                   color: '#7952B3', textColor: '#fff', abbr: 'B',  category: 'frontend' },
-  { name: 'Responsive Web Design',       category: 'frontend' },
-  { name: 'Component-Based Architecture',category: 'frontend' },
-  { name: 'State Management',            category: 'frontend' },
-  { name: 'REST API Integration',        category: 'frontend' },
-  { name: 'Authentication Systems',      category: 'frontend' },
-  { name: 'Form Handling',               category: 'frontend' },
-  { name: 'Performance Optimization',    category: 'frontend' },
-  { name: 'Cross-Browser Compatibility', category: 'frontend' },
+const DEVICON = (name: string, variant = 'original'): string =>
+  `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${name}/${name}-${variant}.svg`
+
+const SI = (slug: string, color: string): string =>
+  `https://cdn.simpleicons.org/${slug}/${color}`
+
+export const row1Skills: SkillItem[] = [
+  {
+    name: 'HTML5',
+    category: 'frontend',
+    logoUrl: DEVICON('html5'),
+  },
+  {
+    name: 'CSS3',
+    category: 'frontend',
+    logoUrl: DEVICON('css3'),
+  },
+  {
+    name: 'JavaScript',
+    category: 'frontend',
+    logoUrl: DEVICON('javascript'),
+  },
+  {
+    name: 'TypeScript',
+    category: 'frontend',
+    logoUrl: DEVICON('typescript'),
+  },
+  {
+    name: 'React.js',
+    category: 'frontend',
+    logoUrl: DEVICON('react'),
+  },
+  {
+    name: 'Tailwind CSS',
+    category: 'frontend',
+    logoUrl: DEVICON('tailwindcss'),
+  },
+  {
+    name: 'Bootstrap',
+    category: 'frontend',
+    logoUrl: DEVICON('bootstrap'),
+  },
+  {
+    name: 'Python',
+    category: 'frontend',
+    logoUrl: DEVICON('python'),
+  },
+  {
+    name: 'C++',
+    category: 'frontend',
+    logoUrl: DEVICON('cplusplus'),
+  },
+  {
+    name: 'Git & GitHub',
+    category: 'frontend',
+    logoUrl: DEVICON('github'),
+  },
 ]
 
-export const uiuxSkills: SkillItem[] = [
-  { name: 'User Interface Design',       category: 'uiux' },
-  { name: 'User Experience Optimization',category: 'uiux' },
-  { name: 'Design Systems',              category: 'uiux' },
-  { name: 'Wireframing',                 category: 'uiux' },
-  { name: 'Prototyping',                 category: 'uiux' },
-  { name: 'Responsive Layout Design',    category: 'uiux' },
-  { name: 'Accessibility Best Practices',category: 'uiux' },
-  { name: 'Conversion-Oriented Design',  category: 'uiux' },
-  { name: 'Mobile-First Development',    category: 'uiux' },
+export const row2Skills: SkillItem[] = [
+  {
+    name: 'Responsive Web Design',
+    category: 'uiux',
+    iconFallback: 'MonitorSmartphone',
+  },
+  {
+    name: 'Component-Based Architecture',
+    category: 'uiux',
+    iconFallback: 'Component',
+  },
+  {
+    name: 'REST API Integration',
+    category: 'uiux',
+    iconFallback: 'Plug',
+  },
+  {
+    name: 'Authentication Systems',
+    category: 'uiux',
+    iconFallback: 'ShieldCheck',
+  },
+  {
+    name: 'Performance Optimization',
+    category: 'uiux',
+    logoUrl: SI('lighthouse', 'F44B21'),
+  },
+  {
+    name: 'Cross-Browser Compatibility',
+    category: 'uiux',
+    iconFallback: 'Compass',
+  },
+  {
+    name: 'Form Handling',
+    category: 'uiux',
+    logoUrl: SI('reacthookform', 'EC5990'),
+  },
+  {
+    name: 'State Management',
+    category: 'uiux',
+    logoUrl: DEVICON('redux'),
+  },
+  {
+    name: 'Design Systems',
+    category: 'uiux',
+    logoUrl: SI('storybook', 'FF4785'),
+  },
+  {
+    name: 'Wireframing',
+    category: 'uiux',
+    iconFallback: 'LayoutTemplate',
+  },
+  {
+    name: 'Prototyping',
+    category: 'uiux',
+    logoUrl: DEVICON('figma'),
+  },
+  {
+    name: 'Agile Methodologies',
+    category: 'uiux',
+    iconFallback: 'Workflow',
+  },
+  {
+    name: 'Version Control Strategies',
+    category: 'uiux',
+    iconFallback: 'GitBranch',
+  },
+  {
+    name: 'Problem Solving',
+    category: 'uiux',
+    iconFallback: 'Lightbulb',
+  },
+  {
+    name: 'Continuous Integration / Deployment',
+    category: 'uiux',
+    iconFallback: 'Rocket',
+  },
 ]
 
 /* Legacy tech stack kept for backwards compat */
@@ -129,19 +238,70 @@ export interface TechItem {
   category: string
   experience: string
   description: string
+  logoUrl?: string
 }
 
 export const techStack: TechItem[] = [
-  { name: 'JavaScript / TypeScript', category: 'Languages',    experience: 'Core Language',    description: 'ES6+ JavaScript and TypeScript for scalable, maintainable frontend development.' },
-  { name: 'React.js',               category: 'Frameworks',   experience: 'Primary Framework', description: 'Component-based UI architecture with React ecosystem and state management.' },
-  { name: 'Next.js',                category: 'Frameworks',   experience: 'SSR & Full-stack',  description: 'Server-side rendering, static generation, and full-stack React applications.' },
-  { name: 'Tailwind CSS',           category: 'Styling',      experience: 'Utility-First CSS', description: 'Utility-first styling for rapid, consistent, and responsive UI development.' },
-  { name: 'HTML5 & CSS3',           category: 'Core Web',     experience: 'Foundation',        description: 'Semantic HTML, modern CSS, responsive design and cross-browser compatibility.' },
-  { name: 'Framer Motion',          category: 'Animation',    experience: 'React Animations',  description: 'Declarative animations, page transitions, and scroll-driven effects.' },
-  { name: 'Figma',                  category: 'Design',       experience: 'Design-to-Code',    description: 'Translating Figma designs into pixel-perfect, responsive web interfaces.' },
-  { name: 'Git & GitHub',           category: 'Tools',        experience: 'Version Control',   description: 'Version control, collaborative workflows, and clean commit practices.' },
-  { name: 'REST API',               category: 'Integration',  experience: 'API Integration',   description: 'Integrating third-party APIs, authentication systems, and backend services.' },
-  { name: 'SEO & Performance',      category: 'Optimization', experience: 'Core Web Vitals',   description: 'Technical SEO, Core Web Vitals optimization, and performance auditing.' },
+  {
+    name: 'JavaScript / TypeScript',
+    category: 'Languages', experience: 'Core Language',
+    description: 'ES6+ JavaScript and TypeScript for scalable, maintainable frontend development.',
+    logoUrl: DEVICON('typescript'),
+  },
+  {
+    name: 'React.js',
+    category: 'Frameworks', experience: 'Primary Framework',
+    description: 'Component-based UI architecture with React ecosystem and state management.',
+    logoUrl: DEVICON('react'),
+  },
+  {
+    name: 'Next.js',
+    category: 'Frameworks', experience: 'SSR & Full-stack',
+    description: 'Server-side rendering, static generation, and full-stack React applications.',
+    logoUrl: DEVICON('nextjs'),
+  },
+  {
+    name: 'Tailwind CSS',
+    category: 'Styling', experience: 'Utility-First CSS',
+    description: 'Utility-first styling for rapid, consistent, and responsive UI development.',
+    logoUrl: DEVICON('tailwindcss'),
+  },
+  {
+    name: 'HTML5 & CSS3',
+    category: 'Core Web', experience: 'Foundation',
+    description: 'Semantic HTML, modern CSS, responsive design and cross-browser compatibility.',
+    logoUrl: DEVICON('html5'),
+  },
+  {
+    name: 'Framer Motion',
+    category: 'Animation', experience: 'React Animations',
+    description: 'Declarative animations, page transitions, and scroll-driven effects.',
+    logoUrl: DEVICON('framermotion'),
+  },
+  {
+    name: 'Figma',
+    category: 'Design', experience: 'Design-to-Code',
+    description: 'Translating Figma designs into pixel-perfect, responsive web interfaces.',
+    logoUrl: DEVICON('figma'),
+  },
+  {
+    name: 'Git & GitHub',
+    category: 'Tools', experience: 'Version Control',
+    description: 'Version control, collaborative workflows, and clean commit practices.',
+    logoUrl: DEVICON('github'),
+  },
+  {
+    name: 'REST API',
+    category: 'Integration', experience: 'API Integration',
+    description: 'Integrating third-party APIs, authentication systems, and backend services.',
+    logoUrl: DEVICON('postman'),
+  },
+  {
+    name: 'SEO & Performance',
+    category: 'Optimization', experience: 'Core Web Vitals',
+    description: 'Technical SEO, Core Web Vitals optimization, and performance auditing.',
+    logoUrl: SI('googlesearchconsole', '458CF5'),
+  },
 ]
 
 export const expertiseMarquee = [
@@ -163,6 +323,7 @@ export interface Project {
   technologies: string[]
   liveUrl?: string
   githubUrl?: string
+  imageUrl?: string
 }
 
 export const projects: Project[] = [
@@ -173,8 +334,9 @@ export const projects: Project[] = [
     description:
       'A comprehensive medical digital platform for Nassif Pediatric Physical Therapy & Rehabilitation Center. Features a Medical-Tech Luxury visual identity, bilingual Arabic/English support, dynamic Dark/Light Mode, and professional animations.',
     technologies: ['React', 'Vite', 'Tailwind CSS', 'Framer Motion', 'i18next', 'HTML5 Canvas'],
-    liveUrl: '#',
-    githubUrl: '#',
+    liveUrl: 'https://nasif-center.netlify.app/',
+    githubUrl: 'https://github.com/MohamedWahid777/nasif-physical-therapy-center.git',
+    imageUrl: 'src/assets/photoP1.webp',
   },
   {
     id: 'portfolio-website',
@@ -183,8 +345,9 @@ export const projects: Project[] = [
     description:
       'A modern and professional portfolio website with a sleek UI, Dark/Light Mode, smooth animations, responsive design, and a backend-free contact form — built to make a strong first impression.',
     technologies: ['HTML', 'CSS', 'JavaScript'],
-    liveUrl: '#',
-    githubUrl: '#',
+    liveUrl: 'https://medocode-portfolio.netlify.app/',
+    githubUrl: 'https://github.com/MohamedWahid777/MEDOCODE-Portfolio.git',
+    imageUrl: 'src/assets/photoP2.webp',
   },
   {
     id: 'cafe-website',
@@ -193,8 +356,9 @@ export const projects: Project[] = [
     description:
       'A responsive café website with bilingual Arabic/English support, interactive menu, cart system, and reservation forms. Built with a focus on clean design and smooth user experience.',
     technologies: ['HTML', 'Tailwind CSS', 'JavaScript'],
-    liveUrl: '#',
-    githubUrl: '#',
+    liveUrl: 'https://wbsite-cafe.netlify.app/',
+    githubUrl: 'https://github.com/MohamedWahid777/Cafe-Website.git',
+    imageUrl: 'src/assets/photoP3.webp',
   },
   {
     id: 'restaurant-website',
@@ -203,8 +367,9 @@ export const projects: Project[] = [
     description:
       'An appetizing and responsive landing page for a fast-food restaurant featuring an interactive menu, structured layouts, and vibrant visual aesthetics.',
     technologies: ['HTML', 'CSS', 'JavaScript'],
-    liveUrl: '#',
-    githubUrl: '#',
+    liveUrl: 'https://rurger-rush.netlify.app/',
+    githubUrl: 'https://github.com/MohamedWahid777/Fast-food-restaurant.git',
+    imageUrl: 'src/assets/photoP4.webp',
   },
   {
     id: 'gym-website',
@@ -213,8 +378,10 @@ export const projects: Project[] = [
     description:
       'A responsive gym landing page supporting Arabic & English with pricing plans, services overview, and smooth UI interactions.',
     technologies: ['HTML', 'CSS', 'JavaScript'],
-    liveUrl: '#',
-    githubUrl: '#',
+    liveUrl: 'https://gym-ironcore.netlify.app/',
+    githubUrl: 'https://github.com/MohamedWahid777/gym-website.git',
+    imageUrl: 'src/assets/photoP5.webp',
+
   },
 ]
 
@@ -245,44 +412,24 @@ export const testimonials: Testimonial[] = [
   {
     id: 'mohamed-ashraf',
     name: 'Mohamed Ashraf',
-    role: 'Client',
-    content: "Masha'Allah, professional work — I highly recommend working with him.",
-    contentAr: 'ما شاء الله، شغل احترافي — وأنصح بالتعامل معه.',
+    role: 'Client', 
+    content: "Masha'Allah, professional work, I highly recommend working with him.",
+    contentAr: 'ما شاء الله، شغل احترافي وأنصح بالتعامل معه.',
   },
 ]
 
 export const processSteps = [
-  {
-    number: '01',
-    title: 'Discover',
-    icon: 'Search',
-  },
-  {
-    number: '02',
-    title: 'Plan',
-    icon: 'ListChecks',
-  },
-  {
-    number: '03',
-    title: 'Design',
-    icon: 'Palette',
-  },
-  {
-    number: '04',
-    title: 'Develop',
-    icon: 'Code2',
-  },
-  {
-    number: '05',
-    title: 'Launch',
-    icon: 'Rocket',
-  },
+  { number: '01', title: 'Discover', icon: 'Search' },
+  { number: '02', title: 'Plan',     icon: 'ListChecks' },
+  { number: '03', title: 'Design',   icon: 'Palette' },
+  { number: '04', title: 'Develop',  icon: 'Code2' },
+  { number: '05', title: 'Launch',   icon: 'Rocket' },
 ]
 
 export const navLinks = [
-  { href: '#work', label: 'Work' },
+  { href: '#work',     label: 'Work' },
   { href: '#services', label: 'Services' },
-  { href: '#process', label: 'Process' },
-  { href: '#about', label: 'About' },
-  { href: '#contact', label: 'Contact' },
+  { href: '#process',  label: 'Process' },
+  { href: '#about',    label: 'About' },
+  { href: '#contact',  label: 'Contact' },
 ]

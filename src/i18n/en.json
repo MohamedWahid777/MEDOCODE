@@ -65,7 +65,9 @@
   },
   "techStack": {
     "title": "Skills & Technologies",
-    "subtitle": "Frontend Development · UI/UX & Design"
+    "subtitle": "Languages & Frameworks · Engineering & Practices",
+    "row1": "Languages & Frameworks",
+    "row2": "Engineering & Practices"
   },
   "work": {
     "title": "Selected Work",

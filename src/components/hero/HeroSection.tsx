@@ -12,7 +12,6 @@ export function HeroSection() {
     offset: ['start start', 'end start']
   })
 
-  // Session-persistent animation state check to avoid re-triggering entrance transitions on scroll re-entry
   const [hasAnimated, setHasAnimated] = useState(() => {
     if (typeof window !== 'undefined') {
       return !!(window as any).__hero_intro_animated
@@ -32,31 +31,30 @@ export function HeroSection() {
     }
   }, [hasAnimated])
 
-  // Parallax effects for scroll
   const textY = useTransform(scrollYProgress, [0, 1], ['0%', '50%'])
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
-  const canvasY = useTransform(scrollYProgress, [0, 1], ['0%', '20%'])
 
   return (
     <section 
       ref={containerRef}
       className="relative min-h-screen h-[100dvh] flex items-center justify-center overflow-hidden bg-background"
     >
-      {/* 3D Particle Background */}
-      <motion.div 
-        className="absolute inset-0 z-0 pointer-events-none"
-        style={{ y: canvasY }}
-      >
-        <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
+      {/* 3D Particle Background — div عادي بدون motion عشان نتجنب اللاج */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <Canvas
+          camera={{ position: [0, 0, 5], fov: 75 }}
+          dpr={[1, 1.5]}
+          performance={{ min: 0.5 }}
+        >
           <ParticleField />
         </Canvas>
-      </motion.div>
+      </div>
 
-      {/* Background Gradients for Depth */}
+      {/* Background Gradients */}
       <div className="absolute inset-0 z-[1] bg-gradient-to-b from-transparent via-background/20 to-background pointer-events-none" />
       <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle_at_center,transparent_0%,var(--color-background)_100%)] pointer-events-none opacity-80" />
-      
-      {/* Calm Ambient Neutral Glows (Luxury monochromatic style with high diffusion and extremely low opacity) */}
+
+      {/* Ambient Glows */}
       <div className="absolute top-[20%] left-[20%] w-[60%] h-[60%] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.015)_0%,transparent_100%)] blur-[120px] pointer-events-none z-[1]" />
       <div className="absolute bottom-[20%] right-[20%] w-[60%] h-[60%] rounded-full bg-[radial-gradient(circle_at_center,rgba(185,215,234,0.012)_0%,transparent_100%)] blur-[120px] pointer-events-none z-[1]" />
 
@@ -65,7 +63,6 @@ export function HeroSection() {
         style={{ y: textY, opacity }}
         className="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-5xl mx-auto mt-24 md:mt-16 pointer-events-none flex flex-col items-center"
       >
-        {/* Premium Pre-Title */}
         <motion.span 
           className="font-mono-label text-on-surface-variant text-[11px] md:text-[13px] tracking-[0.2em] mb-4 block"
           initial={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
@@ -75,7 +72,6 @@ export function HeroSection() {
           {t('hero.preTitle')}
         </motion.span>
 
-        {/* Scaled & Visualized Headline with Classic Luxury Gray Gradient on "Mohamed" only */}
         <motion.h1 
           className="font-display text-[48px] sm:text-[68px] md:text-[96px] lg:text-[112px] leading-[0.9] tracking-tighter mb-8 flex flex-col items-center font-bold"
           initial={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
@@ -88,7 +84,6 @@ export function HeroSection() {
           </span>
         </motion.h1>
 
-        {/* Supporting Tagline */}
         <motion.h2 
           className="font-display text-[20px] sm:text-[24px] md:text-[32px] text-primary leading-tight mb-6 max-w-3xl tracking-tight text-center"
           initial={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -98,7 +93,6 @@ export function HeroSection() {
           {t('hero.tagline')}
         </motion.h2>
 
-        {/* Concise Introduction */}
         <motion.p 
           className="font-sans text-[15px] sm:text-[16px] md:text-[18px] text-on-surface-variant mb-12 leading-relaxed max-w-2xl text-center"
           initial={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -108,7 +102,6 @@ export function HeroSection() {
           {t('hero.introduction')}
         </motion.p>
 
-        {/* Dual Call-To-Action Area - Classic Monochrome styling only */}
         <motion.div 
           className="flex flex-col sm:flex-row gap-4 pointer-events-auto w-full sm:w-auto items-center justify-center mb-8"
           initial={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -130,7 +123,7 @@ export function HeroSection() {
         </motion.div>
       </motion.div>
 
-      {/* Luxury Vertical Line Scroll Indicator */}
+      {/* Scroll Indicator */}
       <motion.div 
         className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center opacity-30 hover:opacity-75 transition-opacity duration-300 pointer-events-none z-10 py-6"
         initial={hasAnimated ? { opacity: 0.3 } : { opacity: 0 }}
@@ -140,15 +133,8 @@ export function HeroSection() {
         <div className="w-[1.5px] h-12 bg-white/10 rounded-full relative overflow-hidden">
           <motion.div 
             className="absolute top-0 left-0 right-0 h-4 bg-gradient-to-b from-white to-zinc-600 rounded-full"
-            animate={{ 
-              y: [0, 32, 0],
-              opacity: [0.4, 1, 0.4]
-            }}
-            transition={{ 
-              duration: 2.2, 
-              repeat: Infinity, 
-              ease: "easeInOut" 
-            }}
+            animate={{ y: [0, 32, 0], opacity: [0.4, 1, 0.4] }}
+            transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
           />
         </div>
       </motion.div>

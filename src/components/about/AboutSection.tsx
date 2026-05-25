@@ -53,7 +53,7 @@ export function AboutSection({ onOpenDrawer }: AboutSectionProps) {
           <div className="col-span-12 md:col-span-5 w-full h-[450px] md:h-[580px] overflow-hidden relative bg-surface-container border border-white/10">
             <motion.img 
               style={{ y: imageY }}
-              src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=1200&h=1600" 
+              src="src/assets/my photo.webp" 
               alt={t('hero.firstName')} 
               className="absolute inset-0 w-full h-[120%] -top-[10%] object-cover grayscale hover:grayscale-0 transition-all duration-700"
             />
