@@ -1,9 +1,20 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
-import { Send } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 export function ContactSection() {
   const { t } = useTranslation()
+
+  // Form state
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    details: ''
+  })
+  
+  const [focusedField, setFocusedField] = useState<string | null>(null)
 
   return (
     <section id="contact" className="w-full py-32 border-t border-white/5 relative">
@@ -83,79 +94,123 @@ export function ContactSection() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1 }}
           >
-            <form className="glass-panel p-8 md:p-12 rounded-3xl space-y-8 relative overflow-hidden group">
+            <form onSubmit={(e) => e.preventDefault()} className="glass-panel p-8 md:p-12 rounded-3xl space-y-12 relative overflow-hidden group">
               {/* Ambient hover glow inside form */}
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,var(--color-surface-variant)_0%,transparent_50%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
-              <div className="relative z-10 grid md:grid-cols-2 gap-8">
-                <div className="space-y-2 md:col-span-2">
-                  <label className="font-mono-label text-sm text-on-surface-variant uppercase tracking-widest">
-                    {t('contact.form.fullName')}
-                  </label>
+              <div className="relative z-10 grid md:grid-cols-2 gap-x-8 gap-y-10">
+                
+                {/* Full Name */}
+                <div className="relative md:col-span-2">
                   <input 
                     type="text" 
-                    className="w-full bg-transparent border-b border-white/10 py-3 text-primary focus:outline-none focus:border-primary transition-colors hover-effect placeholder:text-white/10"
-                    placeholder="John Doe"
+                    value={formData.fullName}
+                    onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                    onFocus={() => setFocusedField('fullName')}
+                    onBlur={() => setFocusedField(null)}
+                    className="w-full bg-white/5 border border-white/15 px-4 py-4 text-primary focus:outline-none focus:border-primary transition-colors font-sans text-base rounded-[4px]"
+                    placeholder=""
                   />
+                  <motion.label
+                    animate={{
+                      y: (focusedField === 'fullName' || formData.fullName.length > 0) ? -28 : 0,
+                      scale: (focusedField === 'fullName' || formData.fullName.length > 0) ? 0.85 : 1,
+                      color: focusedField === 'fullName' ? 'var(--color-primary)' : 'var(--color-on-surface-variant)',
+                      backgroundColor: (focusedField === 'fullName' || formData.fullName.length > 0) ? 'var(--color-surface)' : 'rgba(0,0,0,0)',
+                    }}
+                    transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                    className="absolute start-4 top-[18px] font-mono-label text-[10px] uppercase tracking-widest pointer-events-none origin-left px-1.5 z-10"
+                  >
+                    {t('contact.form.fullName')}
+                  </motion.label>
                 </div>
 
-                <div className="space-y-2">
-                  <label className="font-mono-label text-sm text-on-surface-variant uppercase tracking-widest">
-                    {t('contact.form.email')}
-                  </label>
+                {/* Email Address */}
+                <div className="relative">
                   <input 
                     type="email" 
-                    className="w-full bg-transparent border-b border-white/10 py-3 text-primary focus:outline-none focus:border-primary transition-colors hover-effect placeholder:text-white/10"
-                    placeholder="john@example.com"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onFocus={() => setFocusedField('email')}
+                    onBlur={() => setFocusedField(null)}
+                    className="w-full bg-white/5 border border-white/15 px-4 py-4 text-primary focus:outline-none focus:border-primary transition-colors font-sans text-base rounded-[4px]"
+                    placeholder=""
                   />
+                  <motion.label
+                    animate={{
+                      y: (focusedField === 'email' || formData.email.length > 0) ? -28 : 0,
+                      scale: (focusedField === 'email' || formData.email.length > 0) ? 0.85 : 1,
+                      color: focusedField === 'email' ? 'var(--color-primary)' : 'var(--color-on-surface-variant)',
+                      backgroundColor: (focusedField === 'email' || formData.email.length > 0) ? 'var(--color-surface)' : 'rgba(0,0,0,0)',
+                    }}
+                    transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                    className="absolute start-4 top-[18px] font-mono-label text-[10px] uppercase tracking-widest pointer-events-none origin-left px-1.5 z-10"
+                  >
+                    {t('contact.form.email')}
+                  </motion.label>
                 </div>
 
-                <div className="space-y-2">
-                  <label className="font-mono-label text-sm text-on-surface-variant uppercase tracking-widest">
-                    {t('contact.form.phone')}
-                  </label>
+                {/* Phone Number */}
+                <div className="relative">
                   <input 
                     type="tel" 
-                    className="w-full bg-transparent border-b border-white/10 py-3 text-primary focus:outline-none focus:border-primary transition-colors hover-effect placeholder:text-white/10"
-                    placeholder="+20 100 000 0000"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    onFocus={() => setFocusedField('phone')}
+                    onBlur={() => setFocusedField(null)}
+                    className="w-full bg-white/5 border border-white/15 px-4 py-4 text-primary focus:outline-none focus:border-primary transition-colors font-sans text-base rounded-[4px]"
+                    placeholder=""
                   />
+                  <motion.label
+                    animate={{
+                      y: (focusedField === 'phone' || formData.phone.length > 0) ? -28 : 0,
+                      scale: (focusedField === 'phone' || formData.phone.length > 0) ? 0.85 : 1,
+                      color: focusedField === 'phone' ? 'var(--color-primary)' : 'var(--color-on-surface-variant)',
+                      backgroundColor: (focusedField === 'phone' || formData.phone.length > 0) ? 'var(--color-surface)' : 'rgba(0,0,0,0)',
+                    }}
+                    transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                    className="absolute start-4 top-[18px] font-mono-label text-[10px] uppercase tracking-widest pointer-events-none origin-left px-1.5 z-10"
+                  >
+                    {t('contact.form.phone')}
+                  </motion.label>
                 </div>
 
-                <div className="space-y-2 md:col-span-2">
-                  <label className="font-mono-label text-sm text-on-surface-variant uppercase tracking-widest">
-                    {t('contact.form.service')}
-                  </label>
-                  <select className="w-full bg-transparent border-b border-white/10 py-3 text-primary focus:outline-none focus:border-primary transition-colors hover-effect appearance-none">
-                    <option className="bg-surface text-primary" value="website">Business / Corporate Website</option>
-                    <option className="bg-surface text-primary" value="landing">Startup Landing Page</option>
-                    <option className="bg-surface text-primary" value="webapp">Web Application</option>
-                    <option className="bg-surface text-primary" value="portfolio">Portfolio Website</option>
-                    <option className="bg-surface text-primary" value="optimization">Performance / SEO Optimization</option>
-                    <option className="bg-surface text-primary" value="figma">Figma to Website</option>
-                    <option className="bg-surface text-primary" value="other">Other</option>
-                  </select>
-                </div>
-
-                <div className="space-y-2 md:col-span-2">
-                  <label className="font-mono-label text-sm text-on-surface-variant uppercase tracking-widest">
-                    {t('contact.form.details')}
-                  </label>
+                {/* Project Details */}
+                <div className="relative md:col-span-2">
                   <textarea 
                     rows={4}
-                    className="w-full bg-transparent border-b border-white/10 py-3 text-primary focus:outline-none focus:border-primary transition-colors hover-effect placeholder:text-white/10 resize-none"
-                    placeholder="Tell me about your project..."
+                    value={formData.details}
+                    onChange={(e) => setFormData({ ...formData, details: e.target.value })}
+                    onFocus={() => setFocusedField('details')}
+                    onBlur={() => setFocusedField(null)}
+                    className="w-full bg-white/5 border border-white/15 px-4 py-4 text-primary focus:outline-none focus:border-primary transition-colors font-sans text-base rounded-[4px] min-h-[120px] resize-none"
+                    placeholder=""
                   />
+                  <motion.label
+                    animate={{
+                      y: (focusedField === 'details' || formData.details.length > 0) ? -26 : 0,
+                      scale: (focusedField === 'details' || formData.details.length > 0) ? 0.85 : 1,
+                      color: focusedField === 'details' ? 'var(--color-primary)' : 'var(--color-on-surface-variant)',
+                      backgroundColor: (focusedField === 'details' || formData.details.length > 0) ? 'var(--color-surface)' : 'rgba(0,0,0,0)',
+                    }}
+                    transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                    className="absolute start-4 top-4 font-mono-label text-[10px] uppercase tracking-widest pointer-events-none origin-left px-1.5 z-10"
+                  >
+                    {t('contact.yourMessage')}
+                  </motion.label>
                 </div>
               </div>
 
               <div className="relative z-10 pt-4">
-                <button 
-                  type="button"
-                  className="w-full bg-primary text-background py-5 rounded-xl font-mono-label tracking-widest flex items-center justify-center gap-3 hover:bg-surface-variant hover:text-primary border border-transparent hover:border-white/20 transition-all duration-300 hover-effect group/btn"
+                <motion.button 
+                  type="submit"
+                  whileHover={{ scale: 1.015 }}
+                  whileTap={{ scale: 0.985 }}
+                  className="w-full bg-primary text-background py-5 rounded-sm font-mono-label tracking-widest flex items-center justify-center gap-3 hover:brightness-110 transition-all duration-300 hover-effect group/btn"
                 >
                   {t('contact.form.send')}
-                  <Send className="w-4 h-4 transform group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1 transition-transform" />
-                </button>
+                  <ArrowRight className="w-4 h-4 transform group-hover/btn:translate-x-1.5 transition-transform" />
+                </motion.button>
               </div>
             </form>
           </motion.div>
@@ -164,3 +219,4 @@ export function ContactSection() {
     </section>
   )
 }
+
