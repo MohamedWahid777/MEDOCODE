@@ -117,14 +117,20 @@
       "service": "Service",
       "budget": "Budget Range",
       "details": "Project Details",
-      "send": "Send Message"
+      "send": "Send Message",
+      "sending": "SENDING..."
     },
     "availability": "Available for new projects",
     "yourMessage": "YOUR MESSAGE",
     "whatsapp": "WhatsApp",
     "github": "GitHub",
     "linkedin": "LinkedIn",
-    "facebook": "Facebook"
+    "facebook": "Facebook",
+    "error": "Something went wrong. Please try again.",
+    "success": {
+      "title": "Message Sent!",
+      "subtitle": "Thanks for reaching out. I'll get back to you soon."
+    }
   },
   "footer": {
     "tagline": "Engineered for precision. Building high-performance web experiences.",
