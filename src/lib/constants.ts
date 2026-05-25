@@ -427,9 +427,9 @@ export const processSteps = [
 ]
 
 export const navLinks = [
-  { href: '#work',     label: 'Work' },
-  { href: '#services', label: 'Services' },
-  { href: '#process',  label: 'Process' },
   { href: '#about',    label: 'About' },
+  { href: '#process',  label: 'Process' },
+  { href: '#services', label: 'Services' },
+  { href: '#work',     label: 'Work' },
   { href: '#contact',  label: 'Contact' },
 ]
