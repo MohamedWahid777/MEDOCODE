@@ -59,11 +59,11 @@ function MarqueeRow({
   label: string
 }) {
   return (
-    <div className="relative">
+    <div className="relative w-full max-w-full">
       <div className="absolute -top-5 start-0 font-mono-label text-[10px] text-on-surface-variant/40 uppercase tracking-widest z-10 select-none">
         {label}
       </div>
-      <div className="flex w-full overflow-hidden mt-2 select-none" dir="ltr">
+      <div className="flex w-full overflow-hidden mt-2 select-none max-w-full" dir="ltr" style={{ contain: 'paint' }}>
         <div
           className={`flex gap-0 w-max ${
             reverse ? 'animate-marquee-reverse' : 'animate-marquee'
@@ -86,7 +86,7 @@ export function TechStackMarquee() {
   const { t } = useTranslation()
 
   return (
-    <section className="py-32 border-y border-white/5 overflow-hidden bg-surface-container-lowest relative">
+    <section className="py-32 border-y border-white/5 bg-surface-container-lowest relative overflow-hidden">
       {/* Edge fades */}
       <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-surface-container-lowest to-transparent z-10 pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-surface-container-lowest to-transparent z-10 pointer-events-none" />

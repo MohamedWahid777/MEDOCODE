@@ -13,7 +13,7 @@ export function ClientFeedback() {
     <section className="w-full py-32 border-t border-white/5">
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
 
-        {/* Sticky header — mirrors SelectedWorkSection */}
+        {/* Sticky header */}
         <div className="sticky top-24 mb-12 z-0">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -35,17 +35,18 @@ export function ClientFeedback() {
           </motion.p>
         </div>
 
-        {/* Stacked testimonial cards — same pattern as SelectedWorkSection */}
-        <div className="space-y-12 md:space-y-20 relative pt-6 pb-24">
+        {/* Stacked testimonial cards — carousel on mobile, sticky on desktop */}
+        <div className="relative flex md:block overflow-x-auto md:overflow-x-visible snap-x snap-mandatory md:snap-none scrollbar-hide gap-5 md:gap-0 pt-6 pb-12 md:pb-24 -mx-margin-mobile md:mx-0 px-margin-mobile md:px-0">
           {testimonials.map((testimonial, index) => {
             const zIndex = (index + 1) * 10
+            const topOffset = 110 + index * 6
             const displayContent = isArabic ? testimonial.contentAr : testimonial.content
 
             return (
               <div
                 key={testimonial.id}
-                className="md:sticky md:top-[110px] glass-panel rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-surface hover-effect"
-                style={{ zIndex }}
+                className="static md:sticky flex-none w-[85vw] md:w-auto snap-center glass-panel rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-surface hover-effect mb-0 md:mb-5"
+                style={{ zIndex, top: `${topOffset}px` }}
               >
                 <div className="p-8 md:p-12 relative">
                   {/* Large decorative quote icon */}

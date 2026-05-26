@@ -76,7 +76,7 @@ export function ProcessTimeline() {
   const iconBgs = [icon0Bg, icon1Bg, icon2Bg, icon3Bg, icon4Bg]
 
   return (
-    <section id="process" ref={containerRef} className="w-full py-40 border-t border-white/5 overflow-hidden">
+  <section id="process" ref={containerRef} className="w-full py-40 border-t border-white/5 contain-paint-mobile">
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
         <div className="text-center mb-32">
           <motion.h2 
@@ -99,7 +99,7 @@ export function ProcessTimeline() {
           </motion.p>
         </div>
 
-        <div className="max-w-4xl mx-auto relative min-h-[1200px] md:min-h-[1400px]">
+        <div className="w-full max-w-4xl mx-auto relative min-h-[1200px] md:min-h-[1400px]">
           {/* Dynamic connecting track: static background and glowing scale-grown active line */}
           <div className="absolute left-7 md:left-1/2 top-[28px] bottom-[28px] w-[2px] bg-white/5 md:-translate-x-1/2 rounded-full pointer-events-none">
             {/* Active glowing progress line */}
@@ -115,7 +115,7 @@ export function ProcessTimeline() {
             />
           </div>
 
-          <div className="space-y-36 relative">
+          <div className="space-y-36 relative w-full">
             {processSteps.map((step, index) => {
               const isEven = index % 2 === 0
               const Icon = IconMap[step.icon]
@@ -129,10 +129,10 @@ export function ProcessTimeline() {
                     scale: itemScales[index],
                     y: itemYs[index]
                   }}
-                  className="relative flex flex-col md:flex-row items-start md:items-center justify-between group"
+                  className="relative flex flex-col md:flex-row items-start md:items-center justify-between group w-full"
                 >
                   {/* Left Side Content (Even steps) */}
-                  <div className={`md:w-[45%] text-left ${isEven ? 'md:text-right pr-0 md:pr-16 pl-16 md:pl-0 mb-6 md:mb-0 order-2 md:order-1' : 'hidden md:block md:order-1'}`}>
+                  <div className={`w-full md:w-[45%] text-left ${isEven ? 'md:text-right pr-0 md:pr-16 pl-16 md:pl-0 mb-6 md:mb-0 order-2 md:order-1' : 'hidden md:block md:order-1'}`}>
                     {isEven && (
                       <>
                         <div className="font-mono-label text-primary/30 mb-3 select-none">{step.number}</div>
@@ -159,7 +159,7 @@ export function ProcessTimeline() {
                   </motion.div>
 
                   {/* Right Side Content (Odd steps) */}
-                  <div className={`md:w-[45%] text-left pl-16 md:pl-16 order-3 ${!isEven ? 'block' : 'hidden md:block'}`}>
+                  <div className={`w-full md:w-[45%] text-left pl-16 md:pl-16 order-3 ${!isEven ? 'block' : 'hidden md:block'}`}>
                     {!isEven && (
                       <>
                         <div className="font-mono-label text-primary/30 mb-3 select-none">{step.number}</div>

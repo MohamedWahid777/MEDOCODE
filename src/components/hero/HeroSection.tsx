@@ -37,7 +37,7 @@ export function HeroSection() {
   return (
     <section 
       ref={containerRef}
-      className="relative min-h-screen h-[100dvh] flex items-center justify-center overflow-hidden bg-background"
+      className="relative min-h-screen h-[100dvh] w-full max-w-full flex items-center justify-center overflow-hidden bg-background"
     >
       {/* 3D Particle Background — div عادي بدون motion عشان نتجنب اللاج */}
       <div className="absolute inset-0 z-0 pointer-events-none">
@@ -61,7 +61,7 @@ export function HeroSection() {
       {/* Main Content */}
       <motion.div 
         style={{ y: textY, opacity }}
-        className="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-5xl mx-auto mt-24 md:mt-16 pointer-events-none flex flex-col items-center"
+        className="relative z-10 text-center px-margin-mobile md:px-margin-desktop w-full max-w-5xl mx-auto mt-24 md:mt-16 pointer-events-none flex flex-col items-center"
       >
         <motion.span 
           className="font-mono-label text-on-surface-variant text-[11px] md:text-[13px] tracking-[0.2em] mb-4 block"

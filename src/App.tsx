@@ -33,7 +33,8 @@ function AppContent() {
       <CustomCursor />
       
       <SmoothScroll>
-        <div className="min-h-screen bg-background text-on-background selection:bg-surface-variant selection:text-primary font-sans relative flex flex-col">
+        <div className="min-h-screen bg-background text-on-background selection:bg-surface-variant selection:text-primary font-sans relative flex flex-col w-full" style={{ isolation: 'isolate' }}>
+
           <Navbar />
           
           <main className="flex-1">

@@ -10,7 +10,7 @@ export function Navbar() {
   const [hidden, setHidden] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { t } = useTranslation()
-  const { language, setLanguage } = useLanguage()
+  const { language, setLanguage, isRtl } = useLanguage()
 
   // Hide/Reveal navbar based on scroll direction
   useMotionValueEvent(scrollY, 'change', (latest) => {
@@ -46,7 +46,7 @@ export function Navbar() {
         }}
         animate={hidden ? 'hidden' : 'visible'}
         transition={{ duration: 0.35, ease: 'easeInOut' }}
-        className="fixed top-6 left-0 right-0 w-full z-50 flex justify-center px-margin-mobile md:px-margin-desktop pointer-events-none"
+        className="fixed top-6 left-0 right-0 w-full max-w-full z-50 flex justify-center px-margin-mobile md:px-margin-desktop pointer-events-none"
       >
         <nav className="bg-surface/60 backdrop-blur-xl border border-white/10 rounded-full w-full max-w-container-max flex justify-between items-center px-6 md:px-8 py-4 pointer-events-auto shadow-2xl">
           <a 
@@ -97,16 +97,31 @@ export function Navbar() {
         </nav>
       </motion.div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay / Side Drawer */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] bg-background/80 backdrop-blur-lg md:hidden"
-          >
-            <div className="h-full w-full bg-surface/50 flex flex-col p-6">
+          <>
+            {/* Dark overlay backdrop */}
+            <motion.div
+              key="backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm md:hidden"
+            />
+
+            {/* Slide-in side drawer */}
+            <motion.div
+              key="drawer"
+              initial={{ x: isRtl ? '-100%' : '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: isRtl ? '-100%' : '100%' }}
+              transition={{ type: 'spring', stiffness: 380, damping: 40 }}
+              className={`fixed top-0 bottom-0 z-[101] w-[75vw] max-w-[320px] h-full bg-surface/95 backdrop-blur-xl shadow-2xl flex flex-col p-6 md:hidden ${
+                isRtl ? 'left-0 border-r border-white/10' : 'right-0 border-l border-white/10'
+              }`}
+            >
               <div className="flex justify-between items-center mb-12">
                 <span className="font-display text-[24px] tracking-tighter text-primary">MEDOCODE</span>
                 <button 
@@ -123,7 +138,7 @@ export function Navbar() {
                     key={link.href}
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className="text-3xl font-display text-on-surface-variant hover:text-primary transition-colors"
+                    className="text-3xl font-display text-on-surface-variant hover:text-primary transition-colors text-start"
                   >
                     {t(`nav.${link.label.toLowerCase()}`)}
                   </a>
@@ -133,7 +148,7 @@ export function Navbar() {
               <div className="flex flex-col gap-6 mt-auto">
                 <button
                   onClick={toggleLanguage}
-                  className="text-left text-xl font-display text-primary hover:opacity-80 transition-opacity"
+                  className="text-start text-xl font-display text-primary hover:opacity-80 transition-opacity"
                 >
                   {language === 'en' ? 'Arabic Version (عربي)' : 'English Version'}
                 </button>
@@ -145,8 +160,8 @@ export function Navbar() {
                   {t('nav.letsBuild')}
                 </a>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>

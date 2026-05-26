@@ -138,9 +138,8 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 html {
-  scroll-behavior: auto; /* Lenis handles smooth scrolling */
+  scroll-behavior: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -150,7 +149,6 @@ body {
   font-family: 'Geist Sans', system-ui, -apple-system, sans-serif;
   background-color: var(--color-background);
   color: var(--color-on-surface);
-  overflow-x: hidden;
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
@@ -266,4 +264,13 @@ html.lenis body {
 
 .preloader-hidden {
   pointer-events: none;
+}
+
+
+
+@media (max-width: 767px) {
+  .contain-paint-mobile {
+    overflow: hidden;
+    clip-path: inset(0);
+  }
 }
