@@ -136,7 +136,7 @@ function MobileSnapScroll({ t }: { t: any }) {
         style={{ WebkitOverflowScrolling: 'touch' }}
       >
         {/* Page 1: Languages & Frameworks */}
-        <div className="w-[100vw] shrink-0 snap-center px-margin-mobile flex flex-col">
+        <div className="w-full shrink-0 snap-center px-margin-mobile flex flex-col">
           <div className="font-mono-label text-[10px] text-on-surface-variant/40 uppercase tracking-widest mb-6 select-none text-center">
             {t('techStack.row1' as any) as unknown as string}
           </div>
@@ -148,7 +148,7 @@ function MobileSnapScroll({ t }: { t: any }) {
         </div>
 
         {/* Page 2: Engineering & Practices */}
-        <div className="w-[100vw] shrink-0 snap-center px-margin-mobile flex flex-col">
+        <div className="w-full shrink-0 snap-center px-margin-mobile flex flex-col">
           <div className="font-mono-label text-[10px] text-on-surface-variant/40 uppercase tracking-widest mb-6 select-none text-center">
             {t('techStack.row2' as any) as unknown as string}
           </div>
