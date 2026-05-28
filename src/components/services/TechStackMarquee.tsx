@@ -1,12 +1,14 @@
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
+import { useRef } from 'react'
 import { row1Skills, row2Skills, type SkillItem } from '../../lib/constants'
 import {
   MonitorSmartphone, Boxes, Globe, Lock,
   Compass, Palette, UserCheck, LayoutTemplate,
   Workflow, Smartphone, Accessibility, Target,
   GitBranch, Lightbulb, Rocket, ShieldCheck, Plug, Component,
-  Code2, Search, Terminal, Zap, Brain, GitMerge, Cpu
+  Code2, Search, Terminal, Zap, Brain, GitMerge, Cpu,
+  ChevronLeft, ChevronRight
 } from 'lucide-react'
 
 /* ── Skill Icon — logo صورة حقيقية أو Lucide fallback ───────── */
@@ -93,33 +95,71 @@ function MarqueeRow({
 
 /* ── Mobile Touch-Friendly Snap Scroll ────────────────────────── */
 function MobileSnapScroll({ t }: { t: any }) {
+  const scrollRef = useRef<HTMLDivElement>(null)
+
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -window.innerWidth, behavior: 'smooth' })
+    }
+  }
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: window.innerWidth, behavior: 'smooth' })
+    }
+  }
+
   return (
-    <div className="md:hidden w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-6 pt-2 flex" style={{ WebkitOverflowScrolling: 'touch' }}>
+    <div className="md:hidden relative w-full pt-2 pb-6 group">
       
-      {/* Page 1: Languages & Frameworks */}
-      <div className="w-[100vw] shrink-0 snap-center px-margin-mobile flex flex-col">
-        <div className="font-mono-label text-[10px] text-on-surface-variant/40 uppercase tracking-widest mb-6 select-none text-center">
-          {t('techStack.row1' as any) as unknown as string}
-        </div>
-        <div className="grid grid-cols-2 gap-3">
-          {row1Skills.map((skill, i) => (
-            <SkillPill key={`p1-${i}`} skill={skill} />
-          ))}
-        </div>
+      {/* Navigation Arrows */}
+      <div className="absolute top-1 left-0 right-0 flex justify-between px-margin-mobile pointer-events-none z-10">
+        <button 
+          onClick={scrollLeft} 
+          aria-label="Previous"
+          className="w-8 h-8 flex items-center justify-center rounded-full border border-white/10 bg-surface-container/50 backdrop-blur-md text-on-surface-variant hover:text-primary transition-colors pointer-events-auto"
+        >
+          <ChevronLeft className="w-4 h-4 rtl:rotate-180" />
+        </button>
+        <button 
+          onClick={scrollRight} 
+          aria-label="Next"
+          className="w-8 h-8 flex items-center justify-center rounded-full border border-white/10 bg-surface-container/50 backdrop-blur-md text-on-surface-variant hover:text-primary transition-colors pointer-events-auto"
+        >
+          <ChevronRight className="w-4 h-4 rtl:rotate-180" />
+        </button>
       </div>
 
-      {/* Page 2: Engineering & Practices */}
-      <div className="w-[100vw] shrink-0 snap-center px-margin-mobile flex flex-col">
-        <div className="font-mono-label text-[10px] text-on-surface-variant/40 uppercase tracking-widest mb-6 select-none text-center">
-          {t('techStack.row2' as any) as unknown as string}
+      <div 
+        ref={scrollRef}
+        className="w-full overflow-x-auto snap-x snap-mandatory flex scrollbar-hide [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]" 
+        style={{ WebkitOverflowScrolling: 'touch' }}
+      >
+        {/* Page 1: Languages & Frameworks */}
+        <div className="w-[100vw] shrink-0 snap-center px-margin-mobile flex flex-col">
+          <div className="font-mono-label text-[10px] text-on-surface-variant/40 uppercase tracking-widest mb-6 select-none text-center">
+            {t('techStack.row1' as any) as unknown as string}
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            {row1Skills.map((skill, i) => (
+              <SkillPill key={`p1-${i}`} skill={skill} />
+            ))}
+          </div>
         </div>
-        <div className="grid grid-cols-2 gap-3">
-          {row2Skills.map((skill, i) => (
-            <SkillPill key={`p2-${i}`} skill={skill} />
-          ))}
-        </div>
-      </div>
 
+        {/* Page 2: Engineering & Practices */}
+        <div className="w-[100vw] shrink-0 snap-center px-margin-mobile flex flex-col">
+          <div className="font-mono-label text-[10px] text-on-surface-variant/40 uppercase tracking-widest mb-6 select-none text-center">
+            {t('techStack.row2' as any) as unknown as string}
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            {row2Skills.map((skill, i) => (
+              <SkillPill key={`p2-${i}`} skill={skill} />
+            ))}
+          </div>
+        </div>
+
+      </div>
     </div>
   )
 }
