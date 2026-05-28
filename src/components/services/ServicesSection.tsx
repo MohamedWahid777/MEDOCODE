@@ -47,7 +47,7 @@ export function ServicesSection() {
   const { t } = useTranslation()
 
   return (
-    <section id="services" className="w-full py-32 md:py-40 border-t border-white/5 overflow-hidden bg-background">
+    <section id="services" className="w-full py-32 md:py-40 border-t border-white/5 bg-background">
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
 
         {/* Section Header */}
@@ -92,7 +92,11 @@ export function ServicesSection() {
                 viewport={{ once: true, margin: '-100px' }}
                 variants={cardVariants}
                 whileHover={{ y: -8, scale: 1.01 }}
-                className={`glass-panel rounded-none p-8 flex flex-col justify-between border border-white/5 bg-surface/30 backdrop-blur-md relative overflow-hidden group select-none cursor-default min-h-[320px] h-full ${colSpanClasses}`}
+                className={`sticky md:static glass-panel rounded-none p-8 flex flex-col justify-between border border-white/5 bg-surface/30 backdrop-blur-md overflow-hidden group select-none cursor-default min-h-[320px] h-full ${colSpanClasses}`}
+                style={{
+                  top: `calc(80px + ${index * 6}px)`,
+                  zIndex: (index + 1) * 10
+                }}
               >
                 {/* Accent glow effect */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-white/[0.02] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />

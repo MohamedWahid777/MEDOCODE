@@ -76,7 +76,7 @@ export function ProcessTimeline() {
   const iconBgs = [icon0Bg, icon1Bg, icon2Bg, icon3Bg, icon4Bg]
 
   return (
-  <section id="process" ref={containerRef} className="w-full py-40 border-t border-white/5 contain-paint-mobile">
+  <section id="process" ref={containerRef} className="w-full py-40 border-t border-white/5 overflow-x-hidden">
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
         <div className="text-center mb-32">
           <motion.h2 

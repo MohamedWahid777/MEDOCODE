@@ -23,7 +23,7 @@ export function AboutSection({ onOpenDrawer }: AboutSectionProps) {
       <section 
         id="about" 
         ref={containerRef}
-        className="w-full py-32 border-t border-white/5"
+        className="w-full py-32 border-t border-white/5 overflow-x-hidden"
       >
         <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-center">

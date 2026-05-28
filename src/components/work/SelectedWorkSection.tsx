@@ -90,7 +90,7 @@ export function SelectedWorkSection() {
     <section
       id="work"
       ref={sectionRef}
-      className="w-full py-32 relative contain-paint-mobile"
+      className="w-full py-32 relative"
     >
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
         {/* Sticky header */}
@@ -115,23 +115,8 @@ export function SelectedWorkSection() {
           </motion.p>
         </div>
 
-        {/* Mobile: horizontal carousel */}
-        <div className="flex md:hidden overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-5 pt-6 pb-12 -mx-4 px-4">
-          {projects.map((project, index) => {
-            const isEven = index % 2 === 0
-            return (
-              <div
-                key={project.id}
-                className="flex-none w-[85vw] snap-center glass-panel rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-surface"
-              >
-                <CardContent project={project} isEven={isEven} />
-              </div>
-            )
-          })}
-        </div>
-
-        {/* Desktop: stacked sticky */}
-        <div className="hidden md:block relative pt-6 pb-24">
+        {/* Stacked sticky cards — unified for all screen sizes */}
+        <div className="relative pt-6 pb-24">
           {projects.map((project, index) => {
             const zIndex = (index + 1) * 10
             const isEven = index % 2 === 0

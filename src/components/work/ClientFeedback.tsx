@@ -35,8 +35,8 @@ export function ClientFeedback() {
           </motion.p>
         </div>
 
-        {/* Stacked testimonial cards — carousel on mobile, sticky on desktop */}
-        <div className="relative flex md:block overflow-x-auto md:overflow-x-visible snap-x snap-mandatory md:snap-none scrollbar-hide gap-5 md:gap-0 pt-6 pb-12 md:pb-24 -mx-margin-mobile md:mx-0 px-margin-mobile md:px-0">
+        {/* Stacked sticky cards — unified for all screen sizes */}
+        <div className="relative pt-6 pb-24">
           {testimonials.map((testimonial, index) => {
             const zIndex = (index + 1) * 10
             const topOffset = 110 + index * 6
@@ -45,7 +45,7 @@ export function ClientFeedback() {
             return (
               <div
                 key={testimonial.id}
-                className="static md:sticky flex-none w-[85vw] md:w-auto snap-center glass-panel rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-surface hover-effect mb-0 md:mb-5"
+                className="sticky glass-panel rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-surface hover-effect mb-5"
                 style={{ zIndex, top: `${topOffset}px` }}
               >
                 <div className="p-8 md:p-12 relative">
