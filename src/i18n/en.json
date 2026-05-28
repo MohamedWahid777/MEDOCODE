@@ -45,22 +45,26 @@
     "title": "Services",
     "subtitle": "End-to-end front-end solutions for businesses, startups, and ambitious brands.",
     "items": {
-      "business": "Business Websites",
-      "corporate": "Company & Corporate Websites",
-      "startups": "Startup Landing Pages",
-      "portfolio": "Personal Portfolio Websites",
-      "service": "Service-Based Business Websites",
-      "medical": "Medical & Healthcare Websites",
-      "product": "Product Showcase Websites",
-      "dashboards": "Interactive Dashboards",
-      "webapps": "Modern Web Applications",
-      "figma": "Figma to Responsive Website Development",
-      "custom": "Custom Front-End Solutions",
-      "seo": "SEO-Friendly Website Development",
-      "performance": "Performance Optimization",
-      "responsive": "Responsive Design for All Devices",
-      "animations": "Modern UI Animations & Interactions",
-      "ai": "AI-Assisted Development Workflows"
+      "service1": {
+        "title": "Company, Business, Restaurant & Medical Center Websites",
+        "description": "High-performance, custom-built websites tailored for companies, local businesses, restaurants, and medical clinics to establish a strong, professional digital presence."
+      },
+      "service2": {
+        "title": "Landing Pages",
+        "description": "High-converting, visually striking landing pages engineered to capture leads, promote products, and accelerate business growth with pixel-perfect layouts."
+      },
+      "service3": {
+        "title": "Personal Portfolio Websites",
+        "description": "Unique and premium personal portfolios showcasing your work, skills, and resume with immersive custom animations and state-of-the-art aesthetics."
+      },
+      "service4": {
+        "title": "Product & Service Showcase Websites",
+        "description": "Immersive web experiences designed to present products, software platforms, or professional services with interactive sections and engaging visual storytelling."
+      },
+      "service5": {
+        "title": "Interactive Dashboards & Management Systems",
+        "description": "Robust, fast, and feature-rich front-end management interfaces and analytics dashboards utilizing real-time data visualization and intuitive UX design."
+      }
     }
   },
   "techStack": {

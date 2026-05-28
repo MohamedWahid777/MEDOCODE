@@ -8,16 +8,34 @@ export function ParticleField() {
   const smoothMouse = useRef(new THREE.Vector2(0, 0))
   const rawMouse = useRef(new THREE.Vector2(0, 0))
 
-  // تتبع الماوس بـ event listener عادي — مش بيتأثر بالـ scroll
+  // تتبع الماوس واللمس بـ event listeners — مش بيتأثر بالـ scroll
   useMemo(() => {
-    const handler = (e: MouseEvent) => {
+    const mouseHandler = (e: MouseEvent) => {
       rawMouse.current.set(
         (e.clientX / window.innerWidth) * 2 - 1,
         -(e.clientY / window.innerHeight) * 2 + 1
       )
     }
-    window.addEventListener('mousemove', handler, { passive: true })
-    return () => window.removeEventListener('mousemove', handler)
+
+    const touchHandler = (e: TouchEvent) => {
+      if (e.touches && e.touches.length > 0) {
+        const touch = e.touches[0]
+        rawMouse.current.set(
+          (touch.clientX / window.innerWidth) * 2 - 1,
+          -(touch.clientY / window.innerHeight) * 2 + 1
+        )
+      }
+    }
+
+    window.addEventListener('mousemove', mouseHandler, { passive: true })
+    window.addEventListener('touchmove', touchHandler, { passive: true })
+    window.addEventListener('touchstart', touchHandler, { passive: true })
+
+    return () => {
+      window.removeEventListener('mousemove', mouseHandler)
+      window.removeEventListener('touchmove', touchHandler)
+      window.removeEventListener('touchstart', touchHandler)
+    }
   }, [])
 
   // أرقام ثابتة — مش بتتغير مع viewport أو scroll
