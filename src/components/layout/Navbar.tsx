@@ -140,9 +140,6 @@ export function Navbar() {
                     onClick={(e) => handleNavClick(e, link.href)}
                     className="group relative flex items-center"
                   >
-                    <span className="font-mono-label text-[10px] text-on-surface-variant/40 mr-6 rtl:mr-0 rtl:ml-6 w-5">
-                      0{idx + 1}
-                    </span>
                     <span className="text-[32px] sm:text-[40px] leading-tight font-display text-on-surface-variant group-hover:text-primary transition-colors">
                       {t(`nav.${link.label.toLowerCase()}`)}
                     </span>

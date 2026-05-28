@@ -113,7 +113,7 @@ export const row1Skills: SkillItem[] = [
     logoUrl: DEVICON('css3'),
   },
   {
-    name: 'JavaScript',
+    name: 'JavaScript ',
     category: 'frontend',
     logoUrl: DEVICON('javascript'),
   },
@@ -161,74 +161,49 @@ export const row2Skills: SkillItem[] = [
     iconFallback: 'MonitorSmartphone',
   },
   {
-    name: 'Component-Based Architecture',
+    name: 'Clean Code',
     category: 'uiux',
-    iconFallback: 'Component',
+    iconFallback: 'Code2',
   },
   {
-    name: 'REST API Integration',
+    name: 'Technical SEO',
     category: 'uiux',
-    iconFallback: 'Plug',
+    iconFallback: 'Search',
   },
   {
-    name: 'Authentication Systems',
+    name: 'Prompt Engineering',
     category: 'uiux',
-    iconFallback: 'ShieldCheck',
+    iconFallback: 'Terminal',
   },
   {
     name: 'Performance Optimization',
     category: 'uiux',
-    logoUrl: SI('lighthouse', 'F44B21'),
-  },
-  {
-    name: 'Cross-Browser Compatibility',
-    category: 'uiux',
-    iconFallback: 'Compass',
-  },
-  {
-    name: 'Form Handling',
-    category: 'uiux',
-    logoUrl: SI('reacthookform', 'EC5990'),
-  },
-  {
-    name: 'State Management',
-    category: 'uiux',
-    logoUrl: DEVICON('redux'),
-  },
-  {
-    name: 'Design Systems',
-    category: 'uiux',
-    logoUrl: SI('storybook', 'FF4785'),
-  },
-  {
-    name: 'Wireframing',
-    category: 'uiux',
-    iconFallback: 'LayoutTemplate',
-  },
-  {
-    name: 'Prototyping',
-    category: 'uiux',
-    logoUrl: DEVICON('figma'),
-  },
-  {
-    name: 'Agile Methodologies',
-    category: 'uiux',
-    iconFallback: 'Workflow',
-  },
-  {
-    name: 'Version Control Strategies',
-    category: 'uiux',
-    iconFallback: 'GitBranch',
+    iconFallback: 'Zap',
   },
   {
     name: 'Problem Solving',
     category: 'uiux',
-    iconFallback: 'Lightbulb',
+    iconFallback: 'Brain',
   },
   {
-    name: 'Continuous Integration / Deployment',
+    name: 'Basic Algorithms',
     category: 'uiux',
-    iconFallback: 'Rocket',
+    iconFallback: 'GitMerge',
+  },
+  {
+    name: 'Basic Machine Learning',
+    category: 'uiux',
+    iconFallback: 'Cpu',
+  },
+  {
+    name: 'Web Scraping',
+    category: 'uiux',
+    iconFallback: 'Globe',
+  },
+  {
+    name: 'UI/UX & Design',
+    category: 'uiux',
+    iconFallback: 'Palette',
   },
 ]
 

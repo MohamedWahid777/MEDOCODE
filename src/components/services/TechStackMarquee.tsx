@@ -5,7 +5,8 @@ import {
   MonitorSmartphone, Boxes, Globe, Lock,
   Compass, Palette, UserCheck, LayoutTemplate,
   Workflow, Smartphone, Accessibility, Target,
-  GitBranch, Lightbulb, Rocket, ShieldCheck, Plug, Component
+  GitBranch, Lightbulb, Rocket, ShieldCheck, Plug, Component,
+  Code2, Search, Terminal, Zap, Brain, GitMerge, Cpu
 } from 'lucide-react'
 
 /* ── Skill Icon — logo صورة حقيقية أو Lucide fallback ───────── */
@@ -34,6 +35,15 @@ function SkillIcon({ skill }: { skill: SkillItem }) {
     case 'GitBranch': return <GitBranch {...iconProps} />
     case 'Lightbulb': return <Lightbulb {...iconProps} />
     case 'Rocket': return <Rocket {...iconProps} />
+    case 'Code2': return <Code2 {...iconProps} />
+    case 'Search': return <Search {...iconProps} />
+    case 'Terminal': return <Terminal {...iconProps} />
+    case 'Zap': return <Zap {...iconProps} />
+    case 'Brain': return <Brain {...iconProps} />
+    case 'GitMerge': return <GitMerge {...iconProps} />
+    case 'Cpu': return <Cpu {...iconProps} />
+    case 'Globe': return <Globe {...iconProps} />
+    case 'Palette': return <Palette {...iconProps} />
     default: return <Boxes {...iconProps} />
   }
 }
@@ -41,9 +51,9 @@ function SkillIcon({ skill }: { skill: SkillItem }) {
 /* ── Single Marquee Skill Pill ───────────────────────────────── */
 function SkillPill({ skill }: { skill: SkillItem }) {
   return (
-    <div className="glass-panel px-5 py-3 rounded-full flex items-center gap-3 hover:bg-white/[0.07] transition-colors duration-300 cursor-default whitespace-nowrap select-none border border-white/5 bg-surface-container/20 backdrop-blur-sm mr-4 rtl:mr-0 rtl:ml-4">
+    <div className="glass-panel px-3 py-3 md:px-5 rounded-xl md:rounded-full flex items-center gap-2 md:gap-3 hover:bg-white/[0.07] transition-colors duration-300 cursor-default select-none border border-white/5 bg-surface-container/20 backdrop-blur-sm w-full md:w-auto overflow-hidden">
       <SkillIcon skill={skill} />
-      <span className="font-mono-label text-[13px] text-primary">{skill.name}</span>
+      <span className="font-mono-label text-[11px] md:text-[13px] text-primary truncate">{skill.name}</span>
     </div>
   )
 }
@@ -65,7 +75,7 @@ function MarqueeRow({
       </div>
       <div className="flex w-full overflow-hidden mt-2 select-none max-w-full" dir="ltr" style={{ contain: 'paint' }}>
         <div
-          className={`flex gap-0 w-max ${
+          className={`flex gap-4 w-max ${
             reverse ? 'animate-marquee-reverse' : 'animate-marquee'
           } hover:[animation-play-state:paused]`}
         >
@@ -82,17 +92,34 @@ function MarqueeRow({
 }
 
 /* ── Mobile Touch-Friendly Snap Scroll ────────────────────────── */
-function MobileSnapScroll({ skills }: { skills: SkillItem[] }) {
+function MobileSnapScroll({ t }: { t: any }) {
   return (
-    <div className="md:hidden w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-6 pt-2 px-margin-mobile -mx-margin-mobile flex gap-4" style={{ WebkitOverflowScrolling: 'touch' }}>
-      {/* 2-row horizontal grid */}
-      <div className="grid grid-rows-2 grid-flow-col gap-x-4 gap-y-4 pr-margin-mobile">
-        {skills.map((skill, i) => (
-          <div key={`mobile-skill-${i}`} className="snap-center shrink-0">
-            <SkillPill skill={skill} />
-          </div>
-        ))}
+    <div className="md:hidden w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-6 pt-2 flex" style={{ WebkitOverflowScrolling: 'touch' }}>
+      
+      {/* Page 1: Languages & Frameworks */}
+      <div className="w-[100vw] shrink-0 snap-center px-margin-mobile flex flex-col">
+        <div className="font-mono-label text-[10px] text-on-surface-variant/40 uppercase tracking-widest mb-6 select-none text-center">
+          {t('techStack.row1' as any) as unknown as string}
+        </div>
+        <div className="grid grid-cols-2 gap-3">
+          {row1Skills.map((skill, i) => (
+            <SkillPill key={`p1-${i}`} skill={skill} />
+          ))}
+        </div>
       </div>
+
+      {/* Page 2: Engineering & Practices */}
+      <div className="w-[100vw] shrink-0 snap-center px-margin-mobile flex flex-col">
+        <div className="font-mono-label text-[10px] text-on-surface-variant/40 uppercase tracking-widest mb-6 select-none text-center">
+          {t('techStack.row2' as any) as unknown as string}
+        </div>
+        <div className="grid grid-cols-2 gap-3">
+          {row2Skills.map((skill, i) => (
+            <SkillPill key={`p2-${i}`} skill={skill} />
+          ))}
+        </div>
+      </div>
+
     </div>
   )
 }
@@ -128,15 +155,15 @@ export function TechStackMarquee() {
         </motion.p>
       </div>
 
-      <div className="flex flex-col gap-12 px-4 relative z-20">
+      <div className="flex flex-col gap-12 relative z-20">
         {/* Desktop Marquees */}
-        <div className="hidden md:flex flex-col gap-12">
+        <div className="hidden md:flex flex-col gap-12 px-4">
           <MarqueeRow skills={row1Skills} label={t('techStack.row1' as any) as unknown as string} />
           <MarqueeRow skills={row2Skills} reverse label={t('techStack.row2' as any) as unknown as string} />
         </div>
 
         {/* Mobile Snap Scroll */}
-        <MobileSnapScroll skills={[...row1Skills, ...row2Skills]} />
+        <MobileSnapScroll t={t} />
       </div>
     </section>
   )
