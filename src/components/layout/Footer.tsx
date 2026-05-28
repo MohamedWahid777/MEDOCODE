@@ -56,8 +56,8 @@ export function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 mb-16 sm:mb-20">
           
           {/* LEFT COLUMN: BRAND & IDENTITY SUMMARY (5 Columns on Desktop) */}
-          <div className="lg:col-span-5 flex flex-col justify-between gap-10">
-            <div>
+          <div className="lg:col-span-5 flex flex-col justify-between gap-10 items-center text-center lg:items-start lg:text-start">
+            <div className="flex flex-col items-center lg:items-start">
               {/* Reduced size premium brand header */}
               <h2 className="font-display text-[32px] sm:text-[40px] md:text-[48px] leading-none tracking-tighter text-primary mb-4">
                 MEDOCODE
@@ -87,11 +87,11 @@ export function Footer() {
           </div>
 
           {/* RIGHT COLUMN: RESTRUCTURED LINKS & INQUIRIES (7 Columns on Desktop) */}
-          <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-12 lg:gap-8 relative">
+          <div className="lg:col-span-7 flex justify-between gap-8 sm:grid sm:grid-cols-2 lg:gap-8 relative w-full px-4 lg:px-0">
             
             {/* Navigation Column — mirrors main navbar exactly */}
-            <div className="border-t border-white/10 pt-6">
-              <h4 className="font-mono-label text-on-surface-variant uppercase mb-6 tracking-widest text-[10px] sm:text-xs">
+            <div className="border-t border-white/10 pt-6 w-1/2 sm:w-auto">
+              <h4 className="font-mono-label text-on-surface-variant uppercase mb-6 tracking-widest text-[10px] sm:text-xs text-start">
                 {t('footer.navigation')}
               </h4>
               <ul className="space-y-4">
@@ -99,7 +99,7 @@ export function Footer() {
                   <li key={link.href}>
                     <a
                       href={link.href}
-                      className="relative text-xs sm:text-sm text-primary font-sans font-medium py-1 after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-primary after:scale-x-0 after:origin-right hover:after:scale-x-100 hover:after:origin-left after:transition-transform after:duration-300 after:ease-out block w-fit"
+                      className="relative text-xs sm:text-sm text-primary font-sans font-medium py-1 after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-primary after:scale-x-0 after:origin-right hover:after:scale-x-100 hover:after:origin-left after:transition-transform after:duration-300 after:ease-out block w-fit text-start"
                     >
                       {t(`nav.${link.label.toLowerCase()}`)}
                     </a>
@@ -109,11 +109,11 @@ export function Footer() {
             </div>
 
             {/* Inquiries / Social Icons — same design system as ContactSection socials */}
-            <div className="border-t border-white/10 pt-6">
+            <div className="border-t border-white/10 pt-6 w-1/2 sm:w-auto flex flex-col items-end sm:items-start text-end sm:text-start">
               <h4 className="font-mono-label text-on-surface-variant uppercase mb-6 tracking-widest text-[10px] sm:text-xs">
                 Inquiries
               </h4>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-col gap-4 items-end sm:items-start">
                 {/* GitHub */}
                 <a href="https://github.com/MohamedWahid777" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/50 hover:bg-white/5 transition-all duration-300 group shrink-0">
                   <svg className="w-5 h-5 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.03c3.18-.3 6.5-1.5 6.5-7.1a5.1 5.1 0 0 0-1.4-3.5 4.8 4.8 0 0 0-.1-3.5s-1.1-.3-3.5 1.3a11.9 11.9 0 0 0-6 0c-2.4-1.6-3.5-1.3-3.5-1.3a4.8 4.8 0 0 0-.1 3.5 5.1 5.1 0 0 0-1.4 3.5c0 5.6 3.3 6.8 6.5 7.1a4.8 4.8 0 0 0-1 3.03v4"/><path d="M9 20c-4 1-5-2-7-2"/></svg>

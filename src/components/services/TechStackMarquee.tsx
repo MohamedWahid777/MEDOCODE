@@ -81,6 +81,22 @@ function MarqueeRow({
   )
 }
 
+/* ── Mobile Touch-Friendly Snap Scroll ────────────────────────── */
+function MobileSnapScroll({ skills }: { skills: SkillItem[] }) {
+  return (
+    <div className="md:hidden w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-6 pt-2 px-margin-mobile -mx-margin-mobile flex gap-4" style={{ WebkitOverflowScrolling: 'touch' }}>
+      {/* 2-row horizontal grid */}
+      <div className="grid grid-rows-2 grid-flow-col gap-x-4 gap-y-4 pr-margin-mobile">
+        {skills.map((skill, i) => (
+          <div key={`mobile-skill-${i}`} className="snap-center shrink-0">
+            <SkillPill skill={skill} />
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 /* ── Main Component ───────────────────────────────────────────── */
 export function TechStackMarquee() {
   const { t } = useTranslation()
@@ -112,9 +128,15 @@ export function TechStackMarquee() {
         </motion.p>
       </div>
 
-      <div className="flex flex-col gap-12 px-4">
-        <MarqueeRow skills={row1Skills} label={t('techStack.row1' as any) as unknown as string} />
-        <MarqueeRow skills={row2Skills} reverse label={t('techStack.row2' as any) as unknown as string} />
+      <div className="flex flex-col gap-12 px-4 relative z-20">
+        {/* Desktop Marquees */}
+        <div className="hidden md:flex flex-col gap-12">
+          <MarqueeRow skills={row1Skills} label={t('techStack.row1' as any) as unknown as string} />
+          <MarqueeRow skills={row2Skills} reverse label={t('techStack.row2' as any) as unknown as string} />
+        </div>
+
+        {/* Mobile Snap Scroll */}
+        <MobileSnapScroll skills={[...row1Skills, ...row2Skills]} />
       </div>
     </section>
   )

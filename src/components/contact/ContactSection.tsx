@@ -53,7 +53,7 @@ export function ContactSection() {
         <div className="grid md:grid-cols-2 gap-16 lg:gap-32">
 
           {/* Left Side: Typography & Socials */}
-          <div>
+          <div className="text-center md:text-left">
             <motion.h2
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -70,7 +70,7 @@ export function ContactSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="font-sans text-body-lg text-on-surface-variant max-w-md mb-16"
+              className="font-sans text-body-lg text-on-surface-variant max-w-md mx-auto md:mx-0 mb-16"
             >
               {t('contact.subtitle')}
             </motion.p>
@@ -80,9 +80,9 @@ export function ContactSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="space-y-8"
+              className="space-y-12 flex flex-col items-center md:items-start"
             >
-              <div>
+              <div className="flex flex-col items-center md:items-start">
                 <p className="font-mono-label text-on-surface-variant uppercase mb-4 tracking-widest text-sm">
                   Status
                 </p>
@@ -92,11 +92,11 @@ export function ContactSection() {
                 </div>
               </div>
 
-              <div>
-                <p className="font-mono-label text-on-surface-variant uppercase mb-4 tracking-widest text-sm">
+              <div className="flex flex-col items-center md:items-start w-full">
+                <p className="font-mono-label text-on-surface-variant uppercase mb-5 tracking-widest text-sm">
                   Socials
                 </p>
-                <div className="flex gap-4">
+                <div className="flex flex-wrap gap-4 justify-center md:justify-start">
                   {/* GitHub */}
                   <a href="https://github.com/MohamedWahid777" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/50 hover:bg-white/5 transition-all group">
                     <svg className="w-5 h-5 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.03c3.18-.3 6.5-1.5 6.5-7.1a5.1 5.1 0 0 0-1.4-3.5 4.8 4.8 0 0 0-.1-3.5s-1.1-.3-3.5 1.3a11.9 11.9 0 0 0-6 0c-2.4-1.6-3.5-1.3-3.5-1.3a4.8 4.8 0 0 0-.1 3.5 5.1 5.1 0 0 0-1.4 3.5c0 5.6 3.3 6.8 6.5 7.1a4.8 4.8 0 0 0-1 3.03v4"/><path d="M9 20c-4 1-5-2-7-2"/></svg>

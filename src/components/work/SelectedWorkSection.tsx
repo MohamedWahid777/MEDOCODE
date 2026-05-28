@@ -33,17 +33,17 @@ export function SelectedWorkSection() {
           ))}
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 mt-auto">
-          <button className="self-start text-primary border-b border-primary pb-1 font-mono-label text-sm hover:opacity-70 transition-opacity tracking-widest flex items-center gap-2 group">
+        <div className="flex flex-row items-center justify-between gap-4 mt-auto pt-4 border-t border-white/5 md:border-transparent md:pt-0">
+          <button className="text-primary border-b border-primary pb-1 font-mono-label text-sm hover:opacity-70 transition-opacity tracking-widest flex items-center gap-2 group">
             {t('work.viewCase')}
             <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform rtl:rotate-180" />
           </button>
 
-          <div className="flex gap-3 sm:ml-auto">
-            <a href={project.liveUrl} className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/50 hover:bg-white/5 transition-all group">
+          <div className="flex gap-3">
+            <a href={project.liveUrl} className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/50 hover:bg-white/5 transition-all group shrink-0">
               <ArrowUpRight className="w-3.5 h-3.5 transform group-hover:translate-x-[2px] group-hover:-translate-y-[2px] transition-transform" />
             </a>
-            <a href={project.githubUrl} className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/50 hover:bg-white/5 transition-all group">
+            <a href={project.githubUrl} className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/50 hover:bg-white/5 transition-all group shrink-0">
               <svg className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.03c3.18-.3 6.5-1.5 6.5-7.1a5.1 5.1 0 0 0-1.4-3.5 4.8 4.8 0 0 0-.1-3.5s-1.1-.3-3.5 1.3a11.9 11.9 0 0 0-6 0c-2.4-1.6-3.5-1.3-3.5-1.3a4.8 4.8 0 0 0-.1 3.5 5.1 5.1 0 0 0-1.4 3.5c0 5.6 3.3 6.8 6.5 7.1a4.8 4.8 0 0 0-1 3.03v4"/><path d="M9 20c-4 1-5-2-7-2"/></svg>
             </a>
           </div>

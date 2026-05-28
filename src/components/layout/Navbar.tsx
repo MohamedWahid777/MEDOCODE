@@ -118,44 +118,54 @@ export function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: isRtl ? '-100%' : '100%' }}
               transition={{ type: 'spring', stiffness: 380, damping: 40 }}
-              className={`fixed top-0 bottom-0 z-[101] w-[75vw] max-w-[320px] h-full bg-surface/95 backdrop-blur-xl shadow-2xl flex flex-col p-6 md:hidden ${
+              className={`fixed top-0 bottom-0 z-[101] w-[85vw] max-w-[400px] h-full bg-surface/95 backdrop-blur-3xl shadow-2xl flex flex-col p-8 md:hidden ${
                 isRtl ? 'left-0 border-r border-white/10' : 'right-0 border-l border-white/10'
               }`}
             >
               <div className="flex justify-between items-center mb-12">
-                <span className="font-display text-[24px] tracking-tighter text-primary">MEDOCODE</span>
+                <span className="font-display text-[18px] tracking-[0.2em] text-on-surface-variant uppercase">Menu</span>
                 <button 
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-primary p-2"
+                  className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/50 hover:bg-white/5 transition-all group"
                 >
-                  <X size={24} />
+                  <X size={20} className="group-hover:scale-110 transition-transform" />
                 </button>
               </div>
 
-              <div className="flex flex-col gap-8 flex-1 justify-center">
-                {navLinks.map((link) => (
+              <div className="flex flex-col gap-6 flex-1 mt-4">
+                {navLinks.map((link, idx) => (
                   <a
                     key={link.href}
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className="text-3xl font-display text-on-surface-variant hover:text-primary transition-colors text-start"
+                    className="group relative flex items-center"
                   >
-                    {t(`nav.${link.label.toLowerCase()}`)}
+                    <span className="font-mono-label text-[10px] text-on-surface-variant/40 mr-6 rtl:mr-0 rtl:ml-6 w-5">
+                      0{idx + 1}
+                    </span>
+                    <span className="text-[32px] sm:text-[40px] leading-tight font-display text-on-surface-variant group-hover:text-primary transition-colors">
+                      {t(`nav.${link.label.toLowerCase()}`)}
+                    </span>
                   </a>
                 ))}
               </div>
 
-              <div className="flex flex-col gap-6 mt-auto">
+              <div className="flex flex-col gap-4 mt-auto border-t border-white/10 pt-8">
                 <button
                   onClick={toggleLanguage}
-                  className="text-start text-xl font-display text-primary hover:opacity-80 transition-opacity"
+                  className="flex items-center justify-between p-4 rounded-xl border border-white/5 bg-white/5 hover:bg-white/10 transition-colors"
                 >
-                  {language === 'en' ? 'Arabic Version (عربي)' : 'English Version'}
+                  <span className="font-mono-label tracking-widest text-[11px] text-on-surface-variant uppercase">
+                    Language
+                  </span>
+                  <span className="font-display text-primary text-sm">
+                    {language === 'en' ? 'Arabic (عربي)' : 'English Version'}
+                  </span>
                 </button>
                 <a
                   href="#contact"
                   onClick={(e) => handleNavClick(e, '#contact')}
-                  className="bg-primary text-background text-center px-6 py-4 rounded-xl font-mono-label hover:bg-surface-variant hover:text-primary transition-all"
+                  className="bg-primary text-background text-center px-6 py-4 rounded-xl font-mono-label tracking-widest hover:brightness-110 transition-all flex justify-center items-center"
                 >
                   {t('nav.letsBuild')}
                 </a>
