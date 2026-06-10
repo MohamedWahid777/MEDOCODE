@@ -5,7 +5,7 @@ import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { projects } from '../../lib/constants'
 
 export function SelectedWorkSection() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const sectionRef = useRef<HTMLElement>(null)
 
   const CardContent = ({ project, isEven }: { project: typeof projects[0], isEven: boolean }) => (
@@ -19,7 +19,7 @@ export function SelectedWorkSection() {
           {project.title}
         </h3>
         <p className="font-sans text-[14px] md:text-[15px] text-on-surface-variant mb-8 leading-relaxed line-clamp-3">
-          {project.description}
+          {i18n.language === 'ar' && project.descriptionAr ? project.descriptionAr : project.description}
         </p>
 
         <div className="flex flex-wrap gap-2 mb-8">

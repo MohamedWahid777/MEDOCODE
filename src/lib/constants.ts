@@ -295,6 +295,7 @@ export interface Project {
   category: string
   title: string
   description: string
+  descriptionAr?: string
   technologies: string[]
   liveUrl?: string
   githubUrl?: string
@@ -308,6 +309,8 @@ export const projects: Project[] = [
     title: 'Nassif Rehab Platform',
     description:
       'A comprehensive medical digital platform for Nassif Pediatric Physical Therapy & Rehabilitation Center. Features a Medical-Tech Luxury visual identity, bilingual Arabic/English support, dynamic Dark/Light Mode, and professional animations.',
+    descriptionAr:
+      'منصة رقمية طبية متكاملة لمركز نصيف للعلاج الطبيعي وتأهيل الأطفال، تتميز بهوية بصرية احترافية تجمع بين الطابع الطبي والتقني، مع دعم كامل للغتين العربية والإنجليزية، ووضعَي الإضاءة الداكن والفاتح، بالإضافة إلى حركات تفاعلية احترافية.',
     technologies: ['React', 'Vite', 'Tailwind CSS', 'Framer Motion', 'i18next', 'HTML5 Canvas'],
     liveUrl: 'https://nasif-center.netlify.app/',
     githubUrl: 'https://github.com/MohamedWahid777/nasif-physical-therapy-center.git',
@@ -319,6 +322,8 @@ export const projects: Project[] = [
     title: 'Portfolio Website',
     description:
       'A modern and professional portfolio website with a sleek UI, Dark/Light Mode, smooth animations, responsive design, and a backend-free contact form — built to make a strong first impression.',
+    descriptionAr:
+      'موقع بورتفوليو احترافي وعصري يتميز بواجهة أنيقة، ودعم للوضع الداكن والفاتح، وحركات سلسة، وتصميم متجاوب بالكامل، ونموذج تواصل يعمل بدون حاجة إلى Backend، بهدف ترك انطباع احترافي قوي.',
     technologies: ['HTML', 'CSS', 'JavaScript'],
     liveUrl: 'https://medocode-portfolio.netlify.app/',
     githubUrl: 'https://github.com/MohamedWahid777/MEDOCODE-Portfolio.git',
@@ -330,6 +335,8 @@ export const projects: Project[] = [
     title: 'Cafe Website',
     description:
       'A responsive café website with bilingual Arabic/English support, interactive menu, cart system, and reservation forms. Built with a focus on clean design and smooth user experience.',
+    descriptionAr:
+      'موقع مقهى متجاوب بالكامل يدعم اللغتين العربية والإنجليزية، ويحتوي على قائمة تفاعلية، ونظام سلة مشتريات، ونماذج للحجوزات، مع التركيز على تجربة مستخدم سلسة وتصميم نظيف وعصري.',
     technologies: ['HTML', 'Tailwind CSS', 'JavaScript'],
     liveUrl: 'https://wbsite-cafe.netlify.app/',
     githubUrl: 'https://github.com/MohamedWahid777/Cafe-Website.git',
@@ -341,6 +348,8 @@ export const projects: Project[] = [
     title: 'Restaurant Website',
     description:
       'An appetizing and responsive landing page for a fast-food restaurant featuring an interactive menu, structured layouts, and vibrant visual aesthetics.',
+    descriptionAr:
+      'صفحة هبوط احترافية لمطعم وجبات سريعة، تتميز بقائمة طعام تفاعلية، وتنظيم بصري واضح للمحتوى، وتصميم حيوي وجذاب يعكس هوية المطعم.',
     technologies: ['HTML', 'CSS', 'JavaScript'],
     liveUrl: 'https://rurger-rush.netlify.app/',
     githubUrl: 'https://github.com/MohamedWahid777/Fast-food-restaurant.git',
@@ -352,6 +361,8 @@ export const projects: Project[] = [
     title: 'Gym Website',
     description:
       'A responsive gym landing page supporting Arabic & English with pricing plans, services overview, and smooth UI interactions.',
+    descriptionAr:
+      'صفحة هبوط متجاوبة لصالة رياضية تدعم اللغتين العربية والإنجليزية، وتتضمن خطط الأسعار، وعرض الخدمات، وحركات تفاعلية سلسة لتحسين تجربة المستخدم.',
     technologies: ['HTML', 'CSS', 'JavaScript'],
     liveUrl: 'https://gym-ironcore.netlify.app/',
     githubUrl: 'https://github.com/MohamedWahid777/gym-website.git',

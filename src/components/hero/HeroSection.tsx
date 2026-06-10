@@ -40,7 +40,10 @@ export function HeroSection() {
       className="relative min-h-screen h-[100dvh] w-full max-w-full flex items-center justify-center overflow-hidden bg-background"
     >
       {/* 3D Particle Background — div عادي بدون motion عشان نتجنب اللاج */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
+      <div 
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{ backgroundColor: 'var(--hero-scene-bg)', transition: 'background-color 0.35s ease' }}
+      >
         <Canvas
           camera={{ position: [0, 0, 5], fov: 75 }}
           dpr={[1, 1.5]}
@@ -78,9 +81,9 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={hasAnimated ? { duration: 0 } : { duration: 1.2, delay: 0.3 }}
         >
-          <span className="flex flex-wrap justify-center gap-x-4">
-            <span className="bg-gradient-to-r from-[#ffffff] via-[#e4e4e7] to-[#a1a1aa] bg-clip-text text-transparent font-extrabold">{t('hero.firstName')}</span>
-            <span className="text-on-surface-variant font-light">{t('hero.lastName')}</span>
+          <span className="flex flex-wrap justify-center gap-x-4" dir="ltr">
+            <span className="bg-gradient-to-r from-[#ffffff] via-[#e4e4e7] to-[#a1a1aa] bg-clip-text text-transparent font-extrabold">Mohamed</span>
+            <span className="text-on-surface-variant font-light">Wahid</span>
           </span>
         </motion.h1>
 

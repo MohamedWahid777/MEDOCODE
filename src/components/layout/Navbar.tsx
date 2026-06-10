@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
+import { useTheme } from '../../context/ThemeContext'
 import { useLanguage } from '../../context/LanguageContext'
 import { navLinks } from '../../lib/constants'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Sun, Moon } from 'lucide-react'
+import { Logo } from '../ui/Logo'
 
 export function Navbar() {
   const { scrollY } = useScroll()
@@ -11,6 +13,11 @@ export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { t } = useTranslation()
   const { language, setLanguage, isRtl } = useLanguage()
+  const { theme, setTheme } = useTheme()
+
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'warm' : 'dark')
+  }
 
   // Hide/Reveal navbar based on scroll direction
   useMotionValueEvent(scrollY, 'change', (latest) => {
@@ -52,9 +59,9 @@ export function Navbar() {
           <a 
             href="#" 
             onClick={(e) => handleNavClick(e, 'body')}
-            className="font-display text-[24px] tracking-tighter text-primary hover-effect"
+            className="hover-effect"
           >
-            MEDOCODE
+            <Logo />
           </a>
 
           {/* Desktop Nav */}
@@ -72,6 +79,13 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center gap-4 md:gap-6">
+            <button
+              onClick={toggleTheme}
+              className="text-primary hover:opacity-80 transition-opacity duration-300 hidden md:block hover-effect"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
             <button
               onClick={toggleLanguage}
               className="text-primary hover:opacity-80 transition-opacity duration-300 font-mono-label hidden md:block hover-effect"
@@ -123,7 +137,7 @@ export function Navbar() {
               }`}
             >
               <div className="flex justify-between items-center mb-12">
-                <span className="font-display text-[18px] tracking-[0.2em] text-on-surface-variant uppercase">Menu</span>
+                <Logo />
                 <button 
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/50 hover:bg-white/5 transition-all group"
@@ -148,6 +162,17 @@ export function Navbar() {
               </div>
 
               <div className="flex flex-col gap-4 mt-auto border-t border-white/10 pt-8">
+                <button
+                  onClick={toggleTheme}
+                  className="flex items-center justify-between p-4 rounded-xl border border-white/5 bg-white/5 hover:bg-white/10 transition-colors"
+                >
+                  <span className="font-mono-label tracking-widest text-[11px] text-on-surface-variant uppercase">
+                    Theme
+                  </span>
+                  <span className="text-primary">
+                    {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+                  </span>
+                </button>
                 <button
                   onClick={toggleLanguage}
                   className="flex items-center justify-between p-4 rounded-xl border border-white/5 bg-white/5 hover:bg-white/10 transition-colors"

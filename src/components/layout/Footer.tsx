@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { ArrowUp } from 'lucide-react'
 import { navLinks } from '../../lib/constants'
+import { Logo } from '../ui/Logo'
 
 export function Footer() {
   const { t } = useTranslation()
@@ -47,6 +48,7 @@ export function Footer() {
     <footer 
       ref={footerRef}
       className="relative overflow-hidden bg-background border-t border-white/5 pt-20 pb-12"
+      dir="ltr"
     >
       <motion.div 
         style={{ y }}
@@ -58,10 +60,9 @@ export function Footer() {
           {/* LEFT COLUMN: BRAND & IDENTITY SUMMARY (5 Columns on Desktop) */}
           <div className="lg:col-span-5 flex flex-col justify-between gap-10 items-center text-center lg:items-start lg:text-start">
             <div className="flex flex-col items-center lg:items-start">
-              {/* Reduced size premium brand header */}
-              <h2 className="font-display text-[32px] sm:text-[40px] md:text-[48px] leading-none tracking-tighter text-primary mb-4">
-                MEDOCODE
-              </h2>
+              <div className="mb-4">
+                <Logo />
+              </div>
               <p className="font-mono-label text-[10px] sm:text-xs text-on-surface-variant tracking-widest uppercase max-w-sm leading-relaxed">
                 {t('footer.tagline')}
               </p>
@@ -201,7 +202,7 @@ export function Footer() {
       {/* Massive Background Text Graphic - Scaled beautifully to a medium size that is fully visible on all viewports */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none opacity-[0.02] z-0 select-none overflow-hidden max-w-container-max px-margin-mobile md:px-margin-desktop">
         <span className="font-display text-[clamp(2.5rem,10.5vw,7.5rem)] whitespace-nowrap leading-none tracking-tighter text-primary">
-          MEDOCODE
+          &lt; MEDOCODE /&gt;
         </span>
       </div>
     </footer>

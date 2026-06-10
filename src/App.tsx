@@ -3,7 +3,6 @@ import { ThemeProvider } from './context/ThemeContext'
 import { LanguageProvider } from './context/LanguageContext'
 import { SmoothScroll } from './components/effects/SmoothScroll'
 import { CustomCursor } from './components/effects/CustomCursor'
-import { Preloader } from './components/effects/Preloader'
 import { Navbar } from './components/layout/Navbar'
 import { HeroSection } from './components/hero/HeroSection'
 import { AboutSection } from './components/about/AboutSection'
@@ -29,7 +28,6 @@ function AppContent() {
         <title>MEDOCODE — {t('hero.firstName')} {t('hero.lastName')} | {t('hero.subtitle')}</title>
         <meta name="description" content={t('intro.body')} />
       </Helmet>
-      <Preloader />
       <CustomCursor />
       
       <SmoothScroll>

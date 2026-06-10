@@ -1,8 +1,10 @@
 import { useRef, useMemo } from 'react'
 import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
+import { useTheme } from '../../context/ThemeContext'
 
 export function ParticleField() {
+  const { theme } = useTheme()
   const pointsRef = useRef<THREE.Points>(null)
   const count = 2000
   const smoothMouse = useRef(new THREE.Vector2(0, 0))
@@ -40,6 +42,16 @@ export function ParticleField() {
 
   // أرقام ثابتة — مش بتتغير مع viewport أو scroll
   const [positions, colors, sizes, initialPositions] = useMemo(() => {
+    const getCSSColor = (varName: string) => {
+      if (typeof window === 'undefined') return '#ffffff'
+      return getComputedStyle(document.documentElement).getPropertyValue(varName).trim() || '#ffffff'
+    }
+
+    const primaryColor = new THREE.Color(getCSSColor('--hero-shape-primary'))
+    const secondaryColor = new THREE.Color(getCSSColor('--hero-shape-secondary'))
+    const accentColor = new THREE.Color(getCSSColor('--hero-shape-accent'))
+    const emissiveColor = new THREE.Color(getCSSColor('--hero-shape-emissive'))
+
     const pos     = new Float32Array(count * 3)
     const col     = new Float32Array(count * 3)
     const siz     = new Float32Array(count)
@@ -56,20 +68,18 @@ export function ParticleField() {
 
       let baseColor: THREE.Color
       const rand = Math.random()
-      if      (rand < 0.25) baseColor = new THREE.Color('#60a5fa')
-      else if (rand < 0.45) baseColor = new THREE.Color('#93c5fd')
-      else if (rand < 0.60) baseColor = new THREE.Color('#bfdbfe')
-      else if (rand < 0.75) baseColor = new THREE.Color('#38bdf8')
-      else if (rand < 0.88) baseColor = new THREE.Color('#a1a1aa')
-      else                  baseColor = new THREE.Color('#ffffff')
+      if      (rand < 0.45) baseColor = primaryColor.clone()
+      else if (rand < 0.75) baseColor = primaryColor.clone().lerp(secondaryColor, Math.random())
+      else if (rand < 0.88) baseColor = secondaryColor.clone()
+      else                  baseColor = accentColor.clone()
 
-      const c = baseColor.clone().lerp(new THREE.Color('#0f172a'), Math.random() * 0.35)
+      const c = baseColor.clone().lerp(emissiveColor, Math.random() * 0.35)
       col[i3] = c.r; col[i3+1] = c.g; col[i3+2] = c.b
       siz[i] = (Math.pow(Math.random(), 2.0) * 4.0 + 1.0) * 1.5
     }
 
     return [pos, col, siz, initPos]
-  }, [count])
+  }, [count, theme])
 
   const uniforms = useMemo(() => ({
     uTime:       { value: 0 },

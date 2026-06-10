@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 
-type Theme = 'dark' | 'light'
+type Theme = 'dark' | 'light' | 'warm'
 
 type ThemeProviderProps = {
   children: React.ReactNode
@@ -33,12 +33,13 @@ export function ThemeProvider({
   useEffect(() => {
     const root = window.document.documentElement
 
-    root.classList.remove('light', 'dark')
+    root.classList.remove('light', 'dark', 'warm')
     root.classList.add(theme)
+    root.setAttribute('data-theme', theme)
 
     const metaThemeColor = document.querySelector('meta[name="theme-color"]')
     if (metaThemeColor) {
-      metaThemeColor.setAttribute('content', theme === 'dark' ? '#0A0A0A' : '#f8f8f8')
+      metaThemeColor.setAttribute('content', theme === 'dark' ? '#0A0A0A' : theme === 'warm' ? '#FDFAF4' : '#f8f8f8')
     }
   }, [theme])
 
