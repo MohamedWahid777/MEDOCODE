@@ -6,18 +6,16 @@
     "about": "About",
     "contact": "Contact",
     "letsBuild": "Let's Talk",
-    "langSwitch": "عربي"
+    "langSwitch": "AR"
   },
   "hero": {
-    "badge": "AVAILABLE FOR NEW PROJECTS",
-    "preTitle": "Crafting premium web products",
+    "preTitle": "I build modern web experiences",
     "firstName": "Mohamed",
     "lastName": "Wahid",
-    "tagline": "Front-End Developer & UI Engineer specializing in ultra-performance, immersive interfaces.",
-    "introduction": "A developer dedicated to bringing digital concepts to life with pixel-perfect precision, butter-smooth custom interactions, and clean code architectures.",
-    "ctaPrimary": "Explore Selected Work",
-    "ctaSecondary": "Start a Conversation",
-    "scroll": "Scroll to discover"
+    "tagline": "Frontend Developer focused on crafting smooth and fast web experiences",
+    "introduction": "I turn ideas into clean, fast, and interactive web interfaces that focus on user experience.",
+    "ctaPrimary": "View My Work",
+    "ctaSecondary": "Get in Touch"
   },
   "intro": {
     "highlight": "I build digital experiences",
@@ -108,12 +106,12 @@
   },
   "feedback": {
     "title": "Client Feedback",
-    "subtitle": "What clients say about working with MEDOCODE."
+    "subtitle": "What clients say about working with me."
   },
   "contact": {
-    "title": "Let's build",
-    "titleLine2": "something.",
-    "subtitle": "Available for new projects. Whether you have a clear brief or just an idea — let's start the conversation.",
+    "title": "Contact ",
+    "titleLine2": "me.",
+    "subtitle": "Ready for new projects. Let’s transform your idea into a meaningful digital experience.",
     "form": {
       "fullName": "Full Name",
       "phone": "Phone Number",
@@ -137,7 +135,7 @@
     }
   },
   "footer": {
-    "tagline": "Engineered for precision. Building high-performance web experiences.",
+    "tagline": "Building high-performance web experiences.",
     "copyright": "© 2026 Mohamed Wahid. All rights reserved.",
     "navigation": "Navigation",
     "socials": "Socials"

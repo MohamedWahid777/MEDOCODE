@@ -111,7 +111,7 @@ export function Footer() {
             {/* Inquiries / Social Icons — same design system as ContactSection socials */}
             <div className="border-t border-white/10 pt-6 w-1/2 sm:w-auto flex flex-col items-end sm:items-start text-end sm:text-start">
               <h4 className="font-mono-label text-on-surface-variant uppercase mb-6 tracking-widest text-[10px] sm:text-xs">
-                Inquiries
+                Socials
               </h4>
               <div className="flex flex-col justify-between h-full items-end sm:items-start pb-2 gap-4">
                 {/* GitHub */}
