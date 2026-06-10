@@ -82,7 +82,7 @@ export function HeroSection() {
           transition={hasAnimated ? { duration: 0 } : { duration: 1.2, delay: 0.3 }}
         >
           <span className="flex flex-wrap justify-center gap-x-4" dir="ltr">
-            <span className="bg-gradient-to-r from-[#ffffff] via-[#e4e4e7] to-[#a1a1aa] bg-clip-text text-transparent font-extrabold">Mohamed</span>
+            <span style={{ backgroundImage: 'linear-gradient(to right, var(--hero-name-from), var(--hero-name-via), var(--hero-name-to))' }} className="bg-clip-text text-transparent font-extrabold">Mohamed</span>
             <span className="text-on-surface-variant font-light">Wahid</span>
           </span>
         </motion.h1>
@@ -113,7 +113,7 @@ export function HeroSection() {
         >
           <a 
             href="#work"
-            className="bg-primary text-background border border-primary px-8 py-4 rounded-full font-mono-label text-center hover:bg-white/90 hover:border-white/90 transition-all duration-300 hover-effect block w-full sm:w-auto"
+            className="hero-cta-button px-8 py-4 rounded-full font-mono-label text-center block w-full sm:w-auto"
           >
             {t('hero.ctaPrimary')}
           </a>

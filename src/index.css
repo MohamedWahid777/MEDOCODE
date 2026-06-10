@@ -72,10 +72,23 @@
   /* 3D Hero scene colors */
   --hero-scene-bg:      #000000;
   --hero-shape-primary: #3B82F6;
-  --hero-shape-secondary: #6B7280;
-  --hero-shape-accent:  #E5E7EB;
-  --hero-shape-emissive: #1E3A5F;
-  --hero-fog-color:     #111111;
+  --hero-shape-secondary: #8B5CF6;
+  --hero-shape-accent:  #60A5FA;
+  --hero-shape-emissive: #1D4ED8;
+  --hero-fog-color:     #000000;
+
+  /* Hero Text Gradient */
+  --hero-name-from:     #ffffff;
+  --hero-name-via:      #e4e4e7;
+  --hero-name-to:       #a1a1aa;
+
+  /* Hero CTA */
+  --hero-cta-bg:        var(--color-primary);
+  --hero-cta-hover-bg:  rgba(255, 255, 255, 0.9);
+  --hero-cta-text:      var(--color-background);
+  --hero-cta-border:    var(--color-primary);
+  --hero-cta-hover-border: rgba(255, 255, 255, 0.9);
+  --hero-cta-shadow:    transparent;
 
   color-scheme: dark;
 }
@@ -185,11 +198,24 @@
 
   /* Refinement 3 — 3D Hero shapes: darker, more premium deep copper/bronze */
   --hero-scene-bg:           transparent;
-  --hero-shape-primary:      #5C3108;
-  --hero-shape-secondary:    #6B4412;
-  --hero-shape-accent:       #A37A45;
-  --hero-shape-emissive:     #2E1504;
+  --hero-shape-primary:      #A66F17; /* Deep luxury gold */
+  --hero-shape-secondary:    #C8942A; /* Rich amber */
+  --hero-shape-accent:       #E5B245; /* Metallic warm yellow */
+  --hero-shape-emissive:     #73480C; /* Dark golden */
   --hero-fog-color:          transparent;
+
+  /* Hero Name Gradient */
+  --hero-name-from:          #C27D26; /* Deep golden amber */
+  --hero-name-via:           #E5B245; /* Rich warm gold */
+  --hero-name-to:            #8C5A14; /* Dark luxury gold */
+
+  /* Hero CTA Button */
+  --hero-cta-bg:             #7A4B0E; /* Dark amber gold base */
+  --hero-cta-hover-bg:       #A36B1C; /* Brighter golden amber hover */
+  --hero-cta-text:           #FDFAF4;
+  --hero-cta-border:         #C88A22; /* Luxury metallic gold accent border */
+  --hero-cta-hover-border:   #E5B245;
+  --hero-cta-shadow:         rgba(122, 75, 14, 0.35);
 
   /* Refinement 4 — ProcessTimeline visual rework */
   --timeline-track-color:    #E0D4C0;
@@ -333,4 +359,44 @@ html.lenis body {
     overflow: hidden;
     clip-path: inset(0);
   }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Custom Components
+   ══════════════════════════════════════════════════════════════ */
+
+.hero-cta-button {
+  background-color: var(--hero-cta-bg);
+  color: var(--hero-cta-text);
+  border: 1px solid var(--hero-cta-border);
+  box-shadow: 0 4px 14px var(--hero-cta-shadow);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-cta-button::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; width: 50%; height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transform: skewX(-20deg);
+  transition: all 0.7s ease;
+}
+
+.hero-cta-button:hover {
+  background-color: var(--hero-cta-hover-bg);
+  border-color: var(--hero-cta-hover-border);
+  color: var(--color-background);
+  box-shadow: 0 8px 24px var(--hero-cta-shadow), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.hero-cta-button:hover::after {
+  left: 150%;
+}
+
+.hero-cta-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px var(--hero-cta-shadow);
 }
