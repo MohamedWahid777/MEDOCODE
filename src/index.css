@@ -149,12 +149,14 @@
   --color-surface-container-high: #E8D9B4;
   --color-surface-container-highest: #D4BC8A;
 
-  /* Refinement 1 — Headings: darker, more readable */
-  --color-on-background:     #1A0F02;
-  --color-on-surface:        #2E1A08;
-  --color-on-surface-variant:#7A5C35;
-  --color-heading:           #1A0F02;
-  --color-heading-sub:       #3B2208;
+  /* Refinement 1 — Headings & Text: darker, more readable, premium espresso */
+  --color-on-background:     #1A0B02;
+  --color-on-surface:        #2A1708;
+  --color-on-surface-variant:#4A3219;
+  
+  /* Refinement 2 — Section Titles: deeper, dominating */
+  --color-heading:           #0F0600;
+  --color-heading-sub:       #1F1004;
 
   --color-primary:           #8B5E1A;
   --color-primary-variant:   #B07D2F;
@@ -166,19 +168,19 @@
   --color-outline:           #C8BFB0;
   --color-outline-variant:   #DDD8D0;
 
-  /* Refinement 3 — 3D Hero shapes: darker, more visible */
+  /* Refinement 3 — 3D Hero shapes: darker, more premium deep copper/bronze */
   --hero-scene-bg:           #1C1007;
-  --hero-shape-primary:      #6B4010;
-  --hero-shape-secondary:    #8B6520;
-  --hero-shape-accent:       #D4BC8A;
-  --hero-shape-emissive:     #3B2208;
+  --hero-shape-primary:      #5C3108;
+  --hero-shape-secondary:    #6B4412;
+  --hero-shape-accent:       #A37A45;
+  --hero-shape-emissive:     #2E1504;
   --hero-fog-color:          #1C1007;
 
-  /* Refinement 2 — ProcessTimeline colors */
-  --timeline-track-color:    #C4A882;
+  /* Refinement 4 — ProcessTimeline visual rework */
+  --timeline-track-color:    #E0D4C0;
   --timeline-progress-color: #5C3A10;
-  --timeline-dot-color:      #3B2208;
-  --timeline-dot-border:     #8B5E1A;
+  --timeline-progress-dot-color: #5C3A10;
+  
   --timeline-circle-bg:      #EDE5CC;
   --timeline-circle-border:  #5C3A10;
   --timeline-circle-icon:    #3B2208;

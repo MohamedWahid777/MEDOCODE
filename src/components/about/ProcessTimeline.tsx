@@ -51,9 +51,9 @@ export function ProcessTimeline() {
         bgActive: getCSSVar('--timeline-circle-bg') || darkColors.bgActive,
         trackBg: getCSSVar('--timeline-track-color') || darkColors.trackBg,
         progressGradient: getCSSVar('--timeline-progress-color') || darkColors.progressGradient,
-        dotBg: getCSSVar('--timeline-dot-color') || darkColors.dotBg,
-        dotShadow: `0 0 10px ${getCSSVar('--timeline-dot-border') || '#8B5E1A'}`,
-        dotBorderColor: getCSSVar('--timeline-dot-border') || darkColors.dotBorderColor,
+        dotBg: getCSSVar('--timeline-progress-dot-color') || darkColors.dotBg,
+        dotShadow: `0 0 10px ${getCSSVar('--timeline-progress-dot-color') || '#8B5E1A'}`,
+        dotBorderColor: getCSSVar('--timeline-progress-dot-color') || darkColors.dotBorderColor,
       })
     } else {
       setTc(darkColors)
@@ -157,7 +157,7 @@ export function ProcessTimeline() {
             {/* Glowing pointer tip following scroll progress */}
             <motion.div
               style={{ top: tipTop, opacity: tipOpacity, backgroundColor: tc.dotBg, boxShadow: tc.dotShadow, borderColor: tc.dotBorderColor }}
-              className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 rounded-full z-20 border transition-all duration-300"
+              className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 rounded-full z-20 border transition-[background-color,border-color,box-shadow] duration-300"
             />
           </div>
 
