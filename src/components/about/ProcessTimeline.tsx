@@ -1,6 +1,7 @@
-import { useRef } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
+import { useTheme } from '../../context/ThemeContext'
 import { processSteps } from '../../lib/constants'
 import { Search, ListChecks, Palette, Code2, Rocket } from 'lucide-react'
 
@@ -13,9 +14,51 @@ const IconMap: Record<string, React.ElementType> = {
   Rocket
 }
 
+// Default dark theme colors (original hardcoded values)
+const darkColors = {
+  iconInactive: 'rgba(255,255,255,0.4)',
+  iconActive: '#ffffff',
+  borderInactive: 'rgba(255,255,255,0.06)',
+  borderActive: 'rgba(255,255,255,0.3)',
+  bgInactive: 'rgba(24,24,27,0.6)',
+  bgActive: 'rgba(255,255,255,0.05)',
+  trackBg: 'rgba(255,255,255,0.05)',
+  progressGradient: 'linear-gradient(to bottom, #ffffff, rgba(255,255,255,0.4), #ffffff)',
+  dotBg: '#ffffff',
+  dotShadow: '0 0 10px #ffffff',
+  dotBorderColor: 'rgba(255,255,255,0.5)',
+}
+
 export function ProcessTimeline() {
   const { t } = useTranslation()
+  const { theme } = useTheme()
   const containerRef = useRef<HTMLDivElement>(null)
+
+  // Theme-driven color state
+  const [tc, setTc] = useState(darkColors)
+
+  useEffect(() => {
+    if (theme === 'warm') {
+      const getCSSVar = (name: string) =>
+        getComputedStyle(document.documentElement).getPropertyValue(name).trim()
+
+      setTc({
+        iconInactive: getCSSVar('--timeline-circle-icon') || darkColors.iconInactive,
+        iconActive: getCSSVar('--timeline-circle-icon') || darkColors.iconActive,
+        borderInactive: getCSSVar('--timeline-circle-border') || darkColors.borderInactive,
+        borderActive: getCSSVar('--timeline-circle-border') || darkColors.borderActive,
+        bgInactive: getCSSVar('--color-surface-variant') || darkColors.bgInactive,
+        bgActive: getCSSVar('--timeline-circle-bg') || darkColors.bgActive,
+        trackBg: getCSSVar('--timeline-track-color') || darkColors.trackBg,
+        progressGradient: getCSSVar('--timeline-progress-color') || darkColors.progressGradient,
+        dotBg: getCSSVar('--timeline-dot-color') || darkColors.dotBg,
+        dotShadow: `0 0 10px ${getCSSVar('--timeline-dot-border') || '#8B5E1A'}`,
+        dotBorderColor: getCSSVar('--timeline-dot-border') || darkColors.dotBorderColor,
+      })
+    } else {
+      setTc(darkColors)
+    }
+  }, [theme])
 
   // Track scroll progress of the timeline section in the middle of the viewport
   const { scrollYProgress } = useScroll({
@@ -51,25 +94,25 @@ export function ProcessTimeline() {
   const itemYs = [item0Y, item1Y, item2Y, item3Y, item4Y]
 
   // Color & lighting state transitions for center icons to represent activation
-  const icon0Color = useTransform(scrollYProgress, [0, 0.05], ['rgba(255,255,255,0.4)', '#ffffff'])
-  const icon0Border = useTransform(scrollYProgress, [0, 0.05], ['rgba(255,255,255,0.06)', 'rgba(255,255,255,0.3)'])
-  const icon0Bg = useTransform(scrollYProgress, [0, 0.05], ['rgba(24,24,27,0.6)', 'rgba(255,255,255,0.05)'])
+  const icon0Color = useTransform(scrollYProgress, [0, 0.05], [tc.iconInactive, tc.iconActive])
+  const icon0Border = useTransform(scrollYProgress, [0, 0.05], [tc.borderInactive, tc.borderActive])
+  const icon0Bg = useTransform(scrollYProgress, [0, 0.05], [tc.bgInactive, tc.bgActive])
 
-  const icon1Color = useTransform(scrollYProgress, [0.10, 0.22], ['rgba(255,255,255,0.4)', '#ffffff'])
-  const icon1Border = useTransform(scrollYProgress, [0.10, 0.22], ['rgba(255,255,255,0.06)', 'rgba(255,255,255,0.3)'])
-  const icon1Bg = useTransform(scrollYProgress, [0.10, 0.22], ['rgba(24,24,27,0.6)', 'rgba(255,255,255,0.05)'])
+  const icon1Color = useTransform(scrollYProgress, [0.10, 0.22], [tc.iconInactive, tc.iconActive])
+  const icon1Border = useTransform(scrollYProgress, [0.10, 0.22], [tc.borderInactive, tc.borderActive])
+  const icon1Bg = useTransform(scrollYProgress, [0.10, 0.22], [tc.bgInactive, tc.bgActive])
 
-  const icon2Color = useTransform(scrollYProgress, [0.32, 0.45], ['rgba(255,255,255,0.4)', '#ffffff'])
-  const icon2Border = useTransform(scrollYProgress, [0.32, 0.45], ['rgba(255,255,255,0.06)', 'rgba(255,255,255,0.3)'])
-  const icon2Bg = useTransform(scrollYProgress, [0.32, 0.45], ['rgba(24,24,27,0.6)', 'rgba(255,255,255,0.05)'])
+  const icon2Color = useTransform(scrollYProgress, [0.32, 0.45], [tc.iconInactive, tc.iconActive])
+  const icon2Border = useTransform(scrollYProgress, [0.32, 0.45], [tc.borderInactive, tc.borderActive])
+  const icon2Bg = useTransform(scrollYProgress, [0.32, 0.45], [tc.bgInactive, tc.bgActive])
 
-  const icon3Color = useTransform(scrollYProgress, [0.57, 0.70], ['rgba(255,255,255,0.4)', '#ffffff'])
-  const icon3Border = useTransform(scrollYProgress, [0.57, 0.70], ['rgba(255,255,255,0.06)', 'rgba(255,255,255,0.3)'])
-  const icon3Bg = useTransform(scrollYProgress, [0.57, 0.70], ['rgba(24,24,27,0.6)', 'rgba(255,255,255,0.05)'])
+  const icon3Color = useTransform(scrollYProgress, [0.57, 0.70], [tc.iconInactive, tc.iconActive])
+  const icon3Border = useTransform(scrollYProgress, [0.57, 0.70], [tc.borderInactive, tc.borderActive])
+  const icon3Bg = useTransform(scrollYProgress, [0.57, 0.70], [tc.bgInactive, tc.bgActive])
 
-  const icon4Color = useTransform(scrollYProgress, [0.80, 0.92], ['rgba(255,255,255,0.4)', '#ffffff'])
-  const icon4Border = useTransform(scrollYProgress, [0.80, 0.92], ['rgba(255,255,255,0.06)', 'rgba(255,255,255,0.3)'])
-  const icon4Bg = useTransform(scrollYProgress, [0.80, 0.92], ['rgba(24,24,27,0.6)', 'rgba(255,255,255,0.05)'])
+  const icon4Color = useTransform(scrollYProgress, [0.80, 0.92], [tc.iconInactive, tc.iconActive])
+  const icon4Border = useTransform(scrollYProgress, [0.80, 0.92], [tc.borderInactive, tc.borderActive])
+  const icon4Bg = useTransform(scrollYProgress, [0.80, 0.92], [tc.bgInactive, tc.bgActive])
 
   const iconColors = [icon0Color, icon1Color, icon2Color, icon3Color, icon4Color]
   const iconBorders = [icon0Border, icon1Border, icon2Border, icon3Border, icon4Border]
@@ -101,17 +144,20 @@ export function ProcessTimeline() {
 
         <div className="w-full max-w-4xl mx-auto relative min-h-[1200px] md:min-h-[1400px]">
           {/* Dynamic connecting track: static background and glowing scale-grown active line */}
-          <div className="absolute left-7 md:left-1/2 top-[28px] bottom-[28px] w-[2px] bg-white/5 md:-translate-x-1/2 rounded-full pointer-events-none">
+          <div
+            className="absolute left-7 md:left-1/2 top-[28px] bottom-[28px] w-[2px] md:-translate-x-1/2 rounded-full pointer-events-none transition-colors duration-300"
+            style={{ backgroundColor: tc.trackBg }}
+          >
             {/* Active glowing progress line */}
             <motion.div
-              style={{ scaleY: scrollYProgress, transformOrigin: 'top' }}
-              className="w-full h-full bg-gradient-to-b from-white via-white/40 to-white"
+              style={{ scaleY: scrollYProgress, transformOrigin: 'top', background: tc.progressGradient }}
+              className="w-full h-full transition-colors duration-300"
             />
             
             {/* Glowing pointer tip following scroll progress */}
             <motion.div
-              style={{ top: tipTop, opacity: tipOpacity }}
-              className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 rounded-full bg-white shadow-[0_0_10px_#ffffff] z-20 border border-white/50 transition-shadow duration-300"
+              style={{ top: tipTop, opacity: tipOpacity, backgroundColor: tc.dotBg, boxShadow: tc.dotShadow, borderColor: tc.dotBorderColor }}
+              className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 w-3.5 h-3.5 rounded-full z-20 border transition-all duration-300"
             />
           </div>
 

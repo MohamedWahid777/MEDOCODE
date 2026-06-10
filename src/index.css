@@ -149,27 +149,40 @@
   --color-surface-container-high: #E8D9B4;
   --color-surface-container-highest: #D4BC8A;
 
-  --color-on-background:     #2C1F0A;
-  --color-on-surface:        #4A3620;
+  /* Refinement 1 — Headings: darker, more readable */
+  --color-on-background:     #1A0F02;
+  --color-on-surface:        #2E1A08;
   --color-on-surface-variant:#7A5C35;
-  
+  --color-heading:           #1A0F02;
+  --color-heading-sub:       #3B2208;
+
   --color-primary:           #8B5E1A;
   --color-primary-variant:   #B07D2F;
   --color-on-primary:        #FDFAF4;
-  
-  --color-border:            #D4BC8A;
-  --color-border-subtle:     #E8D9B4;
-  
-  --color-outline:           #D4BC8A;
-  --color-outline-variant:   #E8D9B4;
 
-  /* 3D Hero scene colors */
-  --hero-scene-bg:           #2C1F0A;
-  --hero-shape-primary:      #8B5E1A;
-  --hero-shape-secondary:    #C49A4A;
-  --hero-shape-accent:       #E8D9B4;
-  --hero-shape-emissive:     #4A2E08;
-  --hero-fog-color:          #3B2810;
+  /* Refinement 4 — Borders: neutral warm gray, no yellow */
+  --color-border:            #C8BFB0;
+  --color-border-subtle:     #DDD8D0;
+  --color-outline:           #C8BFB0;
+  --color-outline-variant:   #DDD8D0;
+
+  /* Refinement 3 — 3D Hero shapes: darker, more visible */
+  --hero-scene-bg:           #1C1007;
+  --hero-shape-primary:      #6B4010;
+  --hero-shape-secondary:    #8B6520;
+  --hero-shape-accent:       #D4BC8A;
+  --hero-shape-emissive:     #3B2208;
+  --hero-fog-color:          #1C1007;
+
+  /* Refinement 2 — ProcessTimeline colors */
+  --timeline-track-color:    #C4A882;
+  --timeline-progress-color: #5C3A10;
+  --timeline-dot-color:      #3B2208;
+  --timeline-dot-border:     #8B5E1A;
+  --timeline-circle-bg:      #EDE5CC;
+  --timeline-circle-border:  #5C3A10;
+  --timeline-circle-icon:    #3B2208;
+  --timeline-step-number:    #7A5C35;
 
   color-scheme: light;
 }
