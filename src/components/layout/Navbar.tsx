@@ -95,7 +95,7 @@ export function Navbar() {
             <a
               href="#contact"
               onClick={(e) => handleNavClick(e, '#contact')}
-              className="hidden md:block bg-primary text-background px-6 py-2 rounded-full font-mono-label hover:bg-surface-variant hover:text-primary border border-transparent hover:border-white/20 transition-all duration-300 hover-effect"
+              className="hero-cta-button hidden md:block px-6 py-2 rounded-full font-mono-label hover-effect"
             >
               {t('nav.letsBuild')}
             </a>
@@ -190,7 +190,7 @@ export function Navbar() {
                 <a
                   href="#contact"
                   onClick={(e) => handleNavClick(e, '#contact')}
-                  className="bg-primary text-background text-center px-6 py-4 rounded-xl font-mono-label tracking-widest hover:brightness-110 transition-all flex justify-center items-center"
+                  className="hero-cta-button text-center px-6 py-4 rounded-xl font-mono-label tracking-widest flex justify-center items-center"
                 >
                   {t('nav.letsBuild')}
                 </a>

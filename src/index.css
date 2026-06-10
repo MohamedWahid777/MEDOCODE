@@ -198,24 +198,24 @@
 
   /* Refinement 3 — 3D Hero shapes: darker, more premium deep copper/bronze */
   --hero-scene-bg:           transparent;
-  --hero-shape-primary:      #A66F17; /* Deep luxury gold */
-  --hero-shape-secondary:    #C8942A; /* Rich amber */
-  --hero-shape-accent:       #E5B245; /* Metallic warm yellow */
-  --hero-shape-emissive:     #73480C; /* Dark golden */
+  --hero-shape-primary:      #7A4B0E; /* Dark Gold / Premium Bronze-Gold */
+  --hero-shape-secondary:    #935B12; /* Deep Amber Gold */
+  --hero-shape-accent:       #C28A22; /* Rich Luxury Gold */
+  --hero-shape-emissive:     #523108; /* Dark Golden */
   --hero-fog-color:          transparent;
 
   /* Hero Name Gradient */
-  --hero-name-from:          #C27D26; /* Deep golden amber */
-  --hero-name-via:           #E5B245; /* Rich warm gold */
-  --hero-name-to:            #8C5A14; /* Dark luxury gold */
+  --hero-name-from:          #8A5A19; /* Dark Amber Gold */
+  --hero-name-via:           #C28A22; /* Rich Metallic Gold */
+  --hero-name-to:            #5C3A0C; /* Deep Luxury Gold */
 
   /* Hero CTA Button */
-  --hero-cta-bg:             #7A4B0E; /* Dark amber gold base */
-  --hero-cta-hover-bg:       #A36B1C; /* Brighter golden amber hover */
+  --hero-cta-bg:             #6B4412; /* Rich dark gold */
+  --hero-cta-hover-bg:       #935B12; /* Brighter metallic gold */
   --hero-cta-text:           #FDFAF4;
-  --hero-cta-border:         #C88A22; /* Luxury metallic gold accent border */
-  --hero-cta-hover-border:   #E5B245;
-  --hero-cta-shadow:         rgba(122, 75, 14, 0.35);
+  --hero-cta-border:         #A66F17; /* Metallic accent */
+  --hero-cta-hover-border:   #C28A22;
+  --hero-cta-shadow:         rgba(107, 68, 18, 0.4);
 
   /* Refinement 4 — ProcessTimeline visual rework */
   --timeline-track-color:    #E0D4C0;

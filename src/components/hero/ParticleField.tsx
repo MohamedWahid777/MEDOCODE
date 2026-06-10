@@ -143,17 +143,48 @@ export function ParticleField() {
   `
 
   const fragmentShader = `
+    uniform float uIsWarmTheme;
     varying vec3 vColor;
     varying float vDepthOpacity;
+    varying vec2 vUv;
 
     void main() {
-      float dist = distance(gl_PointCoord, vec2(0.5));
-      if (dist > 0.5) discard;
-      float intensity  = smoothstep(0.5, 0.0, dist);
-      float core       = pow(intensity, 4.0) * 0.9;
-      float halo       = pow(intensity, 1.5) * 0.35;
-      float finalAlpha = (core + halo) * vDepthOpacity;
-      gl_FragColor = vec4(vColor, finalAlpha);
+      vec2 uv = gl_PointCoord - 0.5;
+      float dist = length(uv);
+      
+      if (uIsWarmTheme > 0.5) {
+        // High-end metallic sphere shading
+        vec3 normal = vec3(uv * 2.0, sqrt(max(0.0, 1.0 - dot(uv * 2.0, uv * 2.0))));
+        
+        vec3 lightDir = normalize(vec3(-1.0, 1.5, 1.0));
+        float diff = max(dot(normal, lightDir), 0.0);
+        
+        vec3 viewDir = vec3(0.0, 0.0, 1.0);
+        vec3 halfDir = normalize(lightDir + viewDir);
+        float spec = pow(max(dot(normal, halfDir), 0.0), 48.0); // Sharp intense highlight
+        
+        float fresnel = pow(1.0 - max(dot(normal, viewDir), 0.0), 4.0);
+        
+        // Deepen the base color for more contrast and richness
+        vec3 baseColor = pow(vColor, vec3(1.5));
+        
+        vec3 diffuse = baseColor * (diff * 0.8 + 0.2);
+        vec3 specular = vec3(1.0, 0.95, 0.8) * spec * 2.0; // Warm luxury specular
+        vec3 rim = baseColor * vec3(1.0, 0.8, 0.4) * fresnel * 2.5; // Bright gold rim reflection
+        
+        vec3 finalColor = diffuse + specular + rim;
+        finalColor = smoothstep(0.0, 1.0, finalColor); // Enhance contrast
+        
+        float alpha = smoothstep(0.5, 0.45, dist) * vDepthOpacity;
+        gl_FragColor = vec4(finalColor, alpha);
+      } else {
+        if (dist > 0.5) discard;
+        float intensity  = smoothstep(0.5, 0.0, dist);
+        float core       = pow(intensity, 4.0) * 0.9;
+        float halo       = pow(intensity, 1.5) * 0.35;
+        float finalAlpha = (core + halo) * vDepthOpacity;
+        gl_FragColor = vec4(vColor, finalAlpha);
+      }
     }
   `
 
