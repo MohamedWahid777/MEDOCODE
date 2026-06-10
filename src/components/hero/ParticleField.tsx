@@ -168,7 +168,7 @@ export function ParticleField() {
       <shaderMaterial
         transparent
         depthWrite={false}
-        blending={THREE.AdditiveBlending}
+        blending={theme === 'warm' ? THREE.NormalBlending : THREE.AdditiveBlending}
         vertexColors
         vertexShader={vertexShader}
         fragmentShader={fragmentShader}

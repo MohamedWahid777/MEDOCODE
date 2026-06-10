@@ -146,15 +146,18 @@ export function Navbar() {
                 </button>
               </div>
 
-              <div className="flex flex-col gap-6 flex-1 mt-4">
+              <div className="flex flex-col gap-3 flex-1 mt-6">
                 {navLinks.map((link, idx) => (
                   <a
                     key={link.href}
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className="group relative flex items-center"
+                    className="group relative flex items-center p-4 sm:p-5 rounded-2xl border border-white/10 bg-surface-variant/30 hover:bg-surface-variant/80 hover:border-primary/30 transition-all duration-300 overflow-hidden"
                   >
-                    <span className="text-[32px] sm:text-[40px] leading-tight font-display text-on-surface-variant group-hover:text-primary transition-colors">
+                    {/* Subtle accent highlight left border */}
+                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-0 bg-primary group-hover:h-1/2 transition-all duration-300 rounded-r-full" />
+                    
+                    <span className="text-[24px] sm:text-[28px] leading-tight font-display text-on-background group-hover:text-primary transition-colors pl-3">
                       {t(`nav.${link.label.toLowerCase()}`)}
                     </span>
                   </a>

@@ -18,7 +18,7 @@ export function SelectedWorkSection() {
         <h3 className="font-display text-[32px] md:text-[38px] leading-[1.1] text-primary mb-4">
           {project.title}
         </h3>
-        <p className="font-sans text-[14px] md:text-[15px] text-on-surface-variant mb-8 leading-relaxed line-clamp-3">
+        <p className="font-sans text-[14px] md:text-[15px] text-[var(--color-card-text)] mb-8 leading-relaxed line-clamp-3">
           {i18n.language === 'ar' && project.descriptionAr ? project.descriptionAr : project.description}
         </p>
 
@@ -72,13 +72,13 @@ export function SelectedWorkSection() {
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="w-3/4 h-3/4 bg-surface rounded-xl border border-white/5 shadow-2xl flex items-center justify-center overflow-hidden relative"
             >
-              <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,transparent_0%,var(--color-primary)_100%)]" />
+              <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,transparent_0%,var(--color-badge-text)_100%)]" />
               <div className="w-full h-full opacity-20 border-[0.5px] border-primary/20 grid grid-cols-4 grid-rows-4">
                 {Array.from({ length: 16 }).map((_, i) => (
                   <div key={i} className="border-[0.5px] border-primary/20" />
                 ))}
               </div>
-              <span className="font-display text-3xl text-primary/30 absolute">{project.title.charAt(0)}</span>
+              <span className="font-display text-3xl text-[var(--color-badge-text)] absolute">{project.title.charAt(0)}</span>
             </motion.div>
           </div>
         )}

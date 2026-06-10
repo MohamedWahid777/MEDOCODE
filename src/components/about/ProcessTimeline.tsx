@@ -38,26 +38,31 @@ export function ProcessTimeline() {
   const [tc, setTc] = useState(darkColors)
 
   useEffect(() => {
-    if (theme === 'warm') {
+    const updateColors = () => {
       const getCSSVar = (name: string) =>
         getComputedStyle(document.documentElement).getPropertyValue(name).trim()
 
-      setTc({
-        iconInactive: getCSSVar('--timeline-circle-icon') || darkColors.iconInactive,
-        iconActive: getCSSVar('--timeline-circle-icon') || darkColors.iconActive,
-        borderInactive: getCSSVar('--timeline-circle-border') || darkColors.borderInactive,
-        borderActive: getCSSVar('--timeline-circle-border') || darkColors.borderActive,
-        bgInactive: getCSSVar('--color-surface-variant') || darkColors.bgInactive,
-        bgActive: getCSSVar('--timeline-circle-bg') || darkColors.bgActive,
-        trackBg: getCSSVar('--timeline-track-color') || darkColors.trackBg,
-        progressGradient: getCSSVar('--timeline-progress-color') || darkColors.progressGradient,
-        dotBg: getCSSVar('--timeline-progress-dot-color') || darkColors.dotBg,
-        dotShadow: `0 0 10px ${getCSSVar('--timeline-progress-dot-color') || '#8B5E1A'}`,
-        dotBorderColor: getCSSVar('--timeline-progress-dot-color') || darkColors.dotBorderColor,
-      })
-    } else {
-      setTc(darkColors)
+      if (theme === 'warm') {
+        setTc({
+          iconInactive: getCSSVar('--timeline-circle-icon') || darkColors.iconInactive,
+          iconActive: getCSSVar('--timeline-circle-icon') || darkColors.iconActive,
+          borderInactive: getCSSVar('--timeline-circle-border') || darkColors.borderInactive,
+          borderActive: getCSSVar('--timeline-circle-border') || darkColors.borderActive,
+          bgInactive: getCSSVar('--color-surface-variant') || darkColors.bgInactive,
+          bgActive: getCSSVar('--timeline-circle-bg') || darkColors.bgActive,
+          trackBg: getCSSVar('--timeline-track-color') || darkColors.trackBg,
+          progressGradient: getCSSVar('--timeline-progress-color') || darkColors.progressGradient,
+          dotBg: getCSSVar('--timeline-progress-dot-color') || darkColors.dotBg,
+          dotShadow: `0 0 10px ${getCSSVar('--timeline-progress-dot-color') || '#8B5E1A'}`,
+          dotBorderColor: getCSSVar('--timeline-progress-dot-color') || darkColors.dotBorderColor,
+        })
+      } else {
+        setTc(darkColors)
+      }
     }
+
+    const timer = setTimeout(updateColors, 50)
+    return () => clearTimeout(timer)
   }, [theme])
 
   // Track scroll progress of the timeline section in the middle of the viewport

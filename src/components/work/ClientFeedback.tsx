@@ -50,7 +50,7 @@ export function ClientFeedback() {
               >
                 <div className="p-8 md:p-12 relative">
                   {/* Large decorative quote icon */}
-                  <Quote className="absolute top-8 right-8 md:top-10 md:right-12 w-10 h-10 md:w-14 md:h-14 text-white/[0.04] pointer-events-none" />
+                  <Quote className="absolute top-8 right-8 md:top-10 md:right-12 w-10 h-10 md:w-14 md:h-14 text-[var(--color-badge-icon)] pointer-events-none" />
 
                   {/* Index number */}
                   <span className="font-mono-label text-[11px] text-on-surface-variant/40 tracking-widest block mb-6">
@@ -59,7 +59,7 @@ export function ClientFeedback() {
 
                   {/* Quote text */}
                   <blockquote
-                    className="font-display text-[20px] md:text-[26px] text-primary leading-[1.45] mb-10 max-w-3xl"
+                    className="font-display text-[20px] md:text-[26px] text-[var(--color-card-text)] leading-[1.45] mb-10 max-w-3xl"
                     dir={isArabic ? 'rtl' : 'ltr'}
                   >
                     "{displayContent}"
@@ -68,7 +68,7 @@ export function ClientFeedback() {
                   {/* Divider */}
                   <div className="border-t border-white/8 pt-6 flex items-center gap-4">
                     {/* Avatar initial */}
-                    <div className="w-11 h-11 rounded-full bg-surface-bright border border-white/10 flex items-center justify-center text-primary font-display text-lg flex-shrink-0">
+                    <div className="w-11 h-11 rounded-full bg-surface-bright border border-white/10 flex items-center justify-center text-[var(--color-badge-text)] font-display text-lg flex-shrink-0">
                       {testimonial.name.charAt(0)}
                     </div>
 
