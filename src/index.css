@@ -90,6 +90,16 @@
   --hero-cta-hover-border: rgba(255, 255, 255, 0.9);
   --hero-cta-shadow:    transparent;
 
+  /* Footer & Socials */
+  --github-icon-hover:  #ffffff;
+  --color-footer:       var(--color-background);
+  --color-footer-border: rgba(255, 255, 255, 0.05);
+
+  /* Logo */
+  --color-logo-border: rgba(255, 255, 255, 0.25);
+  --color-logo-border-hover: rgba(255, 255, 255, 0.45);
+  --color-logo-bracket: var(--color-primary);
+
   color-scheme: dark;
 }
 
@@ -216,6 +226,16 @@
   --hero-cta-border:         #A66F17; /* Metallic accent */
   --hero-cta-hover-border:   #C28A22;
   --hero-cta-shadow:         rgba(107, 68, 18, 0.4);
+
+  /* Footer & Socials */
+  --github-icon-hover:       #000000;
+  --color-footer:            #F2EBDC; /* Slightly darker warm beige */
+  --color-footer-border:     rgba(92, 58, 16, 0.15); /* Stronger top border */
+
+  /* Logo */
+  --color-logo-border:       #A66F17; /* Rich Bronze Gold */
+  --color-logo-border-hover: #C28A22; /* Dark Gold */
+  --color-logo-bracket:      #7A4B0E; /* Deep Amber Gold */
 
   /* Refinement 4 — ProcessTimeline visual rework */
   --timeline-track-color:    #E0D4C0;

@@ -47,7 +47,7 @@ export function Footer() {
   return (
     <footer 
       ref={footerRef}
-      className="relative overflow-hidden bg-background border-t border-white/5 pt-20 pb-12"
+      className="relative overflow-hidden bg-[var(--color-footer)] border-t border-[var(--color-footer-border)] pt-20 pb-12"
       dir="ltr"
     >
       <motion.div 
@@ -116,7 +116,7 @@ export function Footer() {
               </h4>
               <div className="flex flex-col justify-between h-full items-end sm:items-start pb-2 gap-4">
                 {/* GitHub */}
-                <a href="https://github.com/MohamedWahid777" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="relative h-12 rounded-full border border-white/10 flex items-center text-on-surface-variant hover:text-white hover:border-white/40 hover:bg-white/5 transition-[max-width,border-color,background-color,color] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group overflow-visible lg:overflow-hidden max-w-[48px] lg:hover:max-w-[200px]">
+                <a href="https://github.com/MohamedWahid777" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="relative h-12 rounded-full border border-white/10 flex items-center text-on-surface-variant hover:text-[var(--github-icon-hover)] hover:border-white/40 hover:bg-white/5 transition-[max-width,border-color,background-color,color] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group overflow-visible lg:overflow-hidden max-w-[48px] lg:hover:max-w-[200px]">
                   <div className="w-12 h-12 flex items-center justify-center shrink-0 relative z-10">
                     <svg className="w-5 h-5 lg:group-hover:scale-110 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.03c3.18-.3 6.5-1.5 6.5-7.1a5.1 5.1 0 0 0-1.4-3.5 4.8 4.8 0 0 0-.1-3.5s-1.1-.3-3.5 1.3a11.9 11.9 0 0 0-6 0c-2.4-1.6-3.5-1.3-3.5-1.3a4.8 4.8 0 0 0-.1 3.5 5.1 5.1 0 0 0-1.4 3.5c0 5.6 3.3 6.8 6.5 7.1a4.8 4.8 0 0 0-1 3.03v4"/><path d="M9 20c-4 1-5-2-7-2"/></svg>
                   </div>
