@@ -50,11 +50,11 @@ export function ServicesSection() {
     <section id="services" className="w-full py-32 md:py-40 border-t border-white/5 bg-background">
       <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
 
-        {/* Section Header */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-24 gap-6">
           <motion.h2
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            /* Fixed: Changed from x: -30 to y: 30 to prevent horizontal overflow without breaking sticky cards */
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.8 }}
             className="font-display text-headline-lg text-primary"
@@ -62,8 +62,9 @@ export function ServicesSection() {
             {t('services.title')}
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            /* Fixed: Changed from x: 30 to y: 20 to prevent horizontal overflow without breaking sticky cards */
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.8, delay: 0.15 }}
             className="font-sans text-body-md text-on-surface-variant max-w-sm"
