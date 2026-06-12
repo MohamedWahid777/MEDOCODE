@@ -39,7 +39,7 @@ export function SelectedWorkSection() {
             <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform rtl:rotate-180" />
           </button>
 
-          <div className="flex gap-3">
+          <div className="flex gap-3" dir="ltr">
             <a href={project.liveUrl} className="w-11 h-11 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:text-background hover:border-primary hover:bg-primary transition-all duration-300 group shrink-0 shadow-sm hover:shadow-md">
               <ArrowUpRight className="w-[18px] h-[18px] transform group-hover:translate-x-[2px] group-hover:-translate-y-[2px] transition-transform" strokeWidth={2.5} />
             </a>

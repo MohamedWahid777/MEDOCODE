@@ -114,7 +114,7 @@ export function Footer() {
               <h4 className="font-mono-label text-on-surface-variant uppercase mb-6 tracking-widest text-[10px] sm:text-xs">
                 Socials
               </h4>
-              <div className="flex flex-col justify-between h-full items-end sm:items-start pb-2 gap-4">
+              <div className="flex flex-col justify-between h-full items-end sm:items-start pb-2 gap-4" dir="ltr">
                 {/* GitHub */}
                 <a href="https://github.com/MohamedWahid777" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="relative h-12 rounded-full border border-white/10 flex items-center text-on-surface-variant hover:text-[var(--github-icon-hover)] hover:border-white/40 hover:bg-white/5 transition-[max-width,border-color,background-color,color] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group overflow-visible lg:overflow-hidden max-w-[48px] lg:hover:max-w-[200px]">
                   <div className="w-12 h-12 flex items-center justify-center shrink-0 relative z-10">
