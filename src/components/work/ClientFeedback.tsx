@@ -45,7 +45,7 @@ export function ClientFeedback() {
             return (
               <div
                 key={testimonial.id}
-                className="sticky glass-panel rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-surface hover-effect mb-5"
+                className="sticky rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-surface backdrop-blur-sm hover-effect mb-5"
                 style={{ zIndex, top: `${topOffset}px` }}
               >
                 <div className="p-8 md:p-12 relative">
