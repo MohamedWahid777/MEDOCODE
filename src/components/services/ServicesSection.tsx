@@ -93,7 +93,7 @@ export function ServicesSection() {
                 viewport={{ once: true, margin: '-100px' }}
                 variants={cardVariants}
                 whileHover={{ y: -8, scale: 1.01 }}
-                className={`sticky md:static glass-panel rounded-none p-8 flex flex-col justify-between border border-white/5 bg-surface/30 backdrop-blur-md overflow-hidden group select-none cursor-default min-h-[320px] h-full ${colSpanClasses}`}
+                className={`sticky md:static rounded-2xl p-8 flex flex-col justify-between border border-white/10 shadow-2xl bg-surface backdrop-blur-sm overflow-hidden group select-none cursor-default min-h-[320px] h-full ${colSpanClasses}`}
                 style={{
                   top: `calc(80px + ${index * 6}px)`,
                   zIndex: (index + 1) * 10

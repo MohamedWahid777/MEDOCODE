@@ -17,6 +17,7 @@ export function Navbar() {
 
   const toggleTheme = () => {
     setTheme(theme === 'dark' ? 'warm' : 'dark')
+    setIsMobileMenuOpen(false)
   }
 
   // Hide/Reveal navbar based on scroll direction
@@ -31,6 +32,7 @@ export function Navbar() {
 
   const toggleLanguage = () => {
     setLanguage(language === 'en' ? 'ar' : 'en')
+    setIsMobileMenuOpen(false)
   }
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -132,11 +134,11 @@ export function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: isRtl ? '-100%' : '100%' }}
               transition={{ type: 'spring', stiffness: 380, damping: 40 }}
-              className={`fixed top-0 bottom-0 z-[101] w-[85vw] max-w-[400px] h-full bg-surface/95 backdrop-blur-3xl shadow-2xl flex flex-col p-8 md:hidden ${
+              className={`fixed top-0 bottom-0 z-[101] w-[85vw] max-w-[400px] h-full bg-surface/95 backdrop-blur-3xl shadow-2xl flex flex-col p-6 md:hidden ${
                 isRtl ? 'left-0 border-r border-white/10' : 'right-0 border-l border-white/10'
               }`}
             >
-              <div className="flex justify-between items-center mb-12">
+              <div className="flex justify-between items-center mb-8">
                 <Logo />
                 <button 
                   onClick={() => setIsMobileMenuOpen(false)}
@@ -146,51 +148,51 @@ export function Navbar() {
                 </button>
               </div>
 
-              <div className="flex flex-col gap-3 flex-1 mt-6">
+              <div className="flex flex-col gap-2 flex-1 mt-4">
                 {navLinks.map((link, idx) => (
                   <a
                     key={link.href}
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
-                    className="group relative flex items-center p-4 sm:p-5 rounded-2xl border border-white/10 bg-surface-variant/30 hover:bg-surface-variant/80 hover:border-primary/30 transition-all duration-300 overflow-hidden"
+                    className="group relative flex items-center p-3 sm:p-4 rounded-xl border border-white/10 bg-surface-variant/30 hover:bg-surface-variant/80 hover:border-primary/30 transition-all duration-300 overflow-hidden"
                   >
                     {/* Subtle accent highlight left border */}
-                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1.5 h-0 bg-primary group-hover:h-1/2 transition-all duration-300 rounded-r-full" />
+                    <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-primary group-hover:h-1/2 transition-all duration-300 rounded-r-full" />
                     
-                    <span className="text-[24px] sm:text-[28px] leading-tight font-display text-on-background group-hover:text-primary transition-colors pl-3">
+                    <span className="text-[20px] sm:text-[24px] leading-tight font-display text-on-background group-hover:text-primary transition-colors pl-3">
                       {t(`nav.${link.label.toLowerCase()}`)}
                     </span>
                   </a>
                 ))}
               </div>
 
-              <div className="flex flex-col gap-4 mt-auto border-t border-white/10 pt-8">
+              <div className="flex flex-col gap-3 mt-auto border-t border-white/10 pt-6">
                 <button
                   onClick={toggleTheme}
-                  className="flex items-center justify-between p-4 rounded-xl border border-white/5 bg-white/5 hover:bg-white/10 transition-colors"
+                  className="flex items-center justify-between p-3 rounded-xl border border-white/5 bg-white/5 hover:bg-white/10 transition-colors"
                 >
-                  <span className="font-mono-label tracking-widest text-[11px] text-on-surface-variant uppercase">
+                  <span className="font-mono-label tracking-widest text-[10px] text-on-surface-variant uppercase">
                     Theme
                   </span>
                   <span className="text-primary">
-                    {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+                    {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
                   </span>
                 </button>
                 <button
                   onClick={toggleLanguage}
-                  className="flex items-center justify-between p-4 rounded-xl border border-white/5 bg-white/5 hover:bg-white/10 transition-colors"
+                  className="flex items-center justify-between p-3 rounded-xl border border-white/5 bg-white/5 hover:bg-white/10 transition-colors"
                 >
-                  <span className="font-mono-label tracking-widest text-[11px] text-on-surface-variant uppercase">
+                  <span className="font-mono-label tracking-widest text-[10px] text-on-surface-variant uppercase">
                     Language
                   </span>
-                  <span className="font-display text-primary text-sm">
+                  <span className="font-display text-primary text-xs">
                     {language === 'en' ? 'Arabic (عربي)' : 'English Version'}
                   </span>
                 </button>
                 <a
                   href="#contact"
                   onClick={(e) => handleNavClick(e, '#contact')}
-                  className="hero-cta-button text-center px-6 py-4 rounded-xl font-mono-label tracking-widest flex justify-center items-center"
+                  className="hero-cta-button text-center px-6 py-3 rounded-xl font-mono-label tracking-widest flex justify-center items-center text-xs"
                 >
                   {t('nav.letsBuild')}
                 </a>
