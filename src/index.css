@@ -100,6 +100,9 @@
   --color-logo-border-hover: rgba(255, 255, 255, 0.45);
   --color-logo-bracket: var(--color-primary);
 
+  /* Cursor */
+  --cursor-glow-color: rgba(255, 255, 255, 0.2);
+
   color-scheme: dark;
 }
 
@@ -236,6 +239,9 @@
   --color-logo-border:       #A66F17; /* Rich Bronze Gold */
   --color-logo-border-hover: #C28A22; /* Dark Gold */
   --color-logo-bracket:      #7A4B0E; /* Deep Amber Gold */
+
+  /* Cursor */
+  --cursor-glow-color:       rgba(180, 130, 0, 0.25);
 
   /* Refinement 4 — ProcessTimeline visual rework */
   --timeline-track-color:    #E0D4C0;

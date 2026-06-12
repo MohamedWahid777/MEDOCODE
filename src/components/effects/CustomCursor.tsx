@@ -87,7 +87,8 @@ export function CustomCursor() {
       />
       <div 
         ref={glowRef} 
-        className="fixed top-0 left-0 w-10 h-10 rounded-full bg-white/20 pointer-events-none z-[9999] blur-[8px]"
+        className="fixed top-0 left-0 w-10 h-10 rounded-full pointer-events-none z-[9999] blur-[8px]"
+        style={{ backgroundColor: 'var(--cursor-glow-color)' }}
       />
     </div>
   )
