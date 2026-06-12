@@ -32,7 +32,7 @@ export function SelectedWorkSection() {
             <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform rtl:rotate-180" />
           </Link>
 
-          <div className="flex gap-3" dir="ltr">
+          <div className="flex justify-between w-full sm:w-[140px] md:w-[160px]" dir="ltr">
             <a href={project.liveUrl} className="w-12 h-12 md:w-11 md:h-11 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:text-background hover:border-primary hover:bg-primary transition-all duration-300 group shrink-0 shadow-sm hover:shadow-md">
               <ArrowUpRight className="w-5 h-5 md:w-[18px] md:h-[18px] transform group-hover:translate-x-[2px] group-hover:-translate-y-[2px] transition-transform" strokeWidth={2.5} />
             </a>

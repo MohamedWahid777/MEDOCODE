@@ -93,7 +93,7 @@ export function ProjectDetailPage() {
             </div>
 
             {/* Actions / Footer Links */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 pt-8 border-t border-white/10">
+            <div className="flex flex-col sm:flex-row items-center justify-start gap-4 sm:gap-6 pt-8 border-t border-white/10">
               <a 
                 href={project.liveUrl}
                 target="_blank"
@@ -104,14 +104,15 @@ export function ProjectDetailPage() {
                 <ArrowUpRight className="w-4 h-4" />
               </a>
 
-              <div className="flex gap-4 w-full sm:w-auto justify-center sm:justify-start" dir="ltr">
-                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="w-14 h-14 sm:w-12 sm:h-12 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:text-background hover:border-primary hover:bg-primary transition-all duration-300 group shrink-0 shadow-sm hover:shadow-md">
-                  <ArrowUpRight className="w-6 h-6 sm:w-[20px] sm:h-[20px] transform group-hover:translate-x-[2px] group-hover:-translate-y-[2px] transition-transform" strokeWidth={2.5} />
-                </a>
-                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="w-14 h-14 sm:w-12 sm:h-12 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:text-background hover:border-primary hover:bg-primary transition-all duration-300 group shrink-0 shadow-sm hover:shadow-md">
-                  <svg className="w-6 h-6 sm:w-[20px] sm:h-[20px] group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.03c3.18-.3 6.5-1.5 6.5-7.1a5.1 5.1 0 0 0-1.4-3.5 4.8 4.8 0 0 0-.1-3.5s-1.1-.3-3.5 1.3a11.9 11.9 0 0 0-6 0c-2.4-1.6-3.5-1.3-3.5-1.3a4.8 4.8 0 0 0-.1 3.5 5.1 5.1 0 0 0-1.4 3.5c0 5.6 3.3 6.8 6.5 7.1a4.8 4.8 0 0 0-1 3.03v4"/><path d="M9 20c-4 1-5-2-7-2"/></svg>
-                </a>
-              </div>
+              <a 
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hero-cta-button px-8 py-4 rounded-full font-mono-label text-sm tracking-widest flex items-center gap-2 w-full sm:w-auto justify-center"
+              >
+                {t('work.github')}
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.03c3.18-.3 6.5-1.5 6.5-7.1a5.1 5.1 0 0 0-1.4-3.5 4.8 4.8 0 0 0-.1-3.5s-1.1-.3-3.5 1.3a11.9 11.9 0 0 0-6 0c-2.4-1.6-3.5-1.3-3.5-1.3a4.8 4.8 0 0 0-.1 3.5 5.1 5.1 0 0 0-1.4 3.5c0 5.6 3.3 6.8 6.5 7.1a4.8 4.8 0 0 0-1 3.03v4"/><path d="M9 20c-4 1-5-2-7-2"/></svg>
+              </a>
             </div>
             
           </div>
