@@ -314,7 +314,7 @@ export const projects: Project[] = [
     technologies: ['React', 'Vite', 'Tailwind CSS', 'Framer Motion', 'i18next', 'HTML5 Canvas'],
     liveUrl: 'https://nasif-center.netlify.app/',
     githubUrl: 'https://github.com/MohamedWahid777/nasif-physical-therapy-center.git',
-    imageUrl: 'src/assets/photoP1.webp',
+    imageUrl: '/photoP1.webp',
   },
   {
     id: 'portfolio-website',
@@ -327,7 +327,7 @@ export const projects: Project[] = [
     technologies: ['HTML', 'CSS', 'JavaScript'],
     liveUrl: 'https://medocode-portfolio.netlify.app/',
     githubUrl: 'https://github.com/MohamedWahid777/MEDOCODE-Portfolio.git',
-    imageUrl: 'src/assets/photoP2.webp',
+    imageUrl: '/photoP2.webp',
   },
   {
     id: 'cafe-website',
@@ -340,7 +340,7 @@ export const projects: Project[] = [
     technologies: ['HTML', 'Tailwind CSS', 'JavaScript'],
     liveUrl: 'https://wbsite-cafe.netlify.app/',
     githubUrl: 'https://github.com/MohamedWahid777/Cafe-Website.git',
-    imageUrl: 'src/assets/photoP3.webp',
+    imageUrl: '/photoP3.webp',
   },
   {
     id: 'restaurant-website',
@@ -353,7 +353,7 @@ export const projects: Project[] = [
     technologies: ['HTML', 'CSS', 'JavaScript'],
     liveUrl: 'https://rurger-rush.netlify.app/',
     githubUrl: 'https://github.com/MohamedWahid777/Fast-food-restaurant.git',
-    imageUrl: 'src/assets/photoP4.webp',
+    imageUrl: '/photoP4.webp',
   },
   {
     id: 'gym-website',
@@ -366,7 +366,7 @@ export const projects: Project[] = [
     technologies: ['HTML', 'CSS', 'JavaScript'],
     liveUrl: 'https://gym-ironcore.netlify.app/',
     githubUrl: 'https://github.com/MohamedWahid777/gym-website.git',
-    imageUrl: 'src/assets/photoP5.webp',
+    imageUrl: '/photoP5.webp',
 
   },
 ]
