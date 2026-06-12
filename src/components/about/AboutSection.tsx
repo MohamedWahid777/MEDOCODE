@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 import { ArrowRight } from 'lucide-react'
 
@@ -10,13 +10,6 @@ type AboutSectionProps = {
 export function AboutSection({ onOpenDrawer }: AboutSectionProps) {
   const containerRef = useRef<HTMLElement>(null)
   const { t } = useTranslation()
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start end', 'end start']
-  })
-
-  const imageY = useTransform(scrollYProgress, [0, 1], ['-10%', '10%'])
 
   return (
     <>
@@ -49,11 +42,10 @@ export function AboutSection({ onOpenDrawer }: AboutSectionProps) {
             </motion.div>
 
             <div className="col-span-12 md:col-span-5 w-full min-w-0 h-[450px] md:h-[580px] overflow-hidden relative bg-surface-container border border-white/10">
-              <motion.img 
-                style={{ y: imageY }}
+              <img 
                 src="/myphoto.webp" 
                 alt={t('hero.firstName')} 
-                className="absolute inset-0 w-full h-[120%] -top-[10%] object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
               />
               <div className="absolute inset-0 ring-1 ring-inset ring-white/10 pointer-events-none" />
             </div>
