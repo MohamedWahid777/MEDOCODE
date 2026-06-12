@@ -14,7 +14,8 @@ import { SelectedWorkSection } from './components/work/SelectedWorkSection'
 import { ClientFeedback } from './components/work/ClientFeedback'
 import { ContactSection } from './components/contact/ContactSection'
 import { Footer } from './components/layout/Footer'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { ProjectDetailPage } from './components/work/ProjectDetailPage'
 import { Helmet } from 'react-helmet-async'
 import { useTranslation } from 'react-i18next'
 
@@ -36,14 +37,21 @@ function AppContent() {
           <Navbar />
           
           <main className="flex-1">
-            <HeroSection />
-            <AboutSection onOpenDrawer={() => setIsDrawerOpen(true)} />
-            <ProcessTimeline />
-            <ServicesSection />
-            <TechStackMarquee />
-            <SelectedWorkSection />
-            <ClientFeedback />
-            <ContactSection />
+            <Routes>
+              <Route path="/" element={
+                <>
+                  <HeroSection />
+                  <AboutSection onOpenDrawer={() => setIsDrawerOpen(true)} />
+                  <ProcessTimeline />
+                  <ServicesSection />
+                  <TechStackMarquee />
+                  <SelectedWorkSection />
+                  <ClientFeedback />
+                  <ContactSection />
+                </>
+              } />
+              <Route path="/work/:projectId" element={<ProjectDetailPage />} />
+            </Routes>
           </main>
           
           <Footer />

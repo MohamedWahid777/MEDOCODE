@@ -76,7 +76,9 @@
     "subtitle": "Real projects — from business platforms to medical digital experiences.",
     "viewCase": "View Project",
     "liveDemo": "Live Demo",
-    "github": "GitHub"
+    "github": "GitHub",
+    "readMore": "Read More",
+    "backToWork": "Back to Projects"
   },
   "process": {
     "title": "Development Process",

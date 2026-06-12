@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 import { ArrowRight, ArrowUpRight } from 'lucide-react'
 import { projects } from '../../lib/constants'
 
@@ -18,33 +19,25 @@ export function SelectedWorkSection() {
         <h3 className="font-display text-[32px] md:text-[38px] leading-[1.1] text-primary mb-4">
           {project.title}
         </h3>
-        <p className="font-sans text-[14px] md:text-[15px] text-[var(--color-card-text)] mb-8 leading-relaxed line-clamp-3">
+        <p className="font-sans text-[14px] md:text-[15px] text-[var(--color-card-text)] mb-3 md:mb-8 leading-relaxed line-clamp-2 md:line-clamp-3">
           {i18n.language === 'ar' && project.descriptionAr ? project.descriptionAr : project.description}
         </p>
-
-        <div className="flex flex-wrap gap-2 mb-8">
-          {project.technologies.map(tech => (
-            <span
-              key={tech}
-              className="px-3 py-1 rounded-full border border-white/10 bg-white/5 font-mono-label text-[10px] text-primary uppercase"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
-
-        <div className="flex flex-row items-center justify-between gap-4 mt-auto pt-4 border-t border-white/5 md:border-transparent md:pt-0">
-          <button className="text-primary border-b border-primary pb-1 font-mono-label text-sm hover:opacity-70 transition-opacity tracking-widest flex items-center gap-2 group">
-            {t('work.viewCase')}
-            <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform rtl:rotate-180" />
-          </button>
+        
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 mt-auto pt-6 border-t border-white/5 md:border-t-0 md:pt-4">
+          <Link 
+            to={`/work/${project.id}`}
+            className="w-full sm:w-auto px-6 py-3.5 rounded-full border border-primary/20 bg-primary/5 hover:bg-primary hover:text-background text-primary font-mono-label text-sm tracking-widest flex justify-center items-center gap-2 group transition-all duration-300 shadow-sm"
+          >
+            {t('work.readMore')}
+            <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform rtl:rotate-180" />
+          </Link>
 
           <div className="flex gap-3" dir="ltr">
-            <a href={project.liveUrl} className="w-11 h-11 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:text-background hover:border-primary hover:bg-primary transition-all duration-300 group shrink-0 shadow-sm hover:shadow-md">
-              <ArrowUpRight className="w-[18px] h-[18px] transform group-hover:translate-x-[2px] group-hover:-translate-y-[2px] transition-transform" strokeWidth={2.5} />
+            <a href={project.liveUrl} className="w-12 h-12 md:w-11 md:h-11 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:text-background hover:border-primary hover:bg-primary transition-all duration-300 group shrink-0 shadow-sm hover:shadow-md">
+              <ArrowUpRight className="w-5 h-5 md:w-[18px] md:h-[18px] transform group-hover:translate-x-[2px] group-hover:-translate-y-[2px] transition-transform" strokeWidth={2.5} />
             </a>
-            <a href={project.githubUrl} className="w-11 h-11 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:text-background hover:border-primary hover:bg-primary transition-all duration-300 group shrink-0 shadow-sm hover:shadow-md">
-              <svg className="w-[18px] h-[18px] group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.03c3.18-.3 6.5-1.5 6.5-7.1a5.1 5.1 0 0 0-1.4-3.5 4.8 4.8 0 0 0-.1-3.5s-1.1-.3-3.5 1.3a11.9 11.9 0 0 0-6 0c-2.4-1.6-3.5-1.3-3.5-1.3a4.8 4.8 0 0 0-.1 3.5 5.1 5.1 0 0 0-1.4 3.5c0 5.6 3.3 6.8 6.5 7.1a4.8 4.8 0 0 0-1 3.03v4"/><path d="M9 20c-4 1-5-2-7-2"/></svg>
+            <a href={project.githubUrl} className="w-12 h-12 md:w-11 md:h-11 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:text-background hover:border-primary hover:bg-primary transition-all duration-300 group shrink-0 shadow-sm hover:shadow-md">
+              <svg className="w-5 h-5 md:w-[18px] md:h-[18px] group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.03c3.18-.3 6.5-1.5 6.5-7.1a5.1 5.1 0 0 0-1.4-3.5 4.8 4.8 0 0 0-.1-3.5s-1.1-.3-3.5 1.3a11.9 11.9 0 0 0-6 0c-2.4-1.6-3.5-1.3-3.5-1.3a4.8 4.8 0 0 0-.1 3.5 5.1 5.1 0 0 0-1.4 3.5c0 5.6 3.3 6.8 6.5 7.1a4.8 4.8 0 0 0-1 3.03v4"/><path d="M9 20c-4 1-5-2-7-2"/></svg>
             </a>
           </div>
         </div>
