@@ -123,8 +123,9 @@ export function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="fixed inset-0 z-[100] bg-black/60 backdrop-blur-sm md:hidden"
+              className="fixed inset-0 z-[100] bg-black/80 md:hidden"
             />
 
             {/* Slide-in side drawer */}
@@ -133,8 +134,8 @@ export function Navbar() {
               initial={{ x: isRtl ? '-100%' : '100%' }}
               animate={{ x: 0 }}
               exit={{ x: isRtl ? '-100%' : '100%' }}
-              transition={{ type: 'spring', stiffness: 380, damping: 40 }}
-              className={`fixed top-0 bottom-0 z-[101] w-[85vw] max-w-[400px] h-full bg-surface/95 backdrop-blur-3xl shadow-2xl flex flex-col p-6 md:hidden ${
+              transition={{ type: 'tween', duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className={`fixed top-0 bottom-0 z-[101] w-[85vw] max-w-[400px] h-full bg-surface shadow-2xl flex flex-col p-6 md:hidden ${
                 isRtl ? 'left-0 border-r border-white/10' : 'right-0 border-l border-white/10'
               }`}
             >
