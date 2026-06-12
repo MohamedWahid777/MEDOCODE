@@ -18,14 +18,31 @@ export function AboutSection({ onOpenDrawer }: AboutSectionProps) {
         ref={containerRef}
         className="w-full py-32 border-t border-white/5 overflow-x-hidden"
       >
+        {/* 
+          Restored standard container pattern (max-w-container-max + px-margin-mobile)
+          matching every other section in the site.
+        */}
         <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+          {/*
+            FIX: Changed from grid-cols-1 + col-span-12 to grid-cols-1 + col-span-full.
+            
+            ROOT CAUSE: Using col-span-12 inside grid-cols-1 forced the browser to create
+            12 implicit column tracks. Combined with gap-8 (32px column-gap × 11 inter-column
+            gaps = 352px of extra horizontal space), the grid container became much wider than
+            the viewport. The section's overflow-x-hidden then clipped the right edge of all
+            content including the bio paragraph text.
+            
+            col-span-full spans all *explicit* columns (just 1 on mobile), avoiding
+            implicit track creation entirely. On md+ screens, md:grid-cols-12 provides
+            the 12-column grid and md:col-span-7 / md:col-span-5 work as intended.
+          */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1 }}
-              className="col-span-12 md:col-span-7 min-w-0"
+              className="col-span-full md:col-span-7 min-w-0"
             >
               <h2 className="font-display text-headline-lg text-primary mb-8">{t('about.title')}</h2>
               
@@ -41,7 +58,7 @@ export function AboutSection({ onOpenDrawer }: AboutSectionProps) {
               </button>
             </motion.div>
 
-            <div className="col-span-12 md:col-span-5 w-full min-w-0 h-[450px] md:h-[580px] overflow-hidden relative bg-surface-container border border-white/10">
+            <div className="col-span-full md:col-span-5 min-w-0 h-[450px] md:h-[580px] overflow-hidden relative bg-surface-container border border-white/10">
               <img 
                 src="/myphoto.webp" 
                 alt={t('hero.firstName')} 

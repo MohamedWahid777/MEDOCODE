@@ -72,10 +72,10 @@ export function BioPanelDrawer({ isOpen, onClose }: BioPanelDrawerProps) {
             initial="closed"
             animate="open"
             exit="closed"
-            className={`fixed top-0 ${isRtl ? 'left-0 border-r' : 'right-0 border-l'} h-full w-full md:w-[560px] bg-surface border-white/10 z-[101] shadow-2xl flex flex-col`}
+            className={`fixed top-0 ${isRtl ? 'start-0 border-e' : 'end-0 border-s'} h-full w-full max-w-full md:w-[560px] md:max-w-[560px] bg-surface border-white/10 z-[101] shadow-2xl flex flex-col box-border`}
           >
             {/* Fixed Header */}
-            <div className="flex items-center justify-between px-10 py-8 border-b border-white/5 flex-shrink-0">
+            <div className="flex items-center justify-between px-6 sm:px-10 py-8 border-b border-white/5 flex-shrink-0 w-full max-w-full box-border">
               <h2 className="font-display text-[28px] text-primary tracking-tight">
                 {t('about.bioTitle')}
               </h2>
@@ -90,37 +90,37 @@ export function BioPanelDrawer({ isOpen, onClose }: BioPanelDrawerProps) {
             {/* Scrollable Content */}
             <div 
               data-lenis-prevent 
-              className="flex-1 overflow-y-auto custom-scrollbar px-10 py-8 space-y-0"
+              className="flex-1 overflow-y-auto overflow-x-hidden custom-scrollbar px-6 sm:px-10 py-8 space-y-0 w-full max-w-full box-border"
             >
               {/* Bio paragraphs */}
-              <div className="space-y-8 mb-10">
+              <div className="space-y-8 mb-10 w-full max-w-full">
                 <motion.p
                   custom={0} variants={fadeUp} initial="closed" animate="open" exit="closed"
-                  className="font-sans text-base sm:text-[17px] text-on-surface-variant leading-relaxed tracking-wide"
+                  className="w-full max-w-full box-border font-sans text-base sm:text-[17px] text-on-surface-variant leading-relaxed tracking-wide"
                 >
                   {t('about.bio1')}
                 </motion.p>
                 <motion.p
                   custom={1} variants={fadeUp} initial="closed" animate="open" exit="closed"
-                  className="font-sans text-base sm:text-[17px] text-on-surface-variant leading-relaxed tracking-wide"
+                  className="w-full max-w-full box-border font-sans text-base sm:text-[17px] text-on-surface-variant leading-relaxed tracking-wide"
                 >
                   {t('about.bio2')}
                 </motion.p>
                 <motion.p
                   custom={2} variants={fadeUp} initial="closed" animate="open" exit="closed"
-                  className="font-sans text-base sm:text-[17px] text-on-surface-variant leading-relaxed tracking-wide"
+                  className="w-full max-w-full box-border font-sans text-base sm:text-[17px] text-on-surface-variant leading-relaxed tracking-wide"
                 >
                   {t('about.bio3')}
                 </motion.p>
                 <motion.p
                   custom={3} variants={fadeUp} initial="closed" animate="open" exit="closed"
-                  className="font-sans text-base sm:text-[17px] text-on-surface-variant leading-relaxed tracking-wide"
+                  className="w-full max-w-full box-border font-sans text-base sm:text-[17px] text-on-surface-variant leading-relaxed tracking-wide"
                 >
                   {t('about.bio4')}
                 </motion.p>
                 <motion.p
                   custom={4} variants={fadeUp} initial="closed" animate="open" exit="closed"
-                  className="font-sans text-base sm:text-[17px] text-on-surface-variant leading-relaxed tracking-wide"
+                  className="w-full max-w-full box-border font-sans text-base sm:text-[17px] text-on-surface-variant leading-relaxed tracking-wide"
                 >
                   {t('about.bio5')}
                 </motion.p>
