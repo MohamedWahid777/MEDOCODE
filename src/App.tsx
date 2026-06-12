@@ -23,9 +23,9 @@ function AppContent() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
   return (
-    <>
+    <> 
       <Helmet>
-        <title>MEDOCODE — {t('hero.firstName')} {t('hero.lastName')} | {t('hero.subtitle')}</title>
+        <title>MEDOCODE</title>
         <meta name="description" content={t('intro.body')} />
       </Helmet>
       <CustomCursor />
