@@ -63,19 +63,22 @@ export function CustomCursor() {
     document.addEventListener('mouseover', handleMouseOver)
 
     // Ticker for delayed glow
-    gsap.ticker.add(() => {
+    const tick = () => {
       const dt = 1.0 - Math.pow(1.0 - 0.15, gsap.ticker.deltaRatio())
       pos.x += (mouse.x - pos.x) * dt
       pos.y += (mouse.y - pos.y) * dt
       
       xSetGlow(pos.x)
       ySetGlow(pos.y)
-    })
+    }
+    
+    gsap.ticker.add(tick)
 
     return () => {
       document.body.style.cursor = 'auto'
       document.removeEventListener('mousemove', onMouseMove)
       document.removeEventListener('mouseover', handleMouseOver)
+      gsap.ticker.remove(tick)
     }
   }, [])
 

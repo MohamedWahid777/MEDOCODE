@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next'
 import { useRef } from 'react'
 import { row1Skills, row2Skills, type SkillItem } from '../../lib/constants'
 import {
-  MonitorSmartphone, Boxes, Globe, Lock,
-  Compass, Palette, UserCheck, LayoutTemplate,
-  Workflow, Smartphone, Accessibility, Target,
+  MonitorSmartphone, Boxes, Globe,
+  Compass, Palette, LayoutTemplate,
+  Workflow,
   GitBranch, Lightbulb, Rocket, ShieldCheck, Plug, Component,
   Code2, Search, Terminal, Zap, Brain, GitMerge, Cpu,
   ChevronLeft, ChevronRight

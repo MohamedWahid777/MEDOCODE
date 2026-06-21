@@ -150,7 +150,7 @@ export function Navbar() {
               </div>
 
               <div className="flex flex-col gap-2 flex-1 mt-4">
-                {navLinks.map((link, idx) => (
+                {navLinks.map((link) => (
                   <a
                     key={link.href}
                     href={link.href}

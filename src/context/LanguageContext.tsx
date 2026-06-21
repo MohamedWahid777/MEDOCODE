@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useState, useMemo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 
 type Language = 'en' | 'ar'
@@ -35,16 +35,16 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
     root.lang = language
   }, [language, isRtl])
 
-  const setLanguage = (lang: Language) => {
+  const setLanguage = useCallback((lang: Language) => {
     i18n.changeLanguage(lang)
     setLanguageState(lang)
-  }
+  }, [i18n])
 
-  const value = {
+  const value = useMemo(() => ({
     language,
     setLanguage,
     isRtl,
-  }
+  }), [language, setLanguage, isRtl])
 
   return (
     <LanguageContext.Provider value={value}>

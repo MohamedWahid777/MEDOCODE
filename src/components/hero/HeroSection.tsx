@@ -1,8 +1,7 @@
-import { useRef, useState, useEffect } from 'react'
-import { Canvas } from '@react-three/fiber'
+import React, { useRef, useState, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
-import { ParticleField } from './ParticleField'
+import { HeroSpline } from './HeroSpline'
 
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -14,7 +13,7 @@ export function HeroSection() {
 
   const [hasAnimated, setHasAnimated] = useState(() => {
     if (typeof window !== 'undefined') {
-      return !!(window as any).__hero_intro_animated
+      return !!(window as Window & { __hero_intro_animated?: boolean }).__hero_intro_animated
     }
     return false
   })
@@ -23,7 +22,7 @@ export function HeroSection() {
     if (!hasAnimated) {
       const timer = setTimeout(() => {
         if (typeof window !== 'undefined') {
-          (window as any).__hero_intro_animated = true
+          (window as Window & { __hero_intro_animated?: boolean }).__hero_intro_animated = true
           setHasAnimated(true)
         }
       }, 2000)
@@ -39,25 +38,14 @@ export function HeroSection() {
       ref={containerRef}
       className="relative min-h-screen h-[100dvh] w-full max-w-full flex items-center justify-center overflow-hidden bg-background"
     >
-      {/* 3D Particle Background — div عادي بدون motion عشان نتجنب اللاج */}
-      <div 
-        className="absolute inset-0 z-0 pointer-events-none"
-        style={{ backgroundColor: 'var(--hero-scene-bg)', transition: 'background-color 0.35s ease' }}
-      >
-        <Canvas
-          camera={{ position: [0, 0, 5], fov: 75 }}
-          dpr={[1, 1.5]}
-          performance={{ min: 0.5 }}
-        >
-          <ParticleField />
-        </Canvas>
-      </div>
+      {/* 3D Spline Background */}
+      <HeroSpline />
 
-      {/* Background Gradients */}
+      {/* Background Gradients (Decorative, pointer-events-none) */}
       <div className="absolute inset-0 z-[1] bg-gradient-to-b from-transparent via-background/20 to-background pointer-events-none" />
       <div className="absolute inset-0 z-[1] bg-[radial-gradient(circle_at_center,transparent_0%,var(--color-background)_100%)] pointer-events-none opacity-80" />
 
-      {/* Ambient Glows */}
+      {/* Ambient Glows (Decorative, pointer-events-none) */}
       <div className="absolute top-[20%] left-[20%] w-[60%] h-[60%] rounded-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.015)_0%,transparent_100%)] blur-[120px] pointer-events-none z-[1]" />
       <div className="absolute bottom-[20%] right-[20%] w-[60%] h-[60%] rounded-full bg-[radial-gradient(circle_at_center,rgba(185,215,234,0.012)_0%,transparent_100%)] blur-[120px] pointer-events-none z-[1]" />
 
@@ -67,16 +55,15 @@ export function HeroSection() {
         className="relative z-10 text-center px-margin-mobile md:px-margin-desktop w-full max-w-5xl mx-auto mt-24 md:mt-16 pointer-events-none flex flex-col items-center"
       >
         <motion.span 
-          className="font-mono-label text-on-surface-variant text-[11px] md:text-[13px] tracking-[0.2em] mb-4 block"
+          className="font-mono-label text-on-surface-variant text-[11px] md:text-[13px] tracking-[0.2em] mb-4 block pointer-events-auto"
           initial={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={hasAnimated ? { duration: 0 } : { duration: 0.8, delay: 0.2 }}
         >
-          {t('hero.preTitle')}
         </motion.span>
 
         <motion.h1 
-          className="font-display text-[48px] sm:text-[68px] md:text-[96px] lg:text-[112px] leading-[0.9] tracking-tighter mb-8 flex flex-col items-center font-bold"
+          className="font-display text-[48px] sm:text-[68px] md:text-[96px] lg:text-[112px] leading-[0.9] tracking-tighter mb-8 flex flex-col items-center font-bold pointer-events-auto"
           initial={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={hasAnimated ? { duration: 0 } : { duration: 1.2, delay: 0.3 }}
@@ -88,7 +75,7 @@ export function HeroSection() {
         </motion.h1>
 
         <motion.h2 
-          className="font-display text-[20px] sm:text-[24px] md:text-[32px] text-primary leading-tight mb-6 max-w-3xl tracking-tight text-center"
+          className="font-display text-[20px] sm:text-[24px] md:text-[32px] text-primary leading-tight mb-6 max-w-3xl tracking-tight text-center pointer-events-auto"
           initial={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={hasAnimated ? { duration: 0 } : { duration: 1, delay: 0.45 }}
@@ -97,7 +84,7 @@ export function HeroSection() {
         </motion.h2>
 
         <motion.p 
-          className="font-sans text-[15px] sm:text-[16px] md:text-[18px] text-on-surface-variant mb-12 leading-relaxed max-w-2xl text-center"
+          className="font-sans text-[15px] sm:text-[16px] md:text-[18px] text-on-surface-variant mb-12 leading-relaxed max-w-2xl text-center pointer-events-auto"
           initial={hasAnimated ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={hasAnimated ? { duration: 0 } : { duration: 1, delay: 0.6 }}
