@@ -179,7 +179,7 @@ export function Footer() {
             </p>
           </div>
         </div>
-
+  
         {/* Scroll to Top Arrow Button - Fixed on the far right, hidden by default, visible on footer intersection */}
         <AnimatePresence>
           {isVisible && (
