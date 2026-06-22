@@ -72,7 +72,7 @@ function MarqueeRow({
 }) {
   return (
     <div className="relative w-full max-w-full">
-      <div className="absolute -top-5 start-0 font-mono-label text-[10px] text-on-surface-variant/40 uppercase tracking-widest z-10 select-none">
+      <div className="absolute -top-5 start-0 font-mono-label text-[10px] text-on-surface-variant/70 uppercase tracking-widest z-10 select-none">
         {label}
       </div>
       <div className="flex w-full overflow-hidden mt-2 select-none max-w-full" dir="ltr" style={{ contain: 'paint' }}>
@@ -137,7 +137,7 @@ function MobileSnapScroll({ t }: { t: any }) {
       >
         {/* Page 1: Languages & Frameworks */}
         <div className="w-full shrink-0 snap-center px-margin-mobile flex flex-col">
-          <div className="font-mono-label text-[10px] text-on-surface-variant/40 uppercase tracking-widest mb-6 select-none text-center">
+          <div className="font-mono-label text-[10px] text-on-surface-variant/70 uppercase tracking-widest mb-6 select-none text-center">
             {t('techStack.row1' as any) as unknown as string}
           </div>
           <div className="grid grid-cols-2 gap-3">
@@ -149,7 +149,7 @@ function MobileSnapScroll({ t }: { t: any }) {
 
         {/* Page 2: Engineering & Practices */}
         <div className="w-full shrink-0 snap-center px-margin-mobile flex flex-col">
-          <div className="font-mono-label text-[10px] text-on-surface-variant/40 uppercase tracking-widest mb-6 select-none text-center">
+          <div className="font-mono-label text-[10px] text-on-surface-variant/70 uppercase tracking-widest mb-6 select-none text-center">
             {t('techStack.row2' as any) as unknown as string}
           </div>
           <div className="grid grid-cols-2 gap-3">

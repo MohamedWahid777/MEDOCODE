@@ -81,7 +81,7 @@ export function Footer() {
 
             {/* Compact copyright grouped cleanly at the base of column */}
             <div className="hidden lg:flex flex-col gap-6">
-              <p className="font-mono-label text-[10px] text-on-surface-variant/60 tracking-widest uppercase">
+              <p className="font-mono-label text-[10px] text-on-surface-variant/80 tracking-widest uppercase">
                 {t('footer.copyright')}
               </p>
             </div>
@@ -92,9 +92,9 @@ export function Footer() {
             
             {/* Navigation Column — mirrors main navbar exactly */}
             <div className="border-t border-white/10 pt-6 w-1/2 sm:w-auto flex flex-col">
-              <h4 className="font-mono-label text-on-surface-variant uppercase mb-6 tracking-widest text-[10px] sm:text-xs text-start">
+              <h2 className="font-mono-label text-on-surface-variant uppercase mb-6 tracking-widest text-[10px] sm:text-xs text-start">
                 {t('footer.navigation')}
-              </h4>
+              </h2>
               <ul className="flex flex-col justify-between h-full pb-2 gap-4">
                 {navLinks.map((link) => (
                   <li key={link.href}>
@@ -111,9 +111,9 @@ export function Footer() {
 
             {/* Inquiries / Social Icons — same design system as ContactSection socials */}
             <div className="border-t border-white/10 pt-6 w-1/2 sm:w-auto flex flex-col items-end sm:items-start text-end sm:text-start">
-              <h4 className="font-mono-label text-on-surface-variant uppercase mb-6 tracking-widest text-[10px] sm:text-xs">
+              <h2 className="font-mono-label text-on-surface-variant uppercase mb-6 tracking-widest text-[10px] sm:text-xs">
                 Socials
-              </h4>
+              </h2>
               <div className="flex flex-col justify-between h-full items-end sm:items-start pb-2 gap-4" dir="ltr">
                 {/* GitHub */}
                 <a href="https://github.com/MohamedWahid777" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="relative h-12 rounded-full border border-white/10 flex items-center text-on-surface-variant hover:text-[var(--github-icon-hover)] hover:border-white/40 hover:bg-white/5 transition-[max-width,border-color,background-color,color] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group overflow-visible lg:overflow-hidden max-w-[48px] lg:hover:max-w-[200px]">
@@ -174,7 +174,7 @@ export function Footer() {
 
           {/* Copyright notice */}
           <div className="flex justify-between items-center gap-4">
-            <p className="font-mono-label text-[9px] sm:text-[10px] text-on-surface-variant/60 tracking-widest uppercase">
+            <p className="font-mono-label text-[9px] sm:text-[10px] text-on-surface-variant/80 tracking-widest uppercase">
               {t('footer.copyright')}
             </p>
           </div>

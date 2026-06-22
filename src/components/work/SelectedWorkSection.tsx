@@ -27,16 +27,17 @@ export function SelectedWorkSection() {
           <Link 
             to={`/work/${project.id}`}
             className="w-full sm:w-auto px-6 py-3.5 rounded-full border border-primary/20 bg-primary/5 hover:bg-primary hover:text-background text-primary font-mono-label text-sm tracking-widest flex justify-center items-center gap-2 group transition-all duration-300 shadow-sm"
+            aria-label={`Read more about ${project.title}`}
           >
             {t('work.readMore')}
             <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform rtl:rotate-180" />
           </Link>
 
           <div className="flex justify-between w-full sm:w-[140px] md:w-[160px]" dir="ltr">
-            <a href={project.liveUrl} className="w-12 h-12 md:w-11 md:h-11 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:text-background hover:border-primary hover:bg-primary transition-all duration-300 group shrink-0 shadow-sm hover:shadow-md">
+            <a href={project.liveUrl} aria-label={`View live demo of ${project.title}`} className="w-12 h-12 md:w-11 md:h-11 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:text-background hover:border-primary hover:bg-primary transition-all duration-300 group shrink-0 shadow-sm hover:shadow-md">
               <ArrowUpRight className="w-5 h-5 md:w-[18px] md:h-[18px] transform group-hover:translate-x-[2px] group-hover:-translate-y-[2px] transition-transform" strokeWidth={2.5} />
             </a>
-            <a href={project.githubUrl} className="w-12 h-12 md:w-11 md:h-11 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:text-background hover:border-primary hover:bg-primary transition-all duration-300 group shrink-0 shadow-sm hover:shadow-md">
+            <a href={project.githubUrl} aria-label={`View GitHub repo for ${project.title}`} className="w-12 h-12 md:w-11 md:h-11 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:text-background hover:border-primary hover:bg-primary transition-all duration-300 group shrink-0 shadow-sm hover:shadow-md">
               <svg className="w-5 h-5 md:w-[18px] md:h-[18px] group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.03c3.18-.3 6.5-1.5 6.5-7.1a5.1 5.1 0 0 0-1.4-3.5 4.8 4.8 0 0 0-.1-3.5s-1.1-.3-3.5 1.3a11.9 11.9 0 0 0-6 0c-2.4-1.6-3.5-1.3-3.5-1.3a4.8 4.8 0 0 0-.1 3.5 5.1 5.1 0 0 0-1.4 3.5c0 5.6 3.3 6.8 6.5 7.1a4.8 4.8 0 0 0-1 3.03v4"/><path d="M9 20c-4 1-5-2-7-2"/></svg>
             </a>
           </div>
