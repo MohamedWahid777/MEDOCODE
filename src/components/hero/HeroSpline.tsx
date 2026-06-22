@@ -37,13 +37,19 @@ export function HeroSpline() {
     }
 
     // 2. Defer mounting until after paint.
+    // Delay long enough for first paint + interactivity (LCP, fonts, nav)
+    // to finish before the heavy Spline runtime (~2MB JS + WASM) starts
+    // executing and blocking the main thread.
     const mountTimeout = setTimeout(() => {
       if ('requestIdleCallback' in window) {
-        (window as any).requestIdleCallback(() => setShouldMount(true));
+        (window as any).requestIdleCallback(
+          () => setShouldMount(true),
+          { timeout: 4000 } // ensure it fires even if the browser stays busy
+        );
       } else {
         setShouldMount(true);
       }
-    }, 100);
+    }, 2000);
 
     return () => clearTimeout(mountTimeout);
   }, []);
@@ -95,7 +101,16 @@ export function HeroSpline() {
       style={{ pointerEvents: 'auto', backgroundColor: 'var(--hero-scene-bg)', transition: 'background-color 0.35s ease' }}
     >
       {shouldMount && isIntersecting && (
-        <Suspense fallback={null}>
+        <Suspense fallback={
+          <div
+            className="absolute inset-0 animate-pulse"
+            style={{
+              background: 'radial-gradient(ellipse at 50% 40%, var(--hero-scene-bg) 0%, transparent 70%)',
+              opacity: 0.5,
+            }}
+            aria-hidden="true"
+          />
+        }>
           <Spline
             scene="https://prod.spline.design/Qyk3g2NhTZdzI8Rq/scene.splinecode"
             onLoad={onLoad}
