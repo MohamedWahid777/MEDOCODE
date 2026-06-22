@@ -201,7 +201,7 @@ export function Footer() {
 
       {/* Massive Background Text Graphic - Scaled beautifully to a medium size that is fully visible on all viewports */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none opacity-[0.02] z-0 select-none overflow-hidden max-w-container-max px-margin-mobile md:px-margin-desktop">
-        <span className="font-display text-[clamp(2.5rem,10.5vw,7.5rem)] whitespace-nowrap leading-none tracking-tighter text-primary">
+        <span aria-hidden="true" className="font-display text-[clamp(2.5rem,10.5vw,7.5rem)] whitespace-nowrap leading-none tracking-tighter text-primary">
           &lt; MEDOCODE /&gt;
         </span>
       </div>

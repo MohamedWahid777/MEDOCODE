@@ -73,9 +73,9 @@ export function ClientFeedback() {
                     </div>
 
                     <div className="flex flex-col gap-0.5">
-                      <h4 className="font-display text-[15px] text-primary leading-tight">
+                      <h3 className="font-display text-[15px] text-primary leading-tight">
                         {testimonial.name}
-                      </h4>
+                      </h3>
                       <p className="font-mono-label text-[11px] text-on-surface-variant tracking-widest uppercase">
                         {testimonial.role}
                       </p>
