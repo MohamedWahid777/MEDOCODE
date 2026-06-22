@@ -3,48 +3,42 @@ import type { Application } from '@splinetool/runtime';
 
 const Spline = lazy(() => import('@splinetool/react-spline'));
 
+/**
+ * Synchronous check — runs once at component init (not in an effect),
+ * so the very first render already knows whether to bail out.
+ */
+function detectLowPower(): boolean {
+  if (typeof window === 'undefined') return true;
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isVeryLowConcurrency = (navigator.hardwareConcurrency || 8) <= 2;
+  return isMobile || prefersReducedMotion || isVeryLowConcurrency;
+}
+
 export function HeroSpline() {
+  // Evaluated synchronously on first render — no effect, no re-render.
+  const [isLowPower] = useState(detectLowPower);
+
+  // ── Mobile / low-power: return null immediately ──────────────────
+  // No hooks below this point run on mobile because React guarantees
+  // hooks are called in order and we always call the same number of
+  // hooks regardless of isLowPower (they just early-return internally).
+
   const [shouldMount, setShouldMount] = useState(false);
   const [isIntersecting, setIsIntersecting] = useState(true);
-  const [isLowPower, setIsLowPower] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // 1. Detect low power/mobile conditions.
-    // NOTE: hardwareConcurrency is reported by a lot of perfectly normal
-    // desktops/laptops as 4 or even lower (and some browsers cap it for
-    // fingerprint resistance), so treating "<= 4" as low-power is too
-    // aggressive and was silently hiding the scene on regular machines.
-    // Screen width + reduced-motion are reliable; cores are now just a
-    // secondary, much stricter signal.
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const isVeryLowConcurrency = (navigator.hardwareConcurrency || 8) <= 2;
+    if (isLowPower) return;              // ← guard: nothing runs on mobile
 
-    const lowPower = isMobile || prefersReducedMotion || isVeryLowConcurrency;
-
-    if (lowPower) {
-      // Debug visibility: if the scene is ever missing again, check the
-      // console first — this tells you exactly which condition fired.
-      console.info('[HeroSpline] Skipping 3D scene — low power conditions:', {
-        isMobile,
-        prefersReducedMotion,
-        isVeryLowConcurrency,
-        hardwareConcurrency: navigator.hardwareConcurrency,
-      });
-      setIsLowPower(true);
-      return;
-    }
-
-    // 2. Defer mounting until after paint.
-    // Delay long enough for first paint + interactivity (LCP, fonts, nav)
-    // to finish before the heavy Spline runtime (~2MB JS + WASM) starts
-    // executing and blocking the main thread.
+    // Defer mounting until after first paint + interactivity so the
+    // heavy Spline runtime (~2 MB JS + WASM) doesn't block the main thread
+    // during the critical rendering window.
     const mountTimeout = setTimeout(() => {
       if ('requestIdleCallback' in window) {
         (window as any).requestIdleCallback(
           () => setShouldMount(true),
-          { timeout: 4000 } // ensure it fires even if the browser stays busy
+          { timeout: 4000 },
         );
       } else {
         setShouldMount(true);
@@ -52,17 +46,14 @@ export function HeroSpline() {
     }, 2000);
 
     return () => clearTimeout(mountTimeout);
-  }, []);
+  }, [isLowPower]);
 
   useEffect(() => {
-    if (isLowPower) return;
+    if (isLowPower) return;              // ← guard: no observer on mobile
 
-    // 3. Intersection observer for unmounting when off-screen.
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsIntersecting(entry.isIntersecting);
-      },
-      { rootMargin: '200px' }
+      ([entry]) => setIsIntersecting(entry.isIntersecting),
+      { rootMargin: '200px' },
     );
 
     if (containerRef.current) {
@@ -73,10 +64,6 @@ export function HeroSpline() {
   }, [isLowPower]);
 
   const onLoad = (splineApp: Application) => {
-    // There is no public setPixelRatio() on the Application API (confirmed
-    // against the published runtime.d.ts) — the previous check silently did
-    // nothing. The renderer is reachable as a private field, so cap it
-    // defensively instead.
     const renderer = (splineApp as unknown as {
       _renderer?: { setPixelRatio?: (ratio: number) => void };
     })._renderer;
@@ -87,12 +74,8 @@ export function HeroSpline() {
     }
   };
 
-  if (isLowPower) {
-    // Fallback for mobile/low-power: gradients in HeroSection already cover
-    // the background, so null is fine here — but now it's a deliberate,
-    // logged decision instead of an accidental one.
-    return null;
-  }
+  // ── Render ───────────────────────────────────────────────────────
+  if (isLowPower) return null;
 
   return (
     <div
