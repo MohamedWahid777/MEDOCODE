@@ -11,6 +11,14 @@ export default defineConfig({
   },
   build: {
     sourcemap: false,
+    modulePreload: {
+      resolveDependencies: (filename, deps) => {
+        // Prevent Vite from eagerly injecting `<link rel="modulepreload">` for Spline.
+        // If preloaded, the browser downloads the 4.5MB chunk immediately on mobile,
+        // completely destroying FCP/LCP before the React component even runs.
+        return deps.filter(dep => !dep.includes('spline'));
+      },
+    },
     rollupOptions: {
       output: {
         manualChunks(id: string) {
