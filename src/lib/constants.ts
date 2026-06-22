@@ -96,10 +96,10 @@ export interface SkillItem {
 }
 
 const DEVICON = (name: string, variant = 'original'): string =>
-  `https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${name}/${name}-${variant}.svg`
+  `/icons/${name}.svg`
 
 const SI = (slug: string, color: string): string =>
-  `https://cdn.simpleicons.org/${slug}/${color}`
+  `/icons/${slug}.svg`
 
 export const row1Skills: SkillItem[] = [
   {

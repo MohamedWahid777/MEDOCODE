@@ -15,6 +15,6 @@ export default defineConfig({
     // Turn this back to false once diagnosis is done; source maps add
     // extra files to the build output and slightly increase build time,
     // with no effect on the site's actual runtime behavior or appearance.
-    sourcemap: true,
+    sourcemap: false,
   },
 })

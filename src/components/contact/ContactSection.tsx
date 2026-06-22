@@ -199,6 +199,7 @@ export function ContactSection() {
                       {/* Full Name */}
                       <div className="relative md:col-span-2">
                         <input
+                          id="contact-fullName"
                           type="text"
                           name="name"
                           required
@@ -210,6 +211,7 @@ export function ContactSection() {
                           placeholder=""
                         />
                         <motion.label
+                          htmlFor="contact-fullName"
                           animate={{
                             y: (focusedField === 'fullName' || formData.fullName.length > 0) ? -28 : 0,
                             scale: (focusedField === 'fullName' || formData.fullName.length > 0) ? 0.85 : 1,
@@ -226,6 +228,7 @@ export function ContactSection() {
                       {/* Email */}
                       <div className="relative">
                         <input
+                          id="contact-email"
                           type="email"
                           name="email"
                           required
@@ -237,6 +240,7 @@ export function ContactSection() {
                           placeholder=""
                         />
                         <motion.label
+                          htmlFor="contact-email"
                           animate={{
                             y: (focusedField === 'email' || formData.email.length > 0) ? -28 : 0,
                             scale: (focusedField === 'email' || formData.email.length > 0) ? 0.85 : 1,
@@ -253,6 +257,7 @@ export function ContactSection() {
                       {/* Phone */}
                       <div className="relative">
                         <input
+                          id="contact-phone"
                           type="tel"
                           name="phone"
                           value={formData.phone}
@@ -263,6 +268,7 @@ export function ContactSection() {
                           placeholder=""
                         />
                         <motion.label
+                          htmlFor="contact-phone"
                           animate={{
                             y: (focusedField === 'phone' || formData.phone.length > 0) ? -28 : 0,
                             scale: (focusedField === 'phone' || formData.phone.length > 0) ? 0.85 : 1,
@@ -279,6 +285,7 @@ export function ContactSection() {
                       {/* Your Message */}
                       <div className="relative md:col-span-2">
                         <textarea
+                          id="contact-message"
                           rows={4}
                           name="message"
                           required
@@ -290,6 +297,7 @@ export function ContactSection() {
                           placeholder=""
                         />
                         <motion.label
+                          htmlFor="contact-message"
                           animate={{
                             y: (focusedField === 'details' || formData.details.length > 0) ? -26 : 0,
                             scale: (focusedField === 'details' || formData.details.length > 0) ? 0.85 : 1,

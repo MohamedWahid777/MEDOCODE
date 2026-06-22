@@ -106,6 +106,7 @@ export function Navbar() {
             <button 
               className="md:hidden text-primary p-2 hover-effect"
               onClick={() => setIsMobileMenuOpen(true)}
+              aria-label="Open mobile menu"
             >
               <Menu size={24} />
             </button>
@@ -144,6 +145,7 @@ export function Navbar() {
                 <button 
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-on-surface-variant hover:text-primary hover:border-primary/50 hover:bg-white/5 transition-all group"
+                  aria-label="Close mobile menu"
                 >
                   <X size={20} className="group-hover:scale-110 transition-transform" />
                 </button>
