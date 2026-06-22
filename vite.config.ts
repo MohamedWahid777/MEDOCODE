@@ -20,13 +20,7 @@ export default defineConfig({
       },
     },
     rollupOptions: {
-      output: {
-        manualChunks(id: string) {
-          if (id.includes('@splinetool')) {
-            return 'spline';
-          }
-        },
-      },
+      // Let Vite handle chunking automatically based on React.lazy()
     },
   },
 })

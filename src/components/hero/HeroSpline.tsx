@@ -1,5 +1,5 @@
 import React, { Suspense, lazy, useEffect, useState, useRef } from 'react';
-import type { Application } from '@splinetool/runtime';
+
 
 const Spline = lazy(() => import('@splinetool/react-spline'));
 
@@ -63,7 +63,7 @@ export function HeroSpline() {
     return () => observer.disconnect();
   }, [isLowPower]);
 
-  const onLoad = (splineApp: Application) => {
+  const onLoad = (splineApp: any) => {
     const renderer = (splineApp as unknown as {
       _renderer?: { setPixelRatio?: (ratio: number) => void };
     })._renderer;
