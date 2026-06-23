@@ -31,21 +31,44 @@ export function HeroSpline() {
   useEffect(() => {
     if (isLowPower) return;              // ← guard: nothing runs on mobile
 
-    // Defer mounting until after first paint + interactivity so the
-    // heavy Spline runtime (~2 MB JS + WASM) doesn't block the main thread
-    // during the critical rendering window.
-    const mountTimeout = setTimeout(() => {
+    let hasTriggered = false;
+    let fallbackTimer: ReturnType<typeof setTimeout>;
+
+    const triggerMount = () => {
+      if (hasTriggered) return;
+      hasTriggered = true;
+
+      // Clean up all listeners and the timer immediately
+      window.removeEventListener('scroll', triggerMount);
+      window.removeEventListener('mousemove', triggerMount);
+      window.removeEventListener('touchstart', triggerMount);
+      clearTimeout(fallbackTimer);
+
+      // Defer mounting until the main thread is idle
       if ('requestIdleCallback' in window) {
         (window as any).requestIdleCallback(
           () => setShouldMount(true),
-          { timeout: 4000 },
+          { timeout: 2000 },
         );
       } else {
         setShouldMount(true);
       }
-    }, 2000);
+    };
 
-    return () => clearTimeout(mountTimeout);
+    // Listen for the first user interaction
+    window.addEventListener('scroll', triggerMount, { once: true, passive: true });
+    window.addEventListener('mousemove', triggerMount, { once: true, passive: true });
+    window.addEventListener('touchstart', triggerMount, { once: true, passive: true });
+
+    // Fallback timer for users who land and read without interacting
+    fallbackTimer = setTimeout(triggerMount, 8000);
+
+    return () => {
+      window.removeEventListener('scroll', triggerMount);
+      window.removeEventListener('mousemove', triggerMount);
+      window.removeEventListener('touchstart', triggerMount);
+      clearTimeout(fallbackTimer);
+    };
   }, [isLowPower]);
 
   useEffect(() => {
